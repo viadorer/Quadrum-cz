@@ -1245,11 +1245,12 @@ address {
 .footer-btn {
     background-color: #e73627;
     color: white;
-    padding: 12px 25px;
+    padding: 12px 30px;
     display: inline-block;
-    border-radius: 4px;
+    border-radius: 50px;
     text-decoration: none;
     transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(231, 54, 39, 0.3);
 }
 
 .footer-btn:hover {
