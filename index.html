@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quadrum | Kvůli Vám</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Futura';
+            src: local('Futura');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <nav class="floating-nav">
+                <div class="logo">
+                    <a href="#">
+                        <img src="logo.png" alt="Quadrum logo">
+                        <span class="logo-text" style="color: #e73627; margin-left: 10px;">Quadrum</span>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#sluzby">Služby</a></li>
+                    <li><a href="#jak-pracujeme">Jak pracujeme</a></li>
+                    <li><a href="#muj-plan">Můj plán</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                </ul>
+                <div class="cta-button">
+                    <a href="#kontakt" class="btn">Domluvit schůzku</a>
+                </div>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Quadrum. Kvůli vám.</h1>
+                <p>Všechny finanční a realitní služby pod jednou střechou. Začněte žít podle svých představ – my se postaráme o zbytek.</p>
+                <a href="#kontakt" class="btn btn-large">Domluvit schůzku</a>
+
+            </div>
+            <div class="hero-slider">
+                <!-- Hero slider will be implemented with JavaScript -->
+            </div>
+            <div class="scroll-indicator">
+                <a href="#sluzby">
+                    <div class="chevron"></div>
+                    <div class="chevron"></div>
+                    <div class="chevron"></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Sekce finančního poradenství -->
+        <section class="financial-advice">
+            <div class="advice-content">
+                <div class="advice-text">
+                    Pomáháme lidem žít klidněji a svobodněji. Ušetříme vám starosti s hypotékou, pojistkami, investicemi i realitami – a vy se můžete soustředit na to, co je opravdu důležité.
+                </div>
+                <a href="#kontakt" class="btn advice-btn">Chci nezávaznou konzultaci</a>
+
+            </div>
+        </section>
+
+        <!-- Služby Section -->
+        <section id="sluzby" class="services">
+            <div class="container">
+                <h2 class="section-title">Umíme:</h2>
+                
+                <div class="services-grid">
+                    <!-- Hypotéky & úvěry -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/u9534644866_Family_gathered_together_in_their_dream_home_laug_986d3ae5-847f-4b0a-b6c9-c2a227e135a3_1 ve střední velikosti.png" alt="Hypotéky & úvěry">
+                        </div>
+                        <div class="service-content">
+                            <h3>Hypotéky & úvěry</h3>
+                            <p>Vlastní bydlení, rekonstrukce nebo nové auto? Porovnáme nabídky různých bank a najdeme financování, které ladí s vámi i vaším rozpočtem. Rozumíme trhu a vyjednáme vám ty nejvýhodnější podmínky.</p>
+                            <a href="#kontakt" class="btn service-btn">Získat hypotéku</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Pojištění -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/u9534644866_Young_woman_confidently_traveling_and_exploring_a_9bf97a29-c18c-436f-bd9c-d74e3c3dd0da_1 ve střední velikosti.png" alt="Pojištění">
+                        </div>
+                        <div class="service-content">
+                            <h3>Pojištění</h3>
+                            <p>Ochráníme to, na čem vám nejvíce záleží. Od pojištění domácnosti a auta až po životní pojistku či cestovní připojištění – postaráme se, aby vás nic nezaskočilo. Jednoduše, transparentně, s jasnými výhodami.</p>
+                            <a href="#kontakt" class="btn service-btn">Zajímá mě pojištění</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Spoření & investice -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/u9534644866_Young_woman_confidently_traveling_and_exploring_a_9bf97a29-c18c-436f-bd9c-d74e3c3dd0da_0 ve střední velikosti.png" alt="Spoření & investice">
+                        </div>
+                        <div class="service-content">
+                            <h3>Spoření & investice</h3>
+                            <p>Nechte své peníze pracovat za vás. Nabídneme vám strategii pro krátkodobé i dlouhodobé cíle. Od spořicího účtu přes investiční fondy a akcie až po nemovitosti. Přesně na míru vaší toleranci k riziku a představám o výnosu.</p>
+                            <a href="#kontakt" class="btn service-btn">Investovat peníze</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Reality -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="images/u9534644866_A_relaxed_carefree_couple_enjoying_a_sunny_aftern_6e428142-8b59-4393-99c7-35a02a007c68_1 ve střední velikosti.png" alt="Reality">
+                        </div>
+                        <div class="service-content">
+                            <h3>Reality</h3>
+                            <p>Ať kupujete, prodáváte nebo hledáte investiční příležitost – jsme tu pro vás. Díky individuálnímu přístupu a znalosti trhu vám pomůžeme rychle a výhodně vyřešit veškeré realitní transakce.</p>
+                            <a href="#kontakt" class="btn service-btn">Realitní služby</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jak postupujeme sekce -->
+        <section id="jak-pracujeme" class="process">
+            <div class="process-content">
+                <h2 class="section-title">Vaše cesta k vysněnému životu</h2>
+                
+                <div class="process-intro">
+                    <p>Každý člověk je jedinečný příběh s vlastními hodnotami, cíli a představami o úspěchu. Naše cesta s vámi začíná tam, kde jste teď, a vede k životu, který si skutečně přejete – ať už je to vysněný domov, bezpečí pro rodinu nebo společenské postavení, které si zasloužíte. Prostřednictvím osobního přístupu a hlubokého porozumění vytváříme plán, který vám pomůže dosaženout všeho, co je pro vás důležité – a přitom nikdy neztrácíte sen z očí.</p>
+                </div>
+                
+                <div class="process-steps">
+                    <div class="process-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Poznání vašich snů a příběhu</h3>
+                            <p>Na první schůzce nás zajímáte vy – vaše plány, obavy a sny. Jen tak můžeme do detailu pochopit, co je pro vás opravdu důležité.</p>
+                            <a href="#kontakt" class="btn process-btn">Chci první nezávaznou schůzku</a>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Architektura vašeho vysněného života</h3>
+                            <p>Společně sestavíme plán, který vám pomůže dosáhnout finanční jistoty, pohodlného bydlení a rovnováhy mezi prací a volným časem. Vše krok za krokem, srozumitelně, dlouhodobě udržitelné.</p>
+                            <a href="#kontakt" class="btn process-btn">Dejte mi vědět, co je pro mě nejlepší</a>
+                            <ul class="plan-features">
+                                <li><strong>Osobní svoboda</strong> – pro každodenní pocit nezávislosti a kontroly</li>
+                                <li><strong>Váš jedinečný příběh</strong> – protože vaše cesta je neopakovatelná</li>
+                                <li><strong>Vysněný domov</strong> – místo, kde začíná váš životní stýl</li>
+                                <li><strong>Rodinné dědictví</strong> – vytváření trvalou hodnotu pro vaše nejbližší</li>
+                                <li><strong>Společenský status</strong> – pozice, která odpovídá vaší cenné identitě</li>
+                                <li><strong>Životní rovnováha</strong> – pro spokojenost a radost v každý okamžik</li>
+                            </ul>
+                            
+                            <p class="mastercard-slogan"><strong>Život, po kterém toužíte, je nad všechny poklady světa. Okamžiky naplněné vašimi sny a hodnotami? K nezaplacení.</strong></p>
+                            
+                            <div class="life-moments">
+                                <div class="moments-row">
+                                    <div class="moment-image">
+                                        <img src="images/Obr1.png" alt="Rodina v novém domově">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr2.png" alt="Rodina na dovolené">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr3.png" alt="Cestování">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr4.png" alt="Rodinná oslava">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr5.png" alt="Úspěšná kariréra">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr6.png" alt="Svatební oslava">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr7.png" alt="Přátelé">
+                                    </div>
+                                </div>
+                                <div class="moments-row">
+                                    <div class="moment-image">
+                                        <img src="images/Obr8.png" alt="Aktivní důchod">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr9.png" alt="Rodinné aktivity">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr10.png" alt="Práce z domova">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr11.png" alt="Vzdělávání">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr12.png" alt="Životní styl">
+                                    </div>
+                                </div>
+                                <div class="moments-row">
+                                    <div class="moment-image">
+                                        <img src="images/Obr13.png" alt="Důchod">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr14.png" alt="Úspory">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr15.png" alt="Investice">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr16.png" alt="Finanční svoboda">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr17.png" alt="Životní radost">
+                                    </div>
+                                    <div class="moment-image">
+                                        <img src="images/Obr18.png" alt="Spokojenost">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Exkluzivní partnerský vztah na celý život</h3>
+                            <p>Zůstaneme vám oporou i po podpisu smlouvy. Budeme hlídat změny na trhu, upravovat vaše nastavení a starat se o to, abyste vždy měli nejvhodnější řešení.</p>
+                            <a href="#kontakt" class="btn process-btn">Chci mít partnera, na kterého se mohu spolehnout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Závěrečná výzva k akci -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <div class="cta-image">
+                        <img src="images/sekce5.png" alt="Úspěšný a šťastný život" class="cta-img">
+                    </div>
+                    <div class="cta-text">
+                        <h2>Přestaňte jen snít</h2>
+                        <p>Pomáháme lidem žít klidněji a svobodněji. Ušetříme vám starosti s hypotékou, pojistkami, investicemi i realitami – a vy se můžete soustředit na všecho ostatní, co je pro vás důležité.</p>
+                        <div class="cta-footer">
+                            <a href="#kontakt" class="btn btn-large cta-main-btn">Chci nezávaznou konzultaci</a>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontaktní sekce -->
+        <section id="kontakt" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Kontaktujte nás</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <p>Jsme tu, abychom vám pomohli na cestě k lepšímu životu. Rezervujte si nezávaznou konzultaci a společně najdeme řešení přesně podle vašich potřeb.</p>
+                        <p>Můžete se s námi potkat osobně, telefonicky nebo online – způsob komunikace je jen na vás.</p>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <h3>Praha</h3>
+                                <p>QUADRUM s.r.o.<br>Pod turnovskou tratí 182/18<br>198 00 Praha - Hloubětín</p>
+                            </div>
+                            <div class="contact-method">
+                                <h3>Plzeň</h3>
+                                <p>QUADRUM s.r.o.<br>Dřevěná 99/3<br>301 00 Plzeň</p>
+                            </div>
+                        </div>
+                        <div class="contact-methods">
+                            <div class="contact-method contact-method-full">
+                                <h3>Kontakt</h3>
+                                <p>Email: <a href="mailto:info@quadrum.cz">info@quadrum.cz</a><br>Telefon: <a href="tel:+420739396732">+420 739 396 732</a></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <script>
+                            (function (w,d,s,o,f,js,fjs) {
+                                w['ecm-widget']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+                                js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+                                js.id = '25-f17c94ba9f7a7a06b025a1afaaca6e6a'; js.dataset.a = 'ptf'; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+                            }(window, document, 'script', 'ecmwidget', 'https://d70shl7vidtft.cloudfront.net/widget.js'));
+                        </script>
+                        <div id="f-25-f17c94ba9f7a7a06b025a1afaaca6e6a"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- More sections will be added later -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="Quadrum logo">
+                    </div>
+                    <h3 class="footer-tagline">Quadrum. Kvůli Vám</h3>
+                    <p class="footer-desc">Komplexní služby v oblasti financí a nemovitostí pro váš klidný a svobodný život.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/quadrum.cz" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/quadrum_kvuli_vam/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/quadrumcz" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-locations">
+                    <h3>Kde nás najdete</h3>
+                    <div class="locations-grid">
+                        <div class="location">
+                            <h4>Plzeň</h4>
+                            <address>
+                                QUADRUM s.r.o.<br>
+                                Dřevěná 99/3<br>
+                                301 00 Plzeň
+                            </address>
+                        </div>
+                        <div class="location">
+                            <h4>Praha</h4>
+                            <address>
+                                QUADRUM s.r.o.<br>
+                                Pod turnovskou tratí 182/18<br>
+                                198 00 Praha - Hloubětín
+                            </address>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Kontaktujte nás</h3>
+                    <ul class="contact-list">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@quadrum.cz">info@quadrum.cz</a></li>
+                        <li><i class="fas fa-phone"></i> <a href="tel:+420739396732">+420 739 396 732</a></li>
+                    </ul>
+                    <a href="#kontakt" class="btn footer-btn">Nezávazná schůzka</a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-nav">
+                    <a href="#sluzby">Služby</a>
+                    <a href="#jak-pracujeme">Jak pracujeme</a>
+                    <a href="#kontakt">Kontakt</a>
+                </div>
+                <p class="copyright">&copy; 2025 Quadrum. Všechna práva vyhrazena.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome pro ikony -->
+    <script src="https://kit.fontawesome.com/3010d94d2f.js" crossorigin="anonymous"></script>
+
+    <script src="script.js"></script>
+    <script src="chatbot.js"></script>
+</body>
+</html>
