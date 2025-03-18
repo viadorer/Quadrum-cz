@@ -956,9 +956,51 @@ header {
 }
 
 /* Chatbot styles */
+/* Kulatá kontaktní tlačítka */
+.contact-btn {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    color: #e73627;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: none;
+    transition: all 0.3s ease;
+    z-index: 9998;
+    right: 30px;
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background-color: #f8f8f8;
+}
+
+.phone-btn {
+    bottom: 100px;
+}
+
+.email-btn {
+    bottom: 180px;
+}
+
+/* Zajišťuje konzistentní mezery:
+   - Mezi chatem a telefonem: 100px - 20px = 80px
+   - Mezi telefonem a e-mailem: 180px - 100px = 80px
+*/
+
+.contact-btn i {
+    font-size: 24px;
+}
+
 .chat-button {
     position: fixed;
-    bottom: 30px;
+    bottom: 20px;
     right: 30px;
     width: 60px;
     height: 60px;

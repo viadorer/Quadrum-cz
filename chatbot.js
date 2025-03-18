@@ -1,5 +1,22 @@
 // Jednoduchý chatbot pro Quadrum.cz
 document.addEventListener('DOMContentLoaded', function() {
+    // Vytvoření plovoucích kontaktních tlačítek
+    const phoneButton = document.createElement('button');
+    phoneButton.classList.add('contact-btn', 'phone-btn');
+    phoneButton.innerHTML = '<i class="fas fa-phone-alt"></i>';
+    phoneButton.addEventListener('click', function() {
+        window.location.href = 'tel:+420739396732';
+    });
+    document.body.appendChild(phoneButton);
+    
+    const emailButton = document.createElement('button');
+    emailButton.classList.add('contact-btn', 'email-btn');
+    emailButton.innerHTML = '<i class="fas fa-envelope"></i>';
+    emailButton.addEventListener('click', function() {
+        window.location.href = 'mailto:info@quadrum.cz';
+    });
+    document.body.appendChild(emailButton);
+    
     // Vytvoření chatbot tlačítka
     const chatButton = document.createElement('div');
     chatButton.classList.add('chat-button');
