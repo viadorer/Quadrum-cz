@@ -118,9 +118,18 @@ header {
     letter-spacing: 0.5px;
 }
 
+.floating-nav > div:nth-child(1) {
+    flex: 0 0 auto;
+}
+
+.floating-nav > div:nth-child(n+2), .floating-nav > ul {
+    margin-left: auto;
+}
+
 .nav-links {
     display: flex;
     gap: 30px;
+    margin-right: 30px;
 }
 
 .nav-links li a {
@@ -267,12 +276,17 @@ header {
         padding: 15px 20px;
     }
     
+    .floating-nav > div:nth-child(n+2), .floating-nav > ul {
+        margin-left: 0;
+    }
+    
     .nav-links, .cta-button {
         display: none;
     }
     
     .hamburger {
         display: flex;
+        margin-left: auto;
     }
     
     .hero-content {
