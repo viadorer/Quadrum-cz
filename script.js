@@ -23,29 +23,94 @@ function initHeroSlider() {
     // Clear any existing content
     sliderContainer.innerHTML = '';
     
-    // Create image elements and add to slider
-    images.forEach((src, index) => {
+    // Preload status tracking
+    const preloadStatus = new Array(images.length).fill(false);
+    preloadStatus[0] = true; // První obrázek načteme okamžitě
+    
+    // Vytvořit placeholdery pro všechny obrázky
+    for (let i = 0; i < images.length; i++) {
+        const imgContainer = document.createElement('div');
+        imgContainer.className = 'slider-image-container';
+        imgContainer.dataset.index = i;
+        
+        // Pouze první obrázek načteme okamžitě, ostatní až budou potřeba
+        if (i === 0) {
+            const img = document.createElement('img');
+            img.src = images[i];
+            img.alt = 'Quadrum services image ' + (i + 1);
+            img.className = 'active';
+            imgContainer.appendChild(img);
+        } else {
+            // Pro ostatní obrázky vytvoříme prázdný div
+            imgContainer.classList.add('placeholder');
+        }
+        
+        sliderContainer.appendChild(imgContainer);
+    }
+    
+    // Funkce pro načtení dalšího obrázku
+    function preloadNextImage(index) {
+        if (index >= images.length || preloadStatus[index]) return;
+        
+        const container = sliderContainer.querySelector(`[data-index="${index}"]`);
+        if (!container) return;
+        
+        // Vytvoření a načtení obrázku
         const img = document.createElement('img');
-        img.src = src;
+        img.src = images[index];
         img.alt = 'Quadrum services image ' + (index + 1);
-        img.className = index === 0 ? 'active' : '';
-        sliderContainer.appendChild(img);
-    });
+        img.style.opacity = '0'; // Začínáme s neviditelným obrázkem
+        
+        // Po načtení obrázku odstraníme placeholder
+        img.onload = function() {
+            container.classList.remove('placeholder');
+            img.style.opacity = '1';
+            preloadStatus[index] = true;
+            
+            // Načítáme další obrázek v pořadí (předvídáme)
+            setTimeout(() => {
+                preloadNextImage((index + 1) % images.length);
+            }, 1000);
+        };
+        
+        container.appendChild(img);
+    }
+    
+    // Načteme druhý obrázek s mírným zpožděním po načtení stránky
+    setTimeout(() => {
+        preloadNextImage(1);
+    }, 1000);
     
     // Set up automatic image rotation
     let currentImage = 0;
     
     setInterval(() => {
-        const imgElements = sliderContainer.querySelectorAll('img');
+        const containers = sliderContainer.querySelectorAll('.slider-image-container');
         
-        // Remove active class from current image
-        imgElements[currentImage].classList.remove('active');
+        // Skryjeme aktuální obrázek
+        containers[currentImage].classList.remove('active');
+        if (containers[currentImage].querySelector('img')) {
+            containers[currentImage].querySelector('img').classList.remove('active');
+        }
         
-        // Move to next image or back to first
-        currentImage = (currentImage + 1) % imgElements.length;
+        // Přejdeme na další obrázek
+        currentImage = (currentImage + 1) % containers.length;
         
-        // Add active class to new current image
-        imgElements[currentImage].classList.add('active');
+        // Zobrazíme nový obrázek (a pokud ještě není načtený, načteme ho)
+        if (!preloadStatus[currentImage]) {
+            preloadNextImage(currentImage);
+        }
+        
+        containers[currentImage].classList.add('active');
+        if (containers[currentImage].querySelector('img')) {
+            containers[currentImage].querySelector('img').classList.add('active');
+        }
+        
+        // Předem načteme další obrázek v pořadí
+        const nextImage = (currentImage + 1) % containers.length;
+        if (!preloadStatus[nextImage]) {
+            preloadNextImage(nextImage);
+        }
     }, 5000); // Change image every 5 seconds
 }
 

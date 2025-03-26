@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /includes/
+Disallow: /temp/
+
+Sitemap: https://quadrum.cz/sitemap.xml
