@@ -1,5 +1,6 @@
-.DS_Store
-.env
-node_modules/
-*.log
-Thumbs.db
+# Dočasně zakomentováno, aby se nahrály všechny soubory
+#.DS_Store
+#.env
+#node_modules/
+#*.log
+#Thumbs.db
