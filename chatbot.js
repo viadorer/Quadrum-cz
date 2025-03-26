@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     phoneButton.classList.add('contact-btn', 'phone-btn');
     phoneButton.innerHTML = '<i class="fas fa-phone-alt"></i>';
     phoneButton.addEventListener('click', function() {
-        window.location.href = 'tel:+420739396732';
+        window.location.href = 'tel:+420736483169';
     });
     document.body.appendChild(phoneButton);
     

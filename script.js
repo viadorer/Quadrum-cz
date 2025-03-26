@@ -11,11 +11,13 @@ function initHeroSlider() {
     
     // Images for the slider
     const images = [
-        'u9534644866_A_peaceful_cozy_interior_of_a_contemporary_family_d06c5471-f94e-4668-9d8f-819c80acbe48_2 ve střední velikosti.png',
-
-        'u9534644866_A_happy_elderly_couple_strolling_hand-in-hand_thr_df2a7137-010c-46c7-9799-2a00cf14e038_1 ve střední velikosti.png',
-        'u9534644866_Young_woman_confidently_traveling_and_exploring_a_9bf97a29-c18c-436f-bd9c-d74e3c3dd0da_2 ve střední velikosti.png',
-        'u9534644866_A_relaxed_carefree_couple_enjoying_a_sunny_aftern_6e428142-8b59-4393-99c7-35a02a007c68_1 ve střední velikosti.png'
+        'images/hero/u9534644866_a_young_couple_sitting_on_a_bench_or_low_wall_loo_7dd9c175-7071-4cec-b252-758c2b992aa0_1 ve velké velikosti.png',
+        'images/hero/u9534644866_a_woman_in_her_30s_or_40s_on_a_trip_in_Italy_stan_bb14e26a-2791-4658-999a-7c667333b07a_1 ve velké velikosti.png',
+        'images/hero/u9534644866_a_multi-generational_family_sitting_together_at_a_2f6bd34a-078a-44dd-815a-ff4bf5b45317_2 ve velké velikosti.png',
+        'images/hero/u9534644866_an_elderly_man_and_woman_walking_on_a_countryside_45db2f1c-1d8b-4755-a10c-49777f095b79_1 ve velké velikosti.png',
+        'images/hero/u9534644866_a_man_driving_a_vintage_koda_Octavia_cabriolet_Cz_57b1dbb3-89b5-4058-98f2-e3cbc8084e7a_0 ve velké velikosti.png',
+        'images/hero/u9534644866_a_man_riding_a_classic_Czech_motorcycle_Jawa_coun_d43cb707-e506-45d3-9fc7-9660c46a8969_0 ve velké velikosti.png',
+        'images/hero/u9534644866_a_young_couple_sitting_on_a_wooden_bench_in_umava_2a4765c5-ce73-4030-ae76-163fddb176d5_3 ve velké velikosti.png'
     ];
     
     // Clear any existing content
