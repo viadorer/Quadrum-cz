@@ -1466,6 +1466,31 @@ address {
     margin: 0;
 }
 
+/* Legal disclaimer styling */
+.legal-disclaimer {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #666;
+    font-size: 0.8rem;
+    line-height: 1.4;
+}
+
+.legal-disclaimer p {
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+.legal-disclaimer a {
+    color: #777;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.legal-disclaimer a:hover {
+    color: #e73627;
+}
+
 @media (max-width: 992px) {
     .footer-content {
         grid-template-columns: 1fr 1fr;
