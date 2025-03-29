@@ -5,4 +5,4 @@ Disallow: /private/
 Disallow: /includes/
 Disallow: /temp/
 
-Sitemap: https://quadrum.cz/sitemap.xml
+Sitemap: https://www.quadrum.cz/sitemap.xml
