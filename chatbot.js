@@ -74,11 +74,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Základní odpovědi chatbota
     const responses = {
-        'default': 'Děkuji za vaši zprávu. Náš finanční poradce vás bude kontaktovat co nejdříve. Můžete nám také zavolat na +420 123 456 789.',
+        'default': 'Děkuji za vaši zprávu. Náš finanční poradce vás bude kontaktovat co nejdříve. Můžete nám také zavolat na +420 736 483 169.',
         'hypotéka': 'Pro hypotéku nabízíme srovnání všech bank na trhu a nejlepší podmínky. Rádi vám připravíme nezávaznou nabídku.',
         'investice': 'Naši poradci vám pomohou s výběrem vhodné investiční strategie podle vašich cílů a rizikového profilu.',
         'pojištění': 'Nabízíme komplexní pojištění osob, majetku i odpovědnosti. Porovnáme pro vás nabídky pojišťoven a najdeme nejlepší řešení.',
-        'kontakt': 'Můžete nás kontaktovat na tel. čísle +420 123 456 789 nebo e-mailem na info@quadrum.cz.',
+        'kontakt': 'Můžete nás kontaktovat na tel. čísle +420 736 483 169 nebo e-mailem na info@quadrum.cz.',
         'schůzka': 'Pro domluvu schůzky klikněte na tlačítko "Domluvit schůzku" v horní části stránky nebo nám napište přes kontaktní formulář.'
     };
 
