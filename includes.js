@@ -15,7 +15,7 @@
           <div class="logo">
             <a href="${rootPrefix}/index.html">
               <img src="${rootPrefix}/logo.png" alt="Quadrum logo">
-              <span class="logo-text" style="color: #e73627; margin-left: 10px;">Quadrum</span>
+              <span class="logo-text" style="color: #e73627; margin-left: 10px; font-size: 22px;">Quadrum</span>
             </a>
           </div>
           <ul class="nav-links">
