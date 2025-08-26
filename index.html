@@ -119,12 +119,22 @@
         "addressLocality": "Praha",
         "addressCountry": "CZ"
       },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+420XXXXXXXXX",
-        "contactType": "customer service",
-        "email": "info@quadrum.cz"
-      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+420736483169",
+          "contactType": "customer service",
+          "email": "info@quadrum.cz",
+          "name": "Michaela Beranová"
+        },
+        {
+          "@type": "ContactPoint",
+          "telephone": "+420774052232",
+          "contactType": "sales",
+          "email": "david.choc@quadrum.cz",
+          "name": "David Choc"
+        }
+      ],
       "sameAs": [
         "https://www.facebook.com/quadrum.cz",
         "https://www.instagram.com/quadrum.cz/",
@@ -145,6 +155,7 @@
                     <li><a href="#sluzby">Služby</a></li>
                     <li><a href="#jak-pracujeme">Jak pracujeme</a></li>
                     <li><a href="#kontakt">Kontakt</a></li>
+                    <li><a href="blog/index.html">Blog</a></li>
                 </ul>
                 <div class="cta-button">
                     <a href="#kontakt" class="btn">Domluvit schůzku</a>
@@ -424,8 +435,19 @@
                                         <img src="michaela.jpg" alt="Míša Beranová" class="contact-image">
                                     </div>
                                     <div class="contact-info-text">
-                                        <h3>Kontakt</h3>
-                                        <p>Email: <a href="mailto:info@quadrum.cz">info@quadrum.cz</a><br>Telefon: <a href="tel:+420736483169">+420 736 483 169</a>  (Míša Beranová)</p>
+                                        <h3>Kontakt – Míša Beranová</h3>
+                                        <p>Email: <a href="mailto:info@quadrum.cz">info@quadrum.cz</a><br>Telefon: <a href="tel:+420736483169">+420 736 483 169</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="contact-method contact-method-full">
+                                <div class="contact-with-image">
+                                    <div class="contact-person-image">
+                                        <img src="images/dchquadrum.png" alt="David Choc" class="contact-image">
+                                    </div>
+                                    <div class="contact-info-text">
+                                        <h3>Kontakt – David Choc</h3>
+                                        <p>Email: <a href="mailto:david.choc@quadrum.cz">david.choc@quadrum.cz</a><br>Telefon: <a href="tel:+420774052232">+420 774 052 232</a></p>
                                     </div>
                                 </div>
                             </div>
@@ -441,6 +463,38 @@
                             }(window, document, 'script', 'ecmwidget', 'https://d70shl7vidtft.cloudfront.net/widget.js'));
                         </script>
                         <div id="f-25-f17c94ba9f7a7a06b025a1afaaca6e6a"></div>
+                        <script>
+                            (function(){
+                              const containerId = 'f-25-f17c94ba9f7a7a06b025a1afaaca6e6a';
+                              const container = document.getElementById(containerId);
+                              if (!container) return;
+                              const applyStyles = (root) => {
+                                try {
+                                  root.querySelectorAll('input, select, textarea').forEach(el => {
+                                    el.style.border = '1px solid #ddd';
+                                    el.style.borderRadius = '8px';
+                                    el.style.padding = '10px 12px';
+                                    el.style.fontSize = '1rem';
+                                    el.style.width = '100%';
+                                  });
+                                  root.querySelectorAll('button, input[type="submit"]').forEach(btn => {
+                                    btn.style.backgroundColor = '#e73627';
+                                    btn.style.color = '#fff';
+                                    btn.style.border = 'none';
+                                    btn.style.borderRadius = '25px';
+                                    btn.style.padding = '12px 20px';
+                                    btn.style.fontWeight = '600';
+                                    btn.style.cursor = 'pointer';
+                                    btn.style.boxShadow = '0 5px 15px rgba(231,54,39,0.25)';
+                                  });
+                                } catch(e) { /* noop */ }
+                              };
+                              const observer = new MutationObserver(() => applyStyles(container));
+                              observer.observe(container, { childList: true, subtree: true });
+                              // Try once after DOM ready too
+                              applyStyles(container);
+                            })();
+                        </script>
                     </div>
                 </div>
             </div>
@@ -490,8 +544,8 @@
                 <div class="footer-contact">
                     <h3>Kontaktujte nás</h3>
                     <ul class="contact-list">
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@quadrum.cz">info@quadrum.cz</a></li>
-                        <li><i class="fas fa-phone"></i> <a href="tel:+420736483169">+420 736 483 169</a>  (Míša Beranová)</li>
+                        <li><i class="fas fa-envelope"></i> Email: <a href="mailto:info@quadrum.cz">info@quadrum.cz</a></li>
+                        <li><i class="fas fa-phone"></i> Telefon: <a href="tel:+420736483169">+420 736 483 169</a></li>
                     </ul>
                     <a href="#kontakt" class="btn footer-btn">Nezávazná schůzka</a>
                 </div>
@@ -502,6 +556,7 @@
                     <a href="#sluzby">Služby</a>
                     <a href="#jak-pracujeme">Jak pracujeme</a>
                     <a href="#kontakt">Kontakt</a>
+                    <a href="blog/index.html">Blog</a>
                 </div>
                 <p class="copyright">&copy; 2020 - 2025 Quadrum. Všechna práva vyhrazena.</p>
             </div>
