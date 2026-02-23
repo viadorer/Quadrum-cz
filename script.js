@@ -11,13 +11,13 @@ function initHeroSlider() {
     
     // Images for the slider
     const images = [
-        'images/hero/hero1.png',
-        'images/hero/hero2.png',
-        'images/hero/hero3.png',
-        'images/hero/hero4.png',
-        'images/hero/hero5.png',
-        'images/hero/hero6.png',
-        'images/hero/hero7.png'
+        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero1.jpg',
+        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero2.jpg',
+        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero3.jpg',
+        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero4.jpg',
+        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero5.jpg',
+        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero6.jpg',
+        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero7.jpg'
     ];
     
     // Clear any existing content
