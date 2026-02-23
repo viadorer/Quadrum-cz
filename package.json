@@ -1,0 +1,16 @@
+{
+  "name": "davidchoc-com",
+  "version": "1.0.0",
+  "description": "David Choc - Realitní agent website",
+  "private": true,
+  "scripts": {
+    "migrate:r2": "node scripts/migrate-to-r2.js",
+    "update:paths": "node scripts/update-media-paths.js",
+    "fix:urls": "node scripts/fix-duplicate-urls.js"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-s3": "^3.490.0",
+    "dotenv": "^16.3.1",
+    "mime-types": "^2.1.35"
+  }
+}
