@@ -1955,3 +1955,54 @@ html {
 .cta-image .cta-img { aspect-ratio: 16 / 9; width: 100%; height: auto; }
 .contact-person-image .contact-image { aspect-ratio: 1 / 1; width: 100%; height: auto; }
 .footer-logo img { aspect-ratio: 1 / 1; width: 80px; height: 80px; }
+
+/* ============================================================
+   Partner weby v patičce (PTF, David Choc, SAB servis)
+   ============================================================ */
+.footer-partners h3 {
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 16px;
+    font-weight: 600;
+}
+.partners-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.partners-list li a {
+    display: block;
+    padding: 10px 14px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s;
+}
+.partners-list li a:hover {
+    background: rgba(231,54,39,0.15);
+    border-color: rgba(231,54,39,0.4);
+}
+.partners-list li strong {
+    display: block;
+    font-size: 0.95rem;
+    color: #fff;
+}
+.partners-list li span {
+    display: block;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 2px;
+}
+
+/* ============================================================
+   Detail nemovitosti – fix pro <section class="detail-header">
+   (driv byl <header> a dědil global position:fixed)
+   ============================================================ */
+.detail-header {
+    position: relative;
+}

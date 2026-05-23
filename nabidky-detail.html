@@ -277,8 +277,16 @@
 
     <script>
         const FALLBACK_IMAGE = 'logo.png';
-        const AGENT_IMAGE = 'michaela.jpg';
-        const DEFAULT_AGENT = { name: 'Míša Beranová', position: 'Realitní specialista Quadrum', image: AGENT_IMAGE, phone: '+420 736 483 169', email: 'info@quadrum.cz' };
+        const AGENT_FALLBACK_IMAGE = 'logo.png';
+        // Žádný hardcoded jméno – pokud PTF nemá agent_id, ukážeme generický Quadrum kontakt.
+        const DEFAULT_AGENT = {
+            first_name: '',
+            last_name: '',
+            position: 'Realitní specialista',
+            photo_url: AGENT_FALLBACK_IMAGE,
+            phone: '+420 736 483 169',
+            email: 'info@quadrum.cz'
+        };
 
         const PROPERTY_TYPE_LABELS = { byt: 'Byt', dum: 'Dům', pozemek: 'Pozemek', komercni: 'Komerční prostor', garaz: 'Garáž', ostatni: 'Ostatní' };
         const OFFER_LABELS = { prodej: 'Prodej', pronajem: 'Pronájem' };
@@ -529,19 +537,26 @@
 
         function renderSidebar(p) {
             const agent = p.agent || DEFAULT_AGENT;
-            const agentImage = agent.image || agent.photo_url || AGENT_IMAGE;
+            // PTF DB: first_name + last_name + photo_url + phone + email.
+            // Legacy/fallback fields (name, image) také podporujeme.
+            const fullName = [agent.first_name, agent.last_name].filter(Boolean).join(' ').trim()
+                          || agent.name
+                          || 'Quadrum tým';
+            const agentImage = agent.photo_url || agent.image || AGENT_FALLBACK_IMAGE;
             const phone = agent.phone || '+420 736 483 169';
             const email = agent.email || 'info@quadrum.cz';
+            const position = agent.position || agent.role || 'Realitní specialista';
+
             return `
                 <aside class="detail-sidebar">
                     <div class="contact-card">
                         <h3 class="contact-card-title">Mám zájem</h3>
                         <p class="contact-card-subtitle">Ozveme se vám obratem.</p>
                         <div class="agent">
-                            <img src="${escapeHtml(agentImage)}" alt="${escapeHtml(agent.name || 'Quadrum poradce')}" onerror="this.src='${AGENT_IMAGE}'">
+                            <img src="${escapeHtml(agentImage)}" alt="${escapeHtml(fullName)}" onerror="this.src='${AGENT_FALLBACK_IMAGE}'">
                             <div class="agent-info">
-                                <strong>${escapeHtml(agent.name || 'Míša Beranová')}</strong>
-                                <span>${escapeHtml(agent.position || agent.role || 'Realitní specialista')}</span>
+                                <strong>${escapeHtml(fullName)}</strong>
+                                <span>${escapeHtml(position)}</span>
                             </div>
                         </div>
                         <form class="contact-form" id="leadForm" onsubmit="submitLead(event)">
@@ -579,7 +594,7 @@
                     <a href="/">Domů</a> &rsaquo; <a href="/nabidky">Nabídky</a> &rsaquo; <span>${escapeHtml(p.title)}</span>
                 </nav>
 
-                <header class="detail-header">
+                <section class="detail-header">
                     <div>
                         <div class="detail-meta-row">
                             ${offerLabel ? `<span class="detail-tag offer">${offerLabel}</span>` : ''}
@@ -595,7 +610,7 @@
                         ${p.price_per_m2 ? `<div class="detail-price-meta">${new Intl.NumberFormat('cs-CZ').format(p.price_per_m2)} Kč / m²</div>` : ''}
                         ${p.price_note ? `<div class="detail-price-meta">${escapeHtml(p.price_note)}</div>` : ''}
                     </div>
-                </header>
+                </section>
 
                 ${renderGallery(p.images)}
 
