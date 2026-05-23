@@ -18,9 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.appendChild(emailButton);
     
     // Vytvoření chatbot tlačítka
-    const chatButton = document.createElement('div');
+    const chatButton = document.createElement('button');
+    chatButton.type = 'button';
     chatButton.classList.add('chat-button');
-    chatButton.innerHTML = '<i class="fas fa-comments"></i>';
+    chatButton.setAttribute('aria-label', 'Otevřít chat s Quadrum asistentem');
+    chatButton.setAttribute('aria-expanded', 'false');
+    chatButton.innerHTML = '<i class="fas fa-comments" aria-hidden="true"></i>';
     document.body.appendChild(chatButton);
 
     // Vytvoření chatbot okna
@@ -59,17 +62,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Toggle chatbot okna při kliknutí na tlačítko
     chatButton.addEventListener('click', function() {
-        if (chatWindow.style.display === 'none') {
-            chatWindow.style.display = 'flex';
-            chatButton.classList.remove('pulse');
-        } else {
-            chatWindow.style.display = 'none';
-        }
+        const opening = chatWindow.style.display === 'none';
+        chatWindow.style.display = opening ? 'flex' : 'none';
+        chatButton.setAttribute('aria-expanded', opening ? 'true' : 'false');
+        if (opening) chatButton.classList.remove('pulse');
     });
 
     // Zavření chatbot okna
     document.querySelector('.chat-close').addEventListener('click', function() {
         chatWindow.style.display = 'none';
+        chatButton.setAttribute('aria-expanded', 'false');
     });
 
     // Základní odpovědi chatbota
@@ -87,39 +89,31 @@ document.addEventListener('DOMContentLoaded', function() {
     const chatSend = document.querySelector('.chat-send');
     const chatMessages = document.querySelector('.chat-messages');
 
+    function appendMessage(text, role) {
+        const wrap = document.createElement('div');
+        wrap.classList.add('message', role);
+        wrap.textContent = text;
+        chatMessages.appendChild(wrap);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
     function sendMessage() {
         const message = chatInput.value.trim();
         if (message === '') return;
 
-        // Přidání zprávy uživatele
-        chatMessages.innerHTML += `
-            <div class="message user">
-                ${message}
-            </div>
-        `;
+        appendMessage(message, 'user');
         chatInput.value = '';
 
-        // Automatické scrollování dolů
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-
-        // Simulace "píše..."
         setTimeout(() => {
-            // Výběr odpovědi
             let response = responses.default;
+            const lower = message.toLowerCase();
             for (const [key, value] of Object.entries(responses)) {
-                if (message.toLowerCase().includes(key)) {
+                if (lower.includes(key)) {
                     response = value;
                     break;
                 }
             }
-
-            // Přidání odpovědi bota
-            chatMessages.innerHTML += `
-                <div class="message bot">
-                    ${response}
-                </div>
-            `;
-            chatMessages.scrollTop = chatMessages.scrollHeight;
+            appendMessage(response, 'bot');
         }, 1000);
     }
 

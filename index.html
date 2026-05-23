@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="cs-CZ">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <meta name="theme-color" content="#e73627">
+
     <!-- Základní SEO meta tagy -->
-    <title>Quadrum | Finanční a nemovitostní poradenství - Kvůli Vám</title>
-    <meta name="description" content="Quadrum poskytuje kompletní finanční a nemovitostní poradenství na míru - hypotéky, investiční příležitosti, pojištění a realita v jednom.">
-    <meta name="keywords" content="Quadrum, finanční poradenství, nemovitosti, hypotéky, investice, pojištění, reality, finanční svoboda">
-    <meta name="author" content="Quadrum.cz">
+    <title>Quadrum | Finanční a realitní poradenství Praha a Plzeň</title>
+    <meta name="description" content="Hypotéky, investice, pojištění a reality pod jednou střechou. Quadrum – nezávislé finanční a realitní poradenství v Praze a Plzni. Kvůli Vám.">
+    <meta name="author" content="Quadrum s.r.o.">
     <meta name="robots" content="index, follow">
     
     <!-- Kanonický odkaz -->
@@ -21,34 +21,62 @@
     
     <!-- Open Graph meta tagy pro sdílení na sociálních sítích -->
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="cs_CZ">
+    <meta property="og:site_name" content="Quadrum">
     <meta property="og:url" content="https://www.quadrum.cz/">
-    <meta property="og:title" content="Quadrum | Finanční a nemovitostní poradenství">
-    <meta property="og:description" content="Quadrum poskytuje kompletní finanční a nemovitostní poradenství na míru - hypotéky, investiční příležitosti, pojištění a reality v jednom.">
+    <meta property="og:title" content="Quadrum | Finanční a realitní poradenství Praha a Plzeň">
+    <meta property="og:description" content="Hypotéky, investice, pojištění a reality pod jednou střechou. Nezávislé poradenství v Praze a Plzni.">
     <meta property="og:image" content="https://www.quadrum.cz/images/og-image.png">
-    
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
     <!-- Twitter Card meta tagy -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Quadrum | Finanční a nemovitostní poradenství">
-    <meta name="twitter:description" content="Quadrum poskytuje kompletní finanční a nemovitostní poradenství na míru.">
+    <meta name="twitter:title" content="Quadrum | Finanční a realitní poradenství">
+    <meta name="twitter:description" content="Hypotéky, investice, pojištění a reality pod jednou střechou.">
     <meta name="twitter:image" content="https://www.quadrum.cz/images/og-image.png">
-    
-    <!-- Styly a fonty -->
-    <link rel="stylesheet" href="styles.css">
-<link rel="preload" href="styles.css" as="style">
+
+    <!-- Preload klíčových zdrojů (LCP optimization) -->
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" as="image" fetchpriority="high" href="https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero1.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        @font-face {
-            font-family: 'Futura';
-            src: local('Futura');
-            font-weight: normal;
-            font-style: normal;
-        }
-    </style>
+
+    <!-- Styly a fonty -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></noscript>
     
     
+    <!-- Google Consent Mode v2 – default DENIED dokud uživatel neudělí souhlas -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('consent', 'default', {
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied',
+            'analytics_storage': 'denied',
+            'functionality_storage': 'granted',
+            'security_storage': 'granted',
+            'wait_for_update': 500
+        });
+        // Pokud uživatel již dříve souhlasil, ihned obnovíme stav.
+        try {
+            var saved = JSON.parse(localStorage.getItem('cookieConsent') || 'null');
+            if (saved) {
+                gtag('consent', 'update', {
+                    'ad_storage': saved.marketing ? 'granted' : 'denied',
+                    'ad_user_data': saved.marketing ? 'granted' : 'denied',
+                    'ad_personalization': saved.marketing ? 'granted' : 'denied',
+                    'analytics_storage': saved.analytics ? 'granted' : 'denied'
+                });
+            }
+        } catch(e) {}
+    </script>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -57,47 +85,56 @@
     })(window,document,'script','dataLayer','GTM-TNJHHV6');</script>
     <!-- End Google Tag Manager -->
     
-    <!-- Meta Pixel Code -->
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1698489521063244');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1698489521063244&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-    
-    <!-- Google Analytics (GA4) -->
+    <!-- Google Analytics (GA4) – stack vždy, samotné tagy respektují Consent Mode -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CMXD1VRTB"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-2CMXD1VRTB');
+    gtag('config', 'G-2CMXD1VRTB', { 'anonymize_ip': true });
     </script>
     <!-- End Google Analytics -->
-    
-    <!-- Vlastní analytický skript -->
-    <script async src="analytics.js"></script>
-    
-    <!-- Hotjar Tracking Code for Quadrum -->
+
+    <!-- Marketingové a analytické skripty se inicializují až po souhlasu (cookies.js → 'consentGranted' event) -->
     <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:5351990,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    window.addEventListener('consentGranted', function(e) {
+        var c = (e && e.detail) || {};
+
+        // Meta Pixel – marketing
+        if (c.marketing && !window.__fbqLoaded) {
+            window.__fbqLoaded = true;
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '1698489521063244');
+            fbq('track', 'PageView');
+        }
+
+        // Hotjar – analytics
+        if (c.analytics && !window.__hjLoaded) {
+            window.__hjLoaded = true;
+            (function(h,o,t,j,a,r){
+                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                h._hjSettings={hjid:5351990,hjsv:6};
+                a=o.getElementsByTagName('head')[0];
+                r=o.createElement('script');r.async=1;
+                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                a.appendChild(r);
+            })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        }
+
+        // Vlastní analytika – analytics
+        if (c.analytics && !window.__customAnalyticsLoaded) {
+            window.__customAnalyticsLoaded = true;
+            var s = document.createElement('script');
+            s.async = true;
+            s.src = 'analytics.js';
+            document.head.appendChild(s);
+        }
+    });
     </script>
 </head>
 <body>
@@ -110,16 +147,32 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "FinancialService",
       "name": "Quadrum",
+      "legalName": "QUADRUM s.r.o.",
       "url": "https://www.quadrum.cz",
       "logo": "https://www.quadrum.cz/logo.png",
-      "description": "Quadrum poskytuje kompletní finanční a nemovitostní poradenství na míru - hypotéky, investiční příležitosti, pojištění a realita v jednom.",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Praha",
-        "addressCountry": "CZ"
-      },
+      "image": "https://www.quadrum.cz/images/og-image.png",
+      "telephone": "+420 736 483 169",
+      "email": "info@quadrum.cz",
+      "priceRange": "$$",
+      "description": "Quadrum poskytuje kompletní finanční a realitní poradenství na míru – hypotéky, investice, pojištění a reality v jednom.",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Pod turnovskou tratí 182/18",
+          "addressLocality": "Praha - Hloubětín",
+          "postalCode": "198 00",
+          "addressCountry": "CZ"
+        },
+        {
+          "@type": "PostalAddress",
+          "streetAddress": "Dřevěná 99/3",
+          "addressLocality": "Plzeň",
+          "postalCode": "301 00",
+          "addressCountry": "CZ"
+        }
+      ],
       "contactPoint": [
         {
           "@type": "ContactPoint",
@@ -143,34 +196,10 @@
       ]
     }
     </script>
-    <header>
-        <div class="nav-container">
-            <nav class="floating-nav">
-                <div class="logo">
-                    <a href="#">
-                        <img src="logo.png" alt="Quadrum logo">
-                        <span class="logo-text" style="color: #e73627; margin-left: 10px; font-size: 22px;">Quadrum</span>
-                    </a>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="#sluzby">Služby</a></li>
-                    <li><a href="#jak-pracujeme">Jak pracujeme</a></li>
-                    <li><a href="#kontakt">Kontakt</a></li>
-                    <li><a href="blog/index.html">Blog</a></li>
-                </ul>
-                <div class="cta-button">
-                    <a href="#kontakt" class="btn">Domluvit schůzku</a>
-                </div>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </nav>
-        </div>
-    </header>
+    <a href="#main" class="skip-link">Přeskočit na hlavní obsah</a>
+    <div id="navbar-placeholder"></div>
 
-    <main>
+    <main id="main">
         <!-- Hero Section -->
         <section class="hero">
             <div class="hero-content">
@@ -223,7 +252,7 @@
                     <!-- Pojištění -->
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="images/umime/3.png" alt="Pojištění">
+                            <img src="images/umime/3.png" alt="Pojištění" loading="lazy">
                         </div>
                         <div class="service-content">
                             <h3>Pojištění</h3>
@@ -257,6 +286,70 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- Aktuální nabídky nemovitostí (z PTF backendu, tenant=quadrum) -->
+        <section id="nabidky-preview" class="properties-preview">
+            <div class="container">
+                <div class="properties-preview-head">
+                    <div>
+                        <span class="properties-preview-eyebrow">Aktuální nabídka</span>
+                        <h2 class="section-title">Vybrané nemovitosti</h2>
+                        <p class="properties-preview-sub">Čerstvé nabídky bytů, domů a investičních příležitostí v Praze, Plzni a okolí.</p>
+                    </div>
+                    <a href="/nabidky" class="btn btn-large">Všechny nabídky</a>
+                </div>
+                <div class="properties-preview-grid" id="propertiesPreviewGrid">
+                    <div class="properties-preview-loading">Načítám nabídky…</div>
+                </div>
+            </div>
+            <script>
+                (function() {
+                    const grid = document.getElementById('propertiesPreviewGrid');
+                    if (!grid) return;
+
+                    function fmtPrice(p, unit) {
+                        if (p == null || p === 0) return 'Cena na vyžádání';
+                        const formatted = new Intl.NumberFormat('cs-CZ').format(p);
+                        const isRent = unit && (unit.includes('month') || unit.includes('měsíc'));
+                        return `${formatted} Kč${isRent ? ' / měsíc' : ''}`;
+                    }
+                    function escapeHtml(s) {
+                        return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+                    }
+                    function imageOf(p) {
+                        const imgs = p.images || [];
+                        const main = imgs.find(i => i.is_main) || imgs[0];
+                        return (main && (main.url_large || main.url || main.url_thumbnail)) || 'logo.png';
+                    }
+
+                    fetch('/api/properties?limit=3&sort=newest')
+                        .then(r => r.ok ? r.json() : Promise.reject(r.status))
+                        .then(json => {
+                            const items = (json.data || []).slice(0, 3);
+                            if (items.length === 0) {
+                                grid.innerHTML = '<p class="properties-preview-empty">Aktuálně připravujeme nové nabídky. <a href="/#kontakt">Napište nám</a> a pošleme vám tip na míru.</p>';
+                                return;
+                            }
+                            grid.innerHTML = items.map(p => `
+                                <a class="property-preview-card" href="/nabidky/${encodeURIComponent(p.slug)}">
+                                    <div class="property-preview-image">
+                                        <img src="${escapeHtml(imageOf(p))}" alt="${escapeHtml(p.title || 'Nemovitost')}" loading="lazy" onerror="this.src='logo.png'">
+                                    </div>
+                                    <div class="property-preview-body">
+                                        ${p.disposition ? `<span class="property-preview-tag">${escapeHtml(p.disposition)}</span>` : ''}
+                                        <h3>${escapeHtml(p.title || 'Nemovitost')}</h3>
+                                        <p class="property-preview-loc">${escapeHtml([p.address_district, p.address_city].filter(Boolean).join(', ') || 'Česká republika')}</p>
+                                        <div class="property-preview-price">${fmtPrice(p.price, p.price_unit)}</div>
+                                    </div>
+                                </a>
+                            `).join('');
+                        })
+                        .catch(() => {
+                            grid.innerHTML = '<p class="properties-preview-empty"><a href="/nabidky" class="btn">Zobrazit nabídky →</a></p>';
+                        });
+                })();
+            </script>
         </section>
 
         <!-- Jak postupujeme sekce -->
@@ -297,64 +390,28 @@
                             
                             <div class="life-moments">
                                 <div class="moments-row">
-                                    <div class="moment-image">
-                                        <img src="images/Obr16.png" alt="Finanční svoboda">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr3.png" alt="Cestování">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr11.png" alt="Vzdělávání">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr7.png" alt="Přátelé">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr14.png" alt="Úspory">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr6.png" alt="Svatební oslava">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr10.png" alt="Práce z domova">
-                                    </div>
+                                    <div class="moment-image"><img src="images/Obr16.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr3.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr11.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr7.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr14.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr6.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr10.png" alt="" loading="lazy"></div>
                                 </div>
                                 <div class="moments-row">
-                                    <div class="moment-image">
-                                        <img src="images/Obr5.png" alt="Úspěšná kariéra" loading="lazy">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr13.png" alt="Důchod" loading="lazy">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr2.png" alt="Rodina na dovolené" loading="lazy">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr17.png" alt="Životní radost" loading="lazy">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr9.png" alt="Rodinné aktivity" loading="lazy">
-                                    </div>
+                                    <div class="moment-image"><img src="images/Obr5.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr13.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr2.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr17.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr9.png" alt="" loading="lazy"></div>
                                 </div>
                                 <div class="moments-row">
-                                    <div class="moment-image">
-                                        <img src="images/Obr8.png" alt="Aktivní důchod">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr4.png" alt="Rodinná oslava">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr15.png" alt="Investice">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr1.png" alt="Rodina v novém domově">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr12.png" alt="Životní styl">
-                                    </div>
-                                    <div class="moment-image">
-                                        <img src="images/Obr18.png" alt="Spokojenost">
-                                    </div>
+                                    <div class="moment-image"><img src="images/Obr8.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr4.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr15.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr1.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr12.png" alt="" loading="lazy"></div>
+                                    <div class="moment-image"><img src="images/Obr18.png" alt="" loading="lazy"></div>
                                 </div>
                             </div>
 
@@ -400,7 +457,7 @@
                         <img src="images/realita.png" alt="Úspěšný a šťastný život" class="cta-img" loading="lazy">
                     </div>
                     <div class="cta-text">
-                        <h2>PŘESTAŇTE JEN SNÍT</h2>
+                        <h2 class="cta-shout">Přestaňte jen snít</h2>
                         <p>Dovolte nám ukázat vám cestu k životu, o jakém přemýšlíte. Rezervujte si nezávaznou schůzku – osobně, telefonicky nebo online – a my vám ukážeme, jaké možnosti se otevírají.</p>
                         <div class="cta-footer">
                             <a href="#kontakt" class="btn btn-large cta-main-btn">Chci nezávaznou konzultaci</a>
@@ -433,7 +490,7 @@
                             <div class="contact-method contact-method-full">
                                 <div class="contact-with-image">
                                     <div class="contact-person-image">
-                                        <img src="michaela.jpg" alt="Míša Beranová" class="contact-image">
+                                        <img src="michaela.jpg" alt="Portrét Míši Beranové" class="contact-image" loading="lazy">
                                     </div>
                                     <div class="contact-info-text">
                                         <h3>Kontakt – Míša Beranová</h3>
@@ -457,46 +514,6 @@
 
                     <div class="contact-form">
                         <div id="quadrum-contact-form"></div>
-                        <script>
-                            (function (w,d,s,o,f,js,fjs) {
-                                w['ecm-widget']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
-                                js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
-                                js.id = '25-f17c94ba9f7a7a06b025a1afaaca6e6a'; js.dataset.a = 'ptf'; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
-                            }(window, document, 'script', 'ecmwidget', 'https://d70shl7vidtft.cloudfront.net/widget.js'));
-                        </script>
-                        <div id="f-25-f17c94ba9f7a7a06b025a1afaaca6e6a"></div>
-                        <script>
-                            (function(){
-                              const containerId = 'f-25-f17c94ba9f7a7a06b025a1afaaca6e6a';
-                              const container = document.getElementById(containerId);
-                              if (!container) return;
-                              const applyStyles = (root) => {
-                                try {
-                                  root.querySelectorAll('input, select, textarea').forEach(el => {
-                                    el.style.border = '1px solid #ddd';
-                                    el.style.borderRadius = '8px';
-                                    el.style.padding = '10px 12px';
-                                    el.style.fontSize = '1rem';
-                                    el.style.width = '100%';
-                                  });
-                                  root.querySelectorAll('button, input[type="submit"]').forEach(btn => {
-                                    btn.style.backgroundColor = '#e73627';
-                                    btn.style.color = '#fff';
-                                    btn.style.border = 'none';
-                                    btn.style.borderRadius = '25px';
-                                    btn.style.padding = '12px 20px';
-                                    btn.style.fontWeight = '600';
-                                    btn.style.cursor = 'pointer';
-                                    btn.style.boxShadow = '0 5px 15px rgba(231,54,39,0.25)';
-                                  });
-                                } catch(e) { /* noop */ }
-                              };
-                              const observer = new MutationObserver(() => applyStyles(container));
-                              observer.observe(container, { childList: true, subtree: true });
-                              // Try once after DOM ready too
-                              applyStyles(container);
-                            })();
-                        </script>
                     </div>
                 </div>
             </div>
@@ -505,78 +522,12 @@
         <!-- More sections will be added later -->
     </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <img src="logo.png" alt="Quadrum logo">
-                    </div>
-                    <h3 class="footer-tagline">Quadrum. Kvůli Vám</h3>
-                    <p class="footer-desc">Komplexní služby v oblasti financí a nemovitostí pro váš klidný a svobodný život.</p>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/quadrum.cz" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/quadrum_kvuli_vam/" target="_blank" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.linkedin.com/company/quadrumcz" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-locations">
-                    <h3>Kde nás najdete</h3>
-                    <div class="locations-grid">
-                        <div class="location">
-                            <h4>Plzeň</h4>
-                            <address>
-                                QUADRUM s.r.o.<br>
-                                Dřevěná 99/3<br>
-                                301 00 Plzeň
-                            </address>
-                        </div>
-                        <div class="location">
-                            <h4>Praha</h4>
-                            <address>
-                                QUADRUM s.r.o.<br>
-                                Pod turnovskou tratí 182/18<br>
-                                198 00 Praha - Hloubětín
-                            </address>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="footer-contact">
-                    <h3>Kontaktujte nás</h3>
-                    <ul class="contact-list">
-                        <li><i class="fas fa-envelope"></i> Email: <a href="mailto:info@quadrum.cz">info@quadrum.cz</a></li>
-                        <li><i class="fas fa-phone"></i> Telefon: <a href="tel:+420736483169">+420 736 483 169</a></li>
-                    </ul>
-                    <a href="#kontakt" class="btn footer-btn">Nezávazná schůzka</a>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <div class="footer-nav">
-                    <a href="#sluzby">Služby</a>
-                    <a href="#jak-pracujeme">Jak pracujeme</a>
-                    <a href="#kontakt">Kontakt</a>
-                    <a href="blog/index.html">Blog</a>
-                </div>
-                <p class="copyright">&copy; 2020 - 2025 Quadrum. Všechna práva vyhrazena.</p>
-            </div>
-            <div class="legal-disclaimer">
-                <p>Jsme partnerem servisní společnosti SAB servis.</p>
-                <p>„Finanční služby zde propagované a nabízené poskytují na tomto webu uvedení poradci jako fyzické osoby, a to v roli vázaných zástupců pro investičního/ samostatného zprostředkovatele SAB servis s.r.o., IČO: 24704008, se sídlem Jungmannova 748/30, 110 00 Praha 1, v následujících finančních oblastech: investice podle zákona č. 256/2004 Sb., spotřebitelské úvěry dle zákona č. 257/2016 Sb., pojištění dle zákona č. 170/2018 Sb., doplňkové penzijní spoření dle zákona č. 427/2011 Sb. Jejich oprávnění je možné ověřit v Seznamu regulovaných a registrovaných subjektů finančního trhu České národní banky na <a href="http://www.cnb.cz/cnb/jerrs" target="_blank">http://www.cnb.cz/cnb/jerrs</a>, kde také najdete aktuální informace a podrobnosti o jejich registraci a rozsahu jejich oprávnění. QUADRUM s.r.o. ve zmíněných oblastech finanční služby neposkytuje."</p>
-                <p>Detailní právní informace k nabízeným službám a produktům (včetně reklamačního řádu, možnosti podání stížnosti, řešení sporů, orgánu dohledu, udržitelnosti atd.) najdete na <a href="https://sabservis.cz/informace" target="_blank">https://sabservis.cz/informace</a>.</p>
-            </div>
-        </div>
-        
-    </footer>
-    
-    <!-- Font Awesome pro ikony -->
-    <script src="https://kit.fontawesome.com/3010d94d2f.js" crossorigin="anonymous"></script>
+    <div id="footer-placeholder"></div>
 
-    <script src="script.js"></script>
-    <script src="chatbot.js"></script>
-    <script src="contact-form-handler.js"></script>
-    <script src="cookies.js"></script>
+    <script src="/common/common.js" defer></script>
+    <script defer src="script.js"></script>
+    <script defer src="chatbot.js"></script>
+    <script defer src="contact-form-handler.js"></script>
+    <script defer src="cookies.js"></script>
 </body>
 </html>

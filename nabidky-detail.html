@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="cs-CZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e73627">
+    <!-- base href umožní relativní cesty i pro pretty URL /nabidky/<slug> -->
+    <base href="/">
+    <title>Detail nemovitosti | Quadrum</title>
+    <meta name="description" content="Detail nemovitosti z nabídky Quadrum.">
+    <meta name="author" content="Quadrum s.r.o.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <style>
+        :root {
+            --q-red: #e73627;
+            --q-red-dark: #c12a1d;
+            --q-red-50: #fdeceb;
+            --q-dark: #1a1a1a;
+            --q-text: #1a1a1a;
+            --q-text-muted: #6b6b6b;
+            --q-bg: #f8f9fa;
+            --q-bg-soft: #fafbfc;
+            --q-border: rgba(2, 3, 4, 0.08);
+        }
+
+        body { background-color: var(--q-bg); color: var(--q-text); }
+        .detail-page { padding-top: 130px; padding-bottom: 80px; }
+        .detail-container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        nav.breadcrumb { font-size: 0.875rem; color: var(--q-text-muted); margin-bottom: 24px; }
+        nav.breadcrumb a { color: var(--q-text-muted); transition: color 0.2s; }
+        nav.breadcrumb a:hover { color: var(--q-red); }
+
+        .detail-header {
+            display: grid; grid-template-columns: 1fr auto; gap: 32px;
+            align-items: end; margin-bottom: 28px;
+        }
+        .detail-meta-row {
+            display: flex; gap: 12px; margin-bottom: 14px;
+            flex-wrap: wrap; align-items: center;
+        }
+        .detail-tag {
+            font-size: 0.75rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1.5px;
+            padding: 6px 14px; border-radius: 999px;
+        }
+        .detail-tag.offer { background: var(--q-dark); color: #fff; }
+        .detail-tag.disposition { background: var(--q-red-50); color: var(--q-red-dark); border: 1px solid rgba(231,54,39,0.35); }
+        .detail-tag.status { background: rgba(220,38,38,0.1); color: #DC2626; border: 1px solid rgba(220,38,38,0.3); }
+
+        .detail-title {
+            font-family: 'Futura', 'Montserrat', sans-serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700;
+            color: var(--q-dark); line-height: 1.2;
+            letter-spacing: -0.02em; margin: 0 0 12px;
+        }
+        .detail-location {
+            font-size: 1.05rem; color: var(--q-text-muted);
+            display: flex; align-items: center; gap: 8px;
+        }
+        .detail-location i { color: var(--q-red); }
+
+        .detail-price-block { text-align: right; }
+        .detail-price {
+            font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 700;
+            color: var(--q-dark); line-height: 1.1; letter-spacing: -0.01em;
+        }
+        .detail-price .unit { font-size: 0.85rem; color: var(--q-text-muted); font-weight: 500; }
+        .detail-price-meta { font-size: 0.85rem; color: var(--q-text-muted); margin-top: 4px; }
+
+        .detail-gallery {
+            display: grid; grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 200px 200px; gap: 8px;
+            margin-bottom: 40px; border-radius: 20px; overflow: hidden;
+            background: #f1efe9; min-height: 408px;
+        }
+        .gallery-item { cursor: pointer; overflow: hidden; position: relative; background: #f1efe9; }
+        .gallery-item:first-child { grid-row: span 2; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        @media (hover: hover) { .gallery-item:hover img { transform: scale(1.05); } }
+        .gallery-more {
+            position: absolute; inset: 0;
+            background: rgba(26,26,26,0.7); color: #fff;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            font-weight: 600; font-size: 1.1rem; gap: 8px;
+        }
+        .gallery-more i { font-size: 1.5rem; color: var(--q-red); }
+
+        .detail-grid {
+            display: grid; grid-template-columns: 1fr 360px;
+            gap: 40px; align-items: start;
+        }
+        .detail-main {
+            background: #fff; border-radius: 20px;
+            padding: 32px; border: 1px solid var(--q-border);
+        }
+
+        .detail-section { margin-bottom: 36px; }
+        .detail-section:last-child { margin-bottom: 0; }
+        .detail-section h2 {
+            font-size: 1.4rem; font-weight: 700; color: var(--q-dark);
+            margin: 0 0 18px; padding-bottom: 12px;
+            border-bottom: 2px solid var(--q-red);
+            display: inline-block; letter-spacing: -0.01em;
+        }
+        .detail-section p { color: var(--q-text); line-height: 1.75; margin: 0 0 14px; font-size: 1rem; }
+
+        .specs-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px;
+        }
+        .spec-item { background: var(--q-bg-soft); padding: 16px 18px; border-radius: 12px; border: 1px solid var(--q-border); }
+        .spec-label { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--q-text-muted); margin-bottom: 4px; }
+        .spec-value { font-size: 1.05rem; font-weight: 600; color: var(--q-dark); }
+
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px; }
+        .feature-item {
+            display: flex; align-items: center; gap: 10px;
+            padding: 12px 14px; background: var(--q-bg-soft); border-radius: 10px;
+            border: 1px solid var(--q-border); font-size: 0.95rem; color: var(--q-text);
+            text-decoration: none;
+        }
+        .feature-item i { color: var(--q-red); font-size: 0.95rem; }
+
+        .detail-sidebar { position: sticky; top: 110px; display: flex; flex-direction: column; gap: 16px; }
+
+        .contact-card {
+            background: var(--q-dark); color: #fff;
+            border-radius: 20px; padding: 28px; border: 1px solid var(--q-red);
+        }
+        .contact-card-title {
+            font-size: 1.1rem; color: var(--q-red);
+            font-weight: 700; margin: 0 0 6px; letter-spacing: 0.5px;
+        }
+        .contact-card-subtitle { font-size: 0.9rem; color: rgba(255,255,255,0.7); margin: 0 0 22px; }
+        .agent {
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 22px; padding-bottom: 22px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .agent img {
+            width: 56px; height: 56px; border-radius: 50%;
+            object-fit: cover; border: 2px solid var(--q-red);
+        }
+        .agent-info strong { display: block; font-size: 1rem; }
+        .agent-info span { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
+
+        .contact-form { display: flex; flex-direction: column; gap: 10px; }
+        .contact-form input, .contact-form textarea {
+            width: 100%; padding: 12px 14px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px; color: #fff;
+            font-family: inherit; font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            outline: none; border-color: var(--q-red);
+            background: rgba(255,255,255,0.1);
+        }
+        .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.45); }
+        .contact-form textarea { resize: vertical; min-height: 90px; }
+        .contact-form button {
+            padding: 14px; background: var(--q-red); color: #fff;
+            border: none; border-radius: 8px;
+            font-weight: 700; font-size: 0.95rem;
+            cursor: pointer; font-family: inherit;
+            transition: all 0.2s; margin-top: 6px;
+        }
+        .contact-form button:hover { background: var(--q-red-dark); }
+        .contact-form button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+        .form-msg { padding: 10px 12px; border-radius: 6px; font-size: 0.85rem; text-align: center; display: none; }
+        .form-msg.success { background: rgba(34,197,94,0.15); color: #4ADE80; display: block; }
+        .form-msg.error { background: rgba(239,68,68,0.15); color: #FCA5A5; display: block; }
+
+        .quick-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .quick-action {
+            padding: 14px; background: #fff; border: 1px solid var(--q-border);
+            border-radius: 12px; color: var(--q-dark); text-align: center;
+            font-weight: 600; font-size: 0.9rem;
+            display: flex; flex-direction: column; align-items: center; gap: 6px;
+            transition: all 0.2s;
+        }
+        .quick-action i { color: var(--q-red); font-size: 1.3rem; }
+        .quick-action:hover { background: var(--q-dark); color: #fff; border-color: var(--q-dark); }
+        .quick-action:hover i { color: var(--q-red); }
+
+        .map-block { border-radius: 20px; overflow: hidden; border: 1px solid var(--q-border); height: 380px; background: #f1efe9; }
+        .map-block iframe { width: 100%; height: 100%; border: 0; }
+
+        .detail-loading, .detail-error { text-align: center; padding: 100px 20px; }
+        .detail-loading i { font-size: 2.5rem; color: var(--q-red); animation: spin 1s linear infinite; margin-bottom: 16px; }
+        .detail-error i { font-size: 3rem; color: var(--q-red); opacity: 0.4; margin-bottom: 20px; }
+        .detail-error h2 { color: var(--q-dark); font-size: 1.5rem; margin: 0 0 8px; }
+        .detail-error p { color: var(--q-text-muted); margin: 0 0 24px; }
+        .detail-error .btn { display: inline-block; padding: 14px 32px; background: var(--q-red); color: #fff; border-radius: 25px; font-weight: 600; }
+        @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+
+        .lightbox {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.95); z-index: 10000;
+            align-items: center; justify-content: center; padding: 40px;
+        }
+        .lightbox.open { display: flex; }
+        .lightbox img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .lightbox-close, .lightbox-prev, .lightbox-next {
+            position: absolute; background: rgba(255,255,255,0.1);
+            border: none; color: #fff; width: 48px; height: 48px;
+            border-radius: 50%; cursor: pointer; font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center;
+            transition: background 0.2s;
+        }
+        .lightbox-close:hover, .lightbox-prev:hover, .lightbox-next:hover {
+            background: var(--q-red); color: #fff;
+        }
+        .lightbox-close { top: 20px; right: 20px; }
+        .lightbox-prev { left: 20px; top: 50%; transform: translateY(-50%); }
+        .lightbox-next { right: 20px; top: 50%; transform: translateY(-50%); }
+        .lightbox-counter {
+            position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+            color: rgba(255,255,255,0.85); font-size: 0.95rem;
+            background: rgba(0,0,0,0.5); padding: 6px 14px; border-radius: 999px;
+        }
+
+        @media (max-width: 1024px) {
+            .detail-grid { grid-template-columns: 1fr; }
+            .detail-sidebar { position: static; }
+        }
+        @media (max-width: 768px) {
+            .detail-page { padding-top: 100px; }
+            .detail-header { grid-template-columns: 1fr; gap: 16px; }
+            .detail-price-block { text-align: left; }
+            .detail-gallery { grid-template-columns: 1fr; grid-template-rows: 280px; min-height: 280px; }
+            .detail-gallery .gallery-item:first-child { grid-row: 1; }
+            .detail-gallery .gallery-item:not(:first-child) { display: none; }
+            .detail-main { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Přeskočit na hlavní obsah</a>
+
+    <div id="navbar-placeholder"></div>
+
+    <main id="main" class="detail-page">
+        <div class="detail-container" id="content">
+            <div class="detail-loading">
+                <i class="fas fa-circle-notch" aria-hidden="true"></i>
+                <p>Načítám detail nemovitosti…</p>
+            </div>
+        </div>
+    </main>
+
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <button class="lightbox-close" onclick="closeLightbox(event, true)" aria-label="Zavřít"><i class="fas fa-times" aria-hidden="true"></i></button>
+        <button class="lightbox-prev" onclick="navLightbox(-1, event)" aria-label="Předchozí"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
+        <button class="lightbox-next" onclick="navLightbox(1, event)" aria-label="Další"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
+        <img id="lightboxImg" alt="">
+        <div class="lightbox-counter" id="lightboxCounter"></div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/common/common.js" defer></script>
+    <script defer src="script.js"></script>
+    <script defer src="chatbot.js"></script>
+    <script defer src="cookies.js"></script>
+
+    <script>
+        const FALLBACK_IMAGE = 'logo.png';
+        const AGENT_IMAGE = 'michaela.jpg';
+        const DEFAULT_AGENT = { name: 'Míša Beranová', position: 'Realitní specialista Quadrum', image: AGENT_IMAGE, phone: '+420 736 483 169', email: 'info@quadrum.cz' };
+
+        const PROPERTY_TYPE_LABELS = { byt: 'Byt', dum: 'Dům', pozemek: 'Pozemek', komercni: 'Komerční prostor', garaz: 'Garáž', ostatni: 'Ostatní' };
+        const OFFER_LABELS = { prodej: 'Prodej', pronajem: 'Pronájem' };
+        const BUILDING_CONDITION_LABELS = { novostavba: 'Novostavba', velmi_dobry: 'Velmi dobrý', dobry: 'Dobrý', spatny: 'Špatný', k_demolici: 'K demolici', po_rekonstrukci: 'Po rekonstrukci', pred_rekonstrukci: 'Před rekonstrukcí' };
+        const BUILDING_TYPE_LABELS = { cihla: 'Cihla', panel: 'Panel', drevostavba: 'Dřevostavba', skeletova: 'Skeletová', smisena: 'Smíšená', kamenna: 'Kamenná', montovana: 'Montovaná' };
+        const FEATURE_LABELS = {
+            parking: { icon: 'fa-car', label: 'Parking' },
+            garage: { icon: 'fa-warehouse', label: 'Garáž' },
+            balcony: { icon: 'fa-leaf', label: 'Balkón' },
+            terrace: { icon: 'fa-umbrella-beach', label: 'Terasa' },
+            garden: { icon: 'fa-tree', label: 'Zahrada' },
+            cellar: { icon: 'fa-archway', label: 'Sklep' },
+            elevator: { icon: 'fa-elevator', label: 'Výtah' },
+            air_conditioning: { icon: 'fa-snowflake', label: 'Klimatizace' },
+            heating: { icon: 'fa-fire', label: 'Vytápění' },
+            internet: { icon: 'fa-wifi', label: 'Internet' },
+            cable_tv: { icon: 'fa-tv', label: 'Kabelová TV' },
+            alarm: { icon: 'fa-shield-alt', label: 'Alarm' },
+            pool: { icon: 'fa-swimming-pool', label: 'Bazén' },
+            sauna: { icon: 'fa-hot-tub', label: 'Sauna' },
+            fireplace: { icon: 'fa-fire-alt', label: 'Krb' },
+            barrier_free: { icon: 'fa-wheelchair', label: 'Bezbariérový' },
+        };
+
+        let currentProperty = null;
+        let lightboxImages = [];
+        let lightboxIndex = 0;
+
+        function getSlug() {
+            const path = window.location.pathname;
+            const m = path.match(/\/nabidky\/([^\/?#]+)/);
+            if (m) return decodeURIComponent(m[1]);
+            const params = new URLSearchParams(window.location.search);
+            return params.get('slug');
+        }
+
+        function escapeHtml(s) {
+            return String(s ?? '')
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+
+        function fmtPrice(p, unit) {
+            if (p == null || p === 0) return 'Cena na vyžádání';
+            const formatted = new Intl.NumberFormat('cs-CZ').format(p);
+            const isRent = unit && (unit.includes('month') || unit.includes('měsíc'));
+            return `${formatted} Kč${isRent ? ' <span class="unit">/ měsíc</span>' : ''}`;
+        }
+
+        function formatDescription(text) {
+            if (!text) return '';
+            return text.split(/\n\n+/).map(par => par.trim()).filter(Boolean)
+                .map(par => `<p>${escapeHtml(par)}</p>`).join('');
+        }
+
+        function pickMainImage(images) {
+            if (!images || images.length === 0) return null;
+            return images.find(i => i.is_main) || images[0];
+        }
+
+        function getLocation(p) {
+            const parts = [];
+            if (p.address_district && !p.hide_exact_address) parts.push(p.address_district);
+            if (p.address_city) parts.push(p.address_city);
+            if (p.address_region && !parts.length) parts.push(p.address_region);
+            return parts.join(', ') || 'Česká republika';
+        }
+
+        function setMeta(attr, name, content) {
+            if (!content) return;
+            let el = document.querySelector(`meta[${attr}="${name}"]`);
+            if (!el) { el = document.createElement('meta'); el.setAttribute(attr, name); document.head.appendChild(el); }
+            el.setAttribute('content', content);
+        }
+
+        function setLink(rel, href) {
+            let el = document.querySelector(`link[rel="${rel}"]`);
+            if (!el) { el = document.createElement('link'); el.setAttribute('rel', rel); document.head.appendChild(el); }
+            el.setAttribute('href', href);
+        }
+
+        function updateMeta(p) {
+            const title = `${p.title} | Quadrum`;
+            const main = pickMainImage(p.images);
+            const image = main?.url_large || main?.url || `https://www.quadrum.cz/images/og-image.png`;
+            const description = p.description_short || p.meta_description ||
+                `${PROPERTY_TYPE_LABELS[p.property_type] || ''} ${p.disposition || ''} – ${getLocation(p)}. ${fmtPrice(p.price, p.price_unit).replace(/<[^>]+>/g, '')}.`.trim();
+            const url = `https://www.quadrum.cz/nabidky/${p.slug}`;
+
+            document.title = title;
+            setMeta('name', 'description', description);
+            setMeta('property', 'og:title', title);
+            setMeta('property', 'og:description', description);
+            setMeta('property', 'og:image', image);
+            setMeta('property', 'og:url', url);
+            setMeta('property', 'og:type', 'product');
+            setMeta('property', 'og:locale', 'cs_CZ');
+            setMeta('name', 'twitter:card', 'summary_large_image');
+            setMeta('name', 'twitter:image', image);
+            setLink('canonical', url);
+
+            const schema = {
+                "@context": "https://schema.org",
+                "@type": ["Product", "Residence"],
+                "name": p.title,
+                "description": description,
+                "image": (p.images || []).slice(0, 6).map(i => i.url_large || i.url).filter(Boolean),
+                "url": url,
+                "offers": p.price ? {
+                    "@type": "Offer", "price": p.price, "priceCurrency": "CZK",
+                    "availability": p.status === 'reserved' ? "https://schema.org/Reserved" : "https://schema.org/InStock"
+                } : undefined,
+                "address": {
+                    "@type": "PostalAddress",
+                    "addressLocality": p.address_city,
+                    "addressRegion": p.address_region,
+                    "addressCountry": "CZ"
+                },
+                "numberOfRooms": p.disposition,
+                "floorSize": (p.area_usable || p.area_total) ? {
+                    "@type": "QuantitativeValue",
+                    "value": p.area_usable || p.area_total,
+                    "unitCode": "MTK"
+                } : undefined,
+                "yearBuilt": p.year_built || undefined
+            };
+            const s1 = document.createElement('script');
+            s1.type = 'application/ld+json';
+            s1.textContent = JSON.stringify(schema);
+            document.head.appendChild(s1);
+
+            const bc = {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    { "@type": "ListItem", "position": 1, "name": "Domů", "item": "https://www.quadrum.cz/" },
+                    { "@type": "ListItem", "position": 2, "name": "Nabídky", "item": "https://www.quadrum.cz/nabidky" },
+                    { "@type": "ListItem", "position": 3, "name": p.title, "item": url }
+                ]
+            };
+            const s2 = document.createElement('script');
+            s2.type = 'application/ld+json';
+            s2.textContent = JSON.stringify(bc);
+            document.head.appendChild(s2);
+        }
+
+        function renderGallery(images) {
+            if (!images || images.length === 0) {
+                return `<div class="detail-gallery"><div class="gallery-item"><img src="${FALLBACK_IMAGE}" alt="Bez fotografie"></div></div>`;
+            }
+            const mainIdx = images.findIndex(i => i.is_main);
+            const sorted = mainIdx > 0
+                ? [images[mainIdx], ...images.slice(0, mainIdx), ...images.slice(mainIdx + 1)]
+                : images.slice();
+            lightboxImages = sorted;
+
+            const items = sorted.slice(0, 5);
+            const remaining = sorted.length - items.length;
+            const html = items.map((img, idx) => {
+                const isLast = idx === items.length - 1 && remaining > 0;
+                const src = img.url_large || img.url || img.url_thumbnail || FALLBACK_IMAGE;
+                const alt = img.alt_text || (currentProperty?.title || 'Fotografie nemovitosti');
+                return `
+                    <div class="gallery-item" onclick="openLightbox(${idx})">
+                        <img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="${idx === 0 ? 'eager' : 'lazy'}" onerror="this.src='${FALLBACK_IMAGE}'">
+                        ${isLast ? `<div class="gallery-more"><i class="fas fa-images" aria-hidden="true"></i>+${remaining} fotek</div>` : ''}
+                    </div>
+                `;
+            }).join('');
+            return `<div class="detail-gallery">${html}</div>`;
+        }
+
+        function renderSpecs(p) {
+            const specs = [];
+            if (p.disposition) specs.push({ label: 'Dispozice', value: p.disposition });
+            if (p.area_usable) specs.push({ label: 'Užitná plocha', value: `${p.area_usable} m²` });
+            else if (p.area_total) specs.push({ label: 'Plocha', value: `${p.area_total} m²` });
+            if (p.area_land) specs.push({ label: 'Pozemek', value: `${p.area_land} m²` });
+            if (p.area_built) specs.push({ label: 'Zastavěná plocha', value: `${p.area_built} m²` });
+            if (p.area_garden) specs.push({ label: 'Zahrada', value: `${p.area_garden} m²` });
+            if (p.area_balcony) specs.push({ label: 'Balkón', value: `${p.area_balcony} m²` });
+            if (p.area_terrace) specs.push({ label: 'Terasa', value: `${p.area_terrace} m²` });
+            if (p.floor != null) specs.push({ label: 'Patro', value: `${p.floor}.${p.floors_total ? ' / ' + p.floors_total : ''}` });
+            if (p.building_type) specs.push({ label: 'Konstrukce', value: BUILDING_TYPE_LABELS[p.building_type] || p.building_type });
+            if (p.building_condition) specs.push({ label: 'Stav', value: BUILDING_CONDITION_LABELS[p.building_condition] || p.building_condition });
+            if (p.year_built) specs.push({ label: 'Rok stavby', value: p.year_built });
+            if (p.year_reconstructed) specs.push({ label: 'Rok rekonstrukce', value: p.year_reconstructed });
+            if (p.energy_class) specs.push({ label: 'Energ. třída', value: p.energy_class });
+            if (p.monthly_fees) specs.push({ label: 'Měsíční poplatky', value: `${new Intl.NumberFormat('cs-CZ').format(p.monthly_fees)} Kč` });
+            if (p.price_per_m2) specs.push({ label: 'Cena za m²', value: `${new Intl.NumberFormat('cs-CZ').format(p.price_per_m2)} Kč` });
+
+            if (specs.length === 0) return '';
+            return `
+                <div class="detail-section">
+                    <h2>Parametry</h2>
+                    <div class="specs-grid">
+                        ${specs.map(s => `<div class="spec-item"><div class="spec-label">${escapeHtml(s.label)}</div><div class="spec-value">${escapeHtml(s.value)}</div></div>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderFeatures(features) {
+            if (!features) return '';
+            const items = Object.entries(features).filter(([k, v]) => v && FEATURE_LABELS[k]);
+            if (items.length === 0) return '';
+            return `
+                <div class="detail-section">
+                    <h2>Vybavení</h2>
+                    <div class="features-grid">
+                        ${items.map(([k]) => `<div class="feature-item"><i class="fas ${FEATURE_LABELS[k].icon}" aria-hidden="true"></i>${FEATURE_LABELS[k].label}</div>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderMedia(p) {
+            const links = [];
+            if (p.virtual_tour_url) links.push({ url: p.virtual_tour_url, icon: 'fa-vr-cardboard', label: 'Virtuální prohlídka' });
+            if (p.matterport_url) links.push({ url: p.matterport_url, icon: 'fa-cube', label: '3D model' });
+            if (p.video_url) links.push({ url: p.video_url, icon: 'fa-play-circle', label: 'Video' });
+            if (p.floor_plan_url) links.push({ url: p.floor_plan_url, icon: 'fa-map', label: 'Půdorys' });
+            if (p.penb_certificate_url) links.push({ url: p.penb_certificate_url, icon: 'fa-file-pdf', label: 'PENB' });
+            if (links.length === 0) return '';
+            return `
+                <div class="detail-section">
+                    <h2>Média a dokumenty</h2>
+                    <div class="features-grid">
+                        ${links.map(l => `<a href="${escapeHtml(l.url)}" class="feature-item" target="_blank" rel="noopener noreferrer"><i class="fas ${l.icon}" aria-hidden="true"></i>${l.label}</a>`).join('')}
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderMap(p) {
+            if (!p.gps_lat || !p.gps_lng || p.hide_exact_address) return '';
+            const lat = p.gps_lat, lng = p.gps_lng;
+            const bbox = `${lng - 0.005},${lat - 0.003},${lng + 0.005},${lat + 0.003}`;
+            return `
+                <div class="detail-section">
+                    <h2>Mapa</h2>
+                    <div class="map-block">
+                        <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=${bbox}&layer=mapnik&marker=${lat},${lng}" loading="lazy" title="Mapa lokality"></iframe>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderSidebar(p) {
+            const agent = p.agent || DEFAULT_AGENT;
+            const agentImage = agent.image || agent.photo_url || AGENT_IMAGE;
+            const phone = agent.phone || '+420 736 483 169';
+            const email = agent.email || 'info@quadrum.cz';
+            return `
+                <aside class="detail-sidebar">
+                    <div class="contact-card">
+                        <h3 class="contact-card-title">Mám zájem</h3>
+                        <p class="contact-card-subtitle">Ozveme se vám obratem.</p>
+                        <div class="agent">
+                            <img src="${escapeHtml(agentImage)}" alt="${escapeHtml(agent.name || 'Quadrum poradce')}" onerror="this.src='${AGENT_IMAGE}'">
+                            <div class="agent-info">
+                                <strong>${escapeHtml(agent.name || 'Míša Beranová')}</strong>
+                                <span>${escapeHtml(agent.position || agent.role || 'Realitní specialista')}</span>
+                            </div>
+                        </div>
+                        <form class="contact-form" id="leadForm" onsubmit="submitLead(event)">
+                            <input type="hidden" name="propertySlug" value="${escapeHtml(p.slug || '')}">
+                            <input type="hidden" name="propertyTitle" value="${escapeHtml(p.title || '')}">
+                            <input type="text" name="name" placeholder="Jméno a příjmení" required maxlength="100" autocomplete="name">
+                            <input type="tel" name="phone" placeholder="Telefon" required maxlength="20" autocomplete="tel">
+                            <input type="email" name="email" placeholder="E-mail" maxlength="200" autocomplete="email">
+                            <textarea name="message" placeholder="Mám zájem o tuto nemovitost. Prosím o kontakt." maxlength="2000"></textarea>
+                            <input type="text" name="website" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px" aria-hidden="true">
+                            <button type="submit" id="leadBtn">Odeslat poptávku</button>
+                            <div class="form-msg" id="leadMsg" role="status" aria-live="polite"></div>
+                        </form>
+                    </div>
+                    <div class="quick-actions">
+                        <a href="tel:${phone.replace(/\s/g, '')}" class="quick-action"><i class="fas fa-phone" aria-hidden="true"></i>Zavolat</a>
+                        <a href="mailto:${escapeHtml(email)}?subject=${encodeURIComponent('Dotaz: ' + p.title)}" class="quick-action"><i class="fas fa-envelope" aria-hidden="true"></i>E-mail</a>
+                    </div>
+                </aside>
+            `;
+        }
+
+        function renderProperty(p) {
+            currentProperty = p;
+            lightboxImages = p.images || [];
+            updateMeta(p);
+
+            const offerLabel = OFFER_LABELS[p.offer_type] || '';
+            const typeLabel = PROPERTY_TYPE_LABELS[p.property_type] || '';
+            const statusBadge = (p.status === 'reserved' || p.status === 'rezervovano')
+                ? '<span class="detail-tag status">Rezervováno</span>' : '';
+
+            document.getElementById('content').innerHTML = `
+                <nav class="breadcrumb" aria-label="Drobečková navigace">
+                    <a href="/">Domů</a> &rsaquo; <a href="/nabidky">Nabídky</a> &rsaquo; <span>${escapeHtml(p.title)}</span>
+                </nav>
+
+                <header class="detail-header">
+                    <div>
+                        <div class="detail-meta-row">
+                            ${offerLabel ? `<span class="detail-tag offer">${offerLabel}</span>` : ''}
+                            ${p.disposition ? `<span class="detail-tag disposition">${escapeHtml(p.disposition)}</span>` : ''}
+                            ${typeLabel && !p.disposition ? `<span class="detail-tag disposition">${typeLabel}</span>` : ''}
+                            ${statusBadge}
+                        </div>
+                        <h1 class="detail-title">${escapeHtml(p.title)}</h1>
+                        <p class="detail-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>${escapeHtml(getLocation(p))}</p>
+                    </div>
+                    <div class="detail-price-block">
+                        <div class="detail-price">${fmtPrice(p.price, p.price_unit)}</div>
+                        ${p.price_per_m2 ? `<div class="detail-price-meta">${new Intl.NumberFormat('cs-CZ').format(p.price_per_m2)} Kč / m²</div>` : ''}
+                        ${p.price_note ? `<div class="detail-price-meta">${escapeHtml(p.price_note)}</div>` : ''}
+                    </div>
+                </header>
+
+                ${renderGallery(p.images)}
+
+                <div class="detail-grid">
+                    <article class="detail-main">
+                        ${p.description_short ? `
+                            <div class="detail-section">
+                                <h2>O nemovitosti</h2>
+                                <p style="font-size:1.1rem;font-weight:500;color:var(--q-dark)">${escapeHtml(p.description_short)}</p>
+                            </div>
+                        ` : ''}
+
+                        ${p.description ? `
+                            <div class="detail-section">
+                                <h2>Popis</h2>
+                                ${formatDescription(p.description)}
+                            </div>
+                        ` : ''}
+
+                        ${renderSpecs(p)}
+                        ${renderFeatures(p.features)}
+                        ${renderMedia(p)}
+
+                        ${p.description_location ? `
+                            <div class="detail-section">
+                                <h2>Lokalita</h2>
+                                ${p.description_location.split(/\n\n+/).map(par => `<p>${escapeHtml(par)}</p>`).join('')}
+                            </div>
+                        ` : ''}
+
+                        ${renderMap(p)}
+                    </article>
+
+                    ${renderSidebar(p)}
+                </div>
+            `;
+        }
+
+        async function submitLead(e) {
+            e.preventDefault();
+            const form = e.target;
+            const btn = document.getElementById('leadBtn');
+            const msg = document.getElementById('leadMsg');
+            const data = Object.fromEntries(new FormData(form));
+            data.formType = 'property';
+            const title = data.propertyTitle || '';
+            data.message = `[${title}] ${data.message || 'Mám zájem o tuto nemovitost. Prosím o kontakt.'}`;
+
+            btn.disabled = true; btn.textContent = 'Odesílám…';
+            msg.className = 'form-msg'; msg.textContent = '';
+
+            try {
+                const res = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+                const json = await res.json().catch(() => ({}));
+                if (!res.ok) throw new Error(json.error || `HTTP ${res.status}`);
+                msg.classList.add('success');
+                msg.textContent = '✓ Děkujeme. Ozveme se vám obratem.';
+                form.reset();
+
+                if (window.gtag) {
+                    window.gtag('event', 'lead_submit', { event_category: 'property', event_label: title });
+                }
+                if (window.fbq) window.fbq('track', 'Lead');
+            } catch (err) {
+                msg.classList.add('error');
+                msg.textContent = '✗ ' + (err.message || 'Nepodařilo se odeslat. Zavolejte prosím +420 736 483 169.');
+            } finally {
+                btn.disabled = false; btn.textContent = 'Odeslat poptávku';
+            }
+        }
+
+        function openLightbox(idx) {
+            if (!lightboxImages.length) return;
+            lightboxIndex = idx;
+            document.getElementById('lightbox').classList.add('open');
+            document.body.style.overflow = 'hidden';
+            updateLightbox();
+        }
+
+        function closeLightbox(e, force) {
+            if (!force && e && e.target.id !== 'lightbox') return;
+            document.getElementById('lightbox').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function navLightbox(dir, e) {
+            if (e) e.stopPropagation();
+            lightboxIndex = (lightboxIndex + dir + lightboxImages.length) % lightboxImages.length;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            const img = lightboxImages[lightboxIndex];
+            document.getElementById('lightboxImg').src = img.url_large || img.url;
+            document.getElementById('lightboxImg').alt = img.alt_text || '';
+            document.getElementById('lightboxCounter').textContent = `${lightboxIndex + 1} / ${lightboxImages.length}`;
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (!document.getElementById('lightbox').classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox(null, true);
+            if (e.key === 'ArrowLeft') navLightbox(-1);
+            if (e.key === 'ArrowRight') navLightbox(1);
+        });
+
+        async function init() {
+            const slug = getSlug();
+            if (!slug) {
+                document.getElementById('content').innerHTML = `
+                    <div class="detail-error">
+                        <i class="fas fa-question-circle" aria-hidden="true"></i>
+                        <h2>Nemovitost nezadána</h2>
+                        <p>Vraťte se na výpis nabídek a vyberte si.</p>
+                        <a href="/nabidky" class="btn">Zobrazit nabídky</a>
+                    </div>`;
+                return;
+            }
+            try {
+                const res = await fetch(`/api/property?slug=${encodeURIComponent(slug)}`);
+                if (res.status === 404) {
+                    document.getElementById('content').innerHTML = `
+                        <div class="detail-error">
+                            <i class="fas fa-search" aria-hidden="true"></i>
+                            <h2>Nemovitost nenalezena</h2>
+                            <p>Nabídka už není aktivní nebo byla stažena.</p>
+                            <a href="/nabidky" class="btn">Zobrazit aktuální nabídky</a>
+                        </div>`;
+                    return;
+                }
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const property = await res.json();
+                renderProperty(property);
+            } catch (err) {
+                console.error('Failed to load property:', err);
+                document.getElementById('content').innerHTML = `
+                    <div class="detail-error">
+                        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                        <h2>Nepodařilo se načíst detail</h2>
+                        <p>Backend není dostupný. Zkuste obnovit stránku nebo nás kontaktujte přímo.</p>
+                        <a href="tel:+420736483169" class="btn">Zavolat +420 736 483 169</a>
+                    </div>`;
+            }
+        }
+
+        init();
+    </script>
+</body>
+</html>

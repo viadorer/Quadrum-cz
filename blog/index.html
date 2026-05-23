@@ -15,7 +15,7 @@
     <title>Blog | Quadrum.cz</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script>
     <link rel="icon" type="image/png" href="../favicon.png">
     <link rel="canonical" href="https://www.quadrum.cz/blog/index.html">
     <link rel="stylesheet" href="../styles.css">
@@ -136,7 +136,7 @@
             position: absolute;
             top: 15px;
             left: 15px;
-            background: var(--brand-pink-600);
+            background: var(--brand-red-600);
             color: #fff;
             padding: 5px 12px;
             border-radius: 20px;
@@ -210,7 +210,7 @@
         .loading-spinner {
             text-align: center;
             padding: 40px;
-            color: var(--brand-pink-600);
+            color: var(--brand-red-600);
         }
 
         .loading-spinner i {
@@ -628,7 +628,7 @@
                 if (endPage < totalPages - 1) {
                     const ellipsis = document.createElement('span');
                     ellipsis.textContent = '...';
-                    ellipsis.style.color = 'var(--brand-pink-600)';
+                    ellipsis.style.color = 'var(--brand-red-600)';
                     ellipsis.style.padding = '0 10px';
                     pageNumbers.appendChild(ellipsis);
                 }

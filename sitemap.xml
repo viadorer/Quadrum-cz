@@ -2,25 +2,115 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.quadrum.cz/</loc>
-    <lastmod>2025-03-26</lastmod>
+    <lastmod>2026-05-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.quadrum.cz/kontakt</loc>
-    <lastmod>2025-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.quadrum.cz/blog/</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.quadrum.cz/sluzby</loc>
-    <lastmod>2025-03-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.quadrum.cz/nabidky</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.95</priority>
   </url>
   <url>
-    <loc>https://www.quadrum.cz/o-nas</loc>
-    <lastmod>2025-03-26</lastmod>
+    <loc>https://www.quadrum.cz/osobni-udaje.html</loc>
+    <lastmod>2026-05-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/10-otazek-ktere-byste-meli-polozit-svemu-hypotecnimu-poradci.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/10-strategii-uspesny-pronajem-nemovitosti.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/dum-nebo-byt-co-je-lepsi-investice.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/home-staging-jak-pripravit-nemovitost-na-prodej.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/hypotecni-slovnicek-pro-laiky.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/hypoteka-versus-najem-kdy-se-vyplati-koupit-a-kdy-zustat-v-pronajmu.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/jak-prodat-dum-nejlepsi-cena-kompletni-strategie.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/kdy-dava-smysl-hypoteka.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/klic-k-uspechu-prodeje-presny-odhad-trzni-ceny-nemovitosti.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/nejlepsi-pomer-cena-vykon-jak-drobne-upravy-zvysuji-hodnotu-nemovitosti.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/nez-zacnete-rekonstruovat-proc-nikdy-nedelat-upravy-pred-prodejem-bez-konzultace.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/proc-je-premrstena-cena-vasi-nemovitosti-cesta-do-pekel.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/proc-stav-nemovitosti-hraje-klicovou-roli-v-jeji-cene.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/prodej-za-premiovou-cenu-mytus-nebo-realita.html</loc>
+    <lastmod>2025-07-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.quadrum.cz/blog/posts/spravne-oceneni-nemovitosti.html</loc>
+    <lastmod>2025-07-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="cs-CZ">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e73627">
+    <title>Nabídky nemovitostí | Quadrum</title>
+    <meta name="description" content="Aktuální nabídka nemovitostí Quadrum – byty, domy, pozemky a komerční prostory v Praze, Plzni a okolí. Najděte svůj nový domov nebo investici.">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="cs_CZ">
+    <meta property="og:site_name" content="Quadrum">
+    <meta property="og:title" content="Nabídky nemovitostí | Quadrum">
+    <meta property="og:description" content="Aktuální nabídka nemovitostí v Praze, Plzni a okolí.">
+    <meta property="og:image" content="https://www.quadrum.cz/images/og-image.png">
+    <meta property="og:url" content="https://www.quadrum.cz/nabidky">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="canonical" href="https://www.quadrum.cz/nabidky">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://www.quadrum.cz/nabidky#page",
+      "name": "Nabídky nemovitostí",
+      "description": "Aktuální nabídka nemovitostí v Praze, Plzni a okolí od Quadrum.",
+      "url": "https://www.quadrum.cz/nabidky",
+      "inLanguage": "cs-CZ",
+      "isPartOf": { "@id": "https://www.quadrum.cz/#website" }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Domů", "item": "https://www.quadrum.cz/" },
+        { "@type": "ListItem", "position": 2, "name": "Nabídky", "item": "https://www.quadrum.cz/nabidky" }
+      ]
+    }
+    </script>
+
+    <style>
+        :root {
+            --q-red: #e73627;
+            --q-red-dark: #c12a1d;
+            --q-red-50: #fdeceb;
+            --q-dark: #1a1a1a;
+            --q-darker: #020304;
+            --q-text: #1a1a1a;
+            --q-text-muted: #6b6b6b;
+            --q-bg: #f8f9fa;
+            --q-bg-soft: #fafbfc;
+            --q-border: rgba(2, 3, 4, 0.08);
+        }
+
+        body { background-color: var(--q-bg); color: var(--q-text); }
+
+        .nabidky-page { padding-top: 130px; padding-bottom: 80px; }
+        .nabidky-container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
+
+        nav.breadcrumb { font-size: 0.875rem; color: var(--q-text-muted); margin-bottom: 16px; }
+        nav.breadcrumb a { color: var(--q-text-muted); transition: color 0.2s; }
+        nav.breadcrumb a:hover { color: var(--q-red); }
+
+        .nabidky-hero { text-align: center; padding: 10px 20px 30px; max-width: 900px; margin: 0 auto; }
+        .nabidky-hero .eyebrow {
+            display: inline-block;
+            font-size: 0.85rem; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase;
+            color: var(--q-red-dark); margin-bottom: 14px;
+            padding: 4px 16px; border: 1px solid var(--q-red);
+            border-radius: 999px; background: var(--q-red-50);
+        }
+        .nabidky-hero h1 {
+            font-family: 'Futura', 'Montserrat', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem); font-weight: 700;
+            color: var(--q-darker); margin: 0 0 16px;
+            letter-spacing: -0.02em; line-height: 1.15;
+        }
+        .nabidky-hero p {
+            font-size: 1.1rem; color: var(--q-text-muted);
+            max-width: 640px; margin: 0 auto; line-height: 1.6;
+        }
+
+        .filter-bar {
+            display: flex; flex-wrap: wrap; gap: 12px;
+            margin-bottom: 32px; padding: 24px;
+            background: #fff; border: 1px solid var(--q-border);
+            border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+        .filter-bar select, .filter-bar input {
+            padding: 12px 16px; border: 1px solid var(--q-border);
+            border-radius: 10px; background: #fff;
+            font-size: 0.95rem; font-family: inherit; color: var(--q-text);
+            min-width: 150px; flex: 1; transition: all 0.2s;
+        }
+        .filter-bar select:focus, .filter-bar input:focus {
+            outline: none; border-color: var(--q-red);
+            box-shadow: 0 0 0 3px rgba(231,54,39,0.12);
+        }
+        .filter-bar button {
+            padding: 12px 24px; background: var(--q-red);
+            color: #fff; border: 1px solid var(--q-red);
+            border-radius: 10px; font-weight: 600; font-size: 0.95rem;
+            cursor: pointer; font-family: inherit; transition: all 0.2s;
+            display: inline-flex; align-items: center; gap: 8px;
+        }
+        .filter-bar button:hover { background: var(--q-red-dark); border-color: var(--q-red-dark); }
+        .filter-bar button.secondary {
+            background: transparent; color: var(--q-text-muted);
+            border: 1px solid var(--q-border);
+        }
+        .filter-bar button.secondary:hover { border-color: var(--q-dark); color: var(--q-dark); }
+
+        .results-info {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 20px; font-size: 0.95rem; color: var(--q-text-muted);
+        }
+        .results-info strong { color: var(--q-dark); }
+
+        .properties-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 28px;
+        }
+
+        .property-card {
+            background: #fff; border: 1px solid var(--q-border);
+            border-radius: 16px; overflow: hidden;
+            transition: transform 0.3s cubic-bezier(.4,0,.2,1), box-shadow 0.3s;
+            display: flex; flex-direction: column; color: inherit;
+        }
+        @media (hover: hover) {
+            .property-card:hover {
+                transform: translateY(-6px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            }
+            .property-card:hover .property-image img { transform: scale(1.05); }
+        }
+
+        .property-image {
+            position: relative; aspect-ratio: 4/3; overflow: hidden;
+            background: #f1efe9;
+        }
+        .property-image img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s cubic-bezier(.4,0,.2,1);
+        }
+
+        .property-badges {
+            position: absolute; top: 14px; left: 14px;
+            display: flex; flex-direction: column; gap: 6px; z-index: 2;
+        }
+        .property-badge {
+            background: var(--q-red); color: #fff;
+            padding: 5px 12px; border-radius: 6px;
+            font-size: 0.7rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        }
+        .property-badge.reserved { background: #DC2626; }
+        .property-badge.exclusive { background: var(--q-dark); color: #fff; }
+        .property-badge.price-drop { background: #16A34A; }
+
+        .property-offer-type {
+            position: absolute; top: 14px; right: 14px;
+            background: rgba(26,26,26,0.85); color: #fff;
+            padding: 5px 12px; border-radius: 6px;
+            font-size: 0.7rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 1px;
+            backdrop-filter: blur(6px); z-index: 2;
+        }
+
+        .property-content { padding: 22px; flex: 1; display: flex; flex-direction: column; }
+        .property-disposition {
+            display: inline-block; font-size: 0.75rem; font-weight: 700;
+            color: var(--q-red-dark); text-transform: uppercase;
+            letter-spacing: 1.5px; margin-bottom: 6px;
+        }
+        .property-title {
+            font-size: 1.15rem; font-weight: 600; color: var(--q-dark);
+            margin: 0 0 10px; line-height: 1.35;
+            display: -webkit-box; -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical; overflow: hidden;
+        }
+        .property-location {
+            color: var(--q-text-muted); font-size: 0.9rem;
+            margin: 0 0 18px; display: flex; align-items: center; gap: 6px;
+        }
+        .property-location i { color: var(--q-red); }
+
+        .property-meta {
+            display: flex; gap: 16px; flex-wrap: wrap;
+            font-size: 0.875rem; color: var(--q-text-muted);
+            margin: 0 0 18px; padding: 14px 0;
+            border-top: 1px solid var(--q-border);
+            border-bottom: 1px solid var(--q-border);
+        }
+        .property-meta span { display: flex; align-items: center; gap: 6px; }
+        .property-meta span i { color: var(--q-red); }
+
+        .property-footer {
+            display: flex; justify-content: space-between; align-items: flex-end;
+            margin-top: auto; gap: 12px;
+        }
+        .property-price {
+            font-size: 1.5rem; font-weight: 700; color: var(--q-dark);
+            line-height: 1.2; letter-spacing: -0.01em;
+        }
+        .property-price .unit {
+            font-size: 0.75rem; color: var(--q-text-muted);
+            font-weight: 500; display: block; margin-top: 2px;
+        }
+        .property-cta {
+            font-size: 0.85rem; font-weight: 600; color: var(--q-red);
+            display: inline-flex; align-items: center; gap: 6px;
+            white-space: nowrap;
+        }
+
+        .loading, .empty, .error {
+            grid-column: 1 / -1; text-align: center;
+            padding: 80px 20px; color: var(--q-text-muted);
+        }
+        .loading i {
+            animation: spin 1s linear infinite;
+            font-size: 2.5rem; color: var(--q-red); margin-bottom: 16px;
+        }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        .empty i, .error i {
+            font-size: 3.5rem; color: var(--q-red);
+            opacity: 0.4; margin-bottom: 20px;
+        }
+        .empty h3, .error h3 {
+            color: var(--q-dark); font-size: 1.4rem; font-weight: 600;
+            margin: 0 0 8px;
+        }
+        .empty p, .error p {
+            font-size: 1rem; max-width: 480px; margin: 0 auto 24px;
+        }
+        .empty .btn, .error .btn {
+            display: inline-block; padding: 14px 32px;
+            background: var(--q-red); color: #fff;
+            border-radius: 25px; font-weight: 600;
+            transition: all 0.2s;
+        }
+        .empty .btn:hover, .error .btn:hover {
+            background: var(--q-red-dark);
+        }
+
+        .pagination {
+            display: flex; justify-content: center; gap: 6px;
+            margin-top: 48px; flex-wrap: wrap;
+        }
+        .pagination button {
+            min-width: 40px; height: 40px; padding: 0 14px;
+            background: #fff; border: 1px solid var(--q-border);
+            border-radius: 10px; cursor: pointer; font-weight: 600;
+            font-family: inherit; color: var(--q-text); transition: all 0.2s;
+        }
+        .pagination button.active {
+            background: var(--q-red); border-color: var(--q-red); color: #fff;
+        }
+        .pagination button:hover:not(.active):not(:disabled) {
+            border-color: var(--q-red); color: var(--q-red);
+        }
+        .pagination button:disabled { opacity: 0.3; cursor: not-allowed; }
+
+        .cta-banner {
+            margin-top: 60px; padding: 40px 32px;
+            background: var(--q-dark); border-radius: 20px;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 24px; flex-wrap: wrap; color: #fff;
+        }
+        .cta-banner h3 {
+            font-size: 1.5rem; font-weight: 700; margin: 0 0 6px; color: var(--q-red);
+        }
+        .cta-banner p { margin: 0; color: rgba(255,255,255,0.75); }
+        .cta-banner .btn {
+            padding: 14px 28px; background: var(--q-red); color: #fff;
+            border-radius: 25px; font-weight: 600; white-space: nowrap;
+            transition: all 0.2s;
+        }
+        .cta-banner .btn:hover { background: var(--q-red-dark); transform: translateY(-2px); }
+
+        @media (max-width: 768px) {
+            .nabidky-page { padding-top: 100px; }
+            .filter-bar { padding: 16px; }
+            .filter-bar select, .filter-bar input { min-width: 100%; width: 100%; }
+            .filter-bar button { width: 100%; justify-content: center; }
+            .properties-grid { grid-template-columns: 1fr; gap: 20px; }
+            .cta-banner { flex-direction: column; text-align: center; padding: 28px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main" class="skip-link">Přeskočit na hlavní obsah</a>
+
+    <div id="navbar-placeholder"></div>
+
+    <main id="main" class="nabidky-page">
+        <div class="nabidky-container">
+            <nav class="breadcrumb" aria-label="Drobečková navigace">
+                <a href="/">Domů</a> &rsaquo; <span>Nabídky</span>
+            </nav>
+
+            <section class="nabidky-hero">
+                <span class="eyebrow">Aktuální nabídka</span>
+                <h1>Nemovitosti v Praze, Plzni a okolí</h1>
+                <p>Vybrané byty, domy, pozemky a komerční prostory k prodeji i pronájmu. Najděte si svůj nový domov nebo investici – s námi i bez stresu.</p>
+            </section>
+
+            <form class="filter-bar" id="filterForm" onsubmit="event.preventDefault(); applyFilters();">
+                <select name="offer_type" id="offerType" aria-label="Typ obchodu">
+                    <option value="">Typ obchodu</option>
+                    <option value="prodej">Prodej</option>
+                    <option value="pronajem">Pronájem</option>
+                </select>
+                <select name="property_type" id="propertyType" aria-label="Typ nemovitosti">
+                    <option value="">Typ nemovitosti</option>
+                    <option value="byt">Byt</option>
+                    <option value="dum">Dům</option>
+                    <option value="pozemek">Pozemek</option>
+                    <option value="komercni">Komerční</option>
+                    <option value="garaz">Garáž</option>
+                </select>
+                <select name="disposition" id="disposition" aria-label="Dispozice">
+                    <option value="">Dispozice</option>
+                    <option value="1+kk">1+kk</option>
+                    <option value="1+1">1+1</option>
+                    <option value="2+kk">2+kk</option>
+                    <option value="2+1">2+1</option>
+                    <option value="3+kk">3+kk</option>
+                    <option value="3+1">3+1</option>
+                    <option value="4+kk">4+kk</option>
+                    <option value="4+1">4+1</option>
+                    <option value="5+kk">5+kk</option>
+                </select>
+                <input type="text" name="city" id="city" placeholder="Město (např. Praha)" aria-label="Město">
+                <input type="number" name="price_max" id="priceMax" placeholder="Max cena (Kč)" min="0" step="100000" aria-label="Maximální cena">
+                <button type="submit"><i class="fas fa-search" aria-hidden="true"></i> Filtrovat</button>
+                <button type="button" class="secondary" onclick="resetFilters()">Resetovat</button>
+            </form>
+
+            <div class="results-info" id="resultsInfo" hidden></div>
+
+            <div class="properties-grid" id="propertiesGrid">
+                <div class="loading">
+                    <i class="fas fa-circle-notch" aria-hidden="true"></i>
+                    <p>Načítám nabídky…</p>
+                </div>
+            </div>
+
+            <div class="pagination" id="pagination"></div>
+
+            <div class="cta-banner">
+                <div>
+                    <h3>Nenašli jste, co hledáte?</h3>
+                    <p>Pošleme vám tip na nemovitost přesně na míru – často ještě před zveřejněním.</p>
+                </div>
+                <a href="/#kontakt" class="btn">Napsat poptávku</a>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/common/common.js" defer></script>
+    <script defer src="script.js"></script>
+    <script defer src="chatbot.js"></script>
+    <script defer src="cookies.js"></script>
+
+    <script>
+        const API = '/api/properties';
+        const FALLBACK_IMAGE = 'logo.png';
+
+        const state = {
+            page: 1,
+            limit: 12,
+            offer_type: '',
+            property_type: '',
+            disposition: '',
+            city: '',
+            price_max: '',
+        };
+
+        (function readUrlState() {
+            const url = new URL(window.location.href);
+            for (const key of Object.keys(state)) {
+                const val = url.searchParams.get(key);
+                if (val) state[key] = (key === 'page' || key === 'limit' || key === 'price_max') ? Number(val) || '' : val;
+            }
+            document.addEventListener('DOMContentLoaded', () => {
+                if (state.offer_type) document.getElementById('offerType').value = state.offer_type;
+                if (state.property_type) document.getElementById('propertyType').value = state.property_type;
+                if (state.disposition) document.getElementById('disposition').value = state.disposition;
+                if (state.city) document.getElementById('city').value = state.city;
+                if (state.price_max) document.getElementById('priceMax').value = state.price_max;
+            });
+        })();
+
+        function syncUrl() {
+            const url = new URL(window.location.href);
+            url.search = '';
+            for (const [k, v] of Object.entries(state)) {
+                if (v != null && v !== '' && !(k === 'page' && v === 1) && !(k === 'limit' && v === 12)) {
+                    url.searchParams.set(k, v);
+                }
+            }
+            window.history.replaceState({}, '', url.toString());
+        }
+
+        function fmtPrice(p, unit) {
+            if (p == null || p === 0) return 'Cena na vyžádání';
+            const formatted = new Intl.NumberFormat('cs-CZ').format(p);
+            const isRent = unit && (unit.includes('month') || unit.includes('měsíc'));
+            return `${formatted} Kč${isRent ? '<span class="unit">/ měsíc</span>' : ''}`;
+        }
+
+        function fmtArea(a) { return a ? `${a} m²` : null; }
+
+        function escapeHtml(str) {
+            if (str == null) return '';
+            return String(str)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+        }
+
+        function getImageUrl(property) {
+            if (property.images && property.images.length > 0) {
+                const main = property.images.find(i => i.is_main) || property.images[0];
+                return main.url_large || main.url || main.url_thumbnail || FALLBACK_IMAGE;
+            }
+            return FALLBACK_IMAGE;
+        }
+
+        function getLocation(p) {
+            const parts = [];
+            if (p.address_district && !p.hide_exact_address) parts.push(p.address_district);
+            if (p.address_city) parts.push(p.address_city);
+            return parts.join(', ') || 'Česká republika';
+        }
+
+        const OFFER_LABELS = { prodej: 'Prodej', pronajem: 'Pronájem' };
+
+        function renderCard(p) {
+            const detailUrl = `/nabidky/${encodeURIComponent(p.slug)}`;
+            const imageUrl = getImageUrl(p);
+            const badges = [];
+            if (p.status === 'reserved' || p.status === 'rezervovano') {
+                badges.push('<span class="property-badge reserved">Rezervováno</span>');
+            } else if (p.badge_exclusive) {
+                badges.push('<span class="property-badge exclusive">Exkluzivně</span>');
+            }
+            if (p.badge_price_drop) badges.push('<span class="property-badge price-drop">Sleva</span>');
+            if (p.badge_tip) badges.push('<span class="property-badge">Tip</span>');
+
+            const meta = [];
+            const area = fmtArea(p.area_usable || p.area_total || p.area_built || p.area_land);
+            if (area) meta.push(`<span><i class="fas fa-ruler-combined" aria-hidden="true"></i>${area}</span>`);
+            if (p.floor != null) meta.push(`<span><i class="fas fa-building" aria-hidden="true"></i>${p.floor}. patro</span>`);
+            if (p.features?.parking) meta.push(`<span><i class="fas fa-car" aria-hidden="true"></i>Parking</span>`);
+            if (p.features?.balcony) meta.push(`<span><i class="fas fa-leaf" aria-hidden="true"></i>Balkón</span>`);
+
+            const offerLabel = OFFER_LABELS[p.offer_type] || '';
+            const title = escapeHtml(p.title || 'Nemovitost');
+
+            return `
+                <a href="${detailUrl}" class="property-card" aria-label="${title}">
+                    <div class="property-image">
+                        ${offerLabel ? `<span class="property-offer-type">${offerLabel}</span>` : ''}
+                        ${badges.length ? `<div class="property-badges">${badges.join('')}</div>` : ''}
+                        <img src="${escapeHtml(imageUrl)}" alt="${title}" loading="lazy" onerror="this.src='${FALLBACK_IMAGE}'">
+                    </div>
+                    <div class="property-content">
+                        ${p.disposition ? `<span class="property-disposition">${escapeHtml(p.disposition)}</span>` : ''}
+                        <h3 class="property-title">${title}</h3>
+                        <p class="property-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i>${escapeHtml(getLocation(p))}</p>
+                        ${meta.length ? `<div class="property-meta">${meta.join('')}</div>` : ''}
+                        <div class="property-footer">
+                            <div class="property-price">${fmtPrice(p.price, p.price_unit)}</div>
+                            <span class="property-cta">Detail <i class="fas fa-arrow-right" aria-hidden="true"></i></span>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+
+        function renderPagination(pagination) {
+            const total = pagination?.total_pages || pagination?.totalPages || Math.ceil((pagination?.total || 0) / state.limit) || 1;
+            const current = pagination?.page || state.page;
+            if (total <= 1) return '';
+
+            let html = '';
+            html += `<button ${current === 1 ? 'disabled' : ''} onclick="goToPage(${current - 1})" aria-label="Předchozí"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>`;
+            const start = Math.max(1, current - 2);
+            const end = Math.min(total, start + 4);
+            if (start > 1) html += `<button onclick="goToPage(1)">1</button>${start > 2 ? '<span style="padding:0 4px;align-self:center;color:var(--q-text-muted)">…</span>' : ''}`;
+            for (let i = start; i <= end; i++) {
+                html += `<button class="${i === current ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+            }
+            if (end < total) html += `${end < total - 1 ? '<span style="padding:0 4px;align-self:center;color:var(--q-text-muted)">…</span>' : ''}<button onclick="goToPage(${total})">${total}</button>`;
+            html += `<button ${current === total ? 'disabled' : ''} onclick="goToPage(${current + 1})" aria-label="Další"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>`;
+            return html;
+        }
+
+        function renderResultsInfo(total) {
+            const info = document.getElementById('resultsInfo');
+            if (total == null) { info.hidden = true; return; }
+            info.hidden = false;
+            info.innerHTML = `<span>Nalezeno <strong>${total}</strong> nabídek</span>`;
+        }
+
+        async function loadProperties() {
+            const grid = document.getElementById('propertiesGrid');
+            const pag = document.getElementById('pagination');
+            const info = document.getElementById('resultsInfo');
+            grid.innerHTML = '<div class="loading"><i class="fas fa-circle-notch" aria-hidden="true"></i><p>Načítám nabídky…</p></div>';
+            info.hidden = true;
+
+            const params = new URLSearchParams();
+            for (const [k, v] of Object.entries(state)) {
+                if (v != null && v !== '') params.set(k, v);
+            }
+
+            try {
+                const res = await fetch(`${API}?${params.toString()}`);
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
+                const json = await res.json();
+                const properties = json.data || [];
+                const pagination = json.pagination || {};
+                const total = pagination.total ?? properties.length;
+
+                renderResultsInfo(total);
+
+                if (properties.length === 0) {
+                    grid.innerHTML = `
+                        <div class="empty">
+                            <i class="far fa-folder-open" aria-hidden="true"></i>
+                            <h3>Žádné nabídky nenalezeny</h3>
+                            <p>Zkuste upravit filtry, nebo si nechte poslat nabídku na míru – často máme tipy ještě před zveřejněním.</p>
+                            <a href="/#kontakt" class="btn">Napsat poptávku</a>
+                        </div>`;
+                    pag.innerHTML = '';
+                    return;
+                }
+
+                grid.innerHTML = properties.map(renderCard).join('');
+                pag.innerHTML = renderPagination(pagination);
+                syncUrl();
+            } catch (err) {
+                console.error('Failed to load properties:', err);
+                grid.innerHTML = `
+                    <div class="error">
+                        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+                        <h3>Nepodařilo se načíst nabídky</h3>
+                        <p>Backend není momentálně dostupný. Zkuste prosím obnovit stránku za chvíli nebo nás kontaktujte přímo.</p>
+                        <a href="tel:+420736483169" class="btn">Zavolat: +420 736 483 169</a>
+                    </div>`;
+                pag.innerHTML = '';
+                info.hidden = true;
+            }
+        }
+
+        function applyFilters() {
+            state.offer_type = document.getElementById('offerType').value;
+            state.property_type = document.getElementById('propertyType').value;
+            state.disposition = document.getElementById('disposition').value;
+            state.city = document.getElementById('city').value.trim();
+            state.price_max = document.getElementById('priceMax').value;
+            state.page = 1;
+            loadProperties();
+        }
+
+        function resetFilters() {
+            document.getElementById('filterForm').reset();
+            Object.assign(state, { page: 1, offer_type: '', property_type: '', disposition: '', city: '', price_max: '' });
+            loadProperties();
+        }
+
+        function goToPage(p) {
+            state.page = p;
+            loadProperties();
+            window.scrollTo({ top: document.querySelector('.filter-bar').offsetTop - 100, behavior: 'smooth' });
+        }
+
+        loadProperties();
+    </script>
+</body>
+</html>

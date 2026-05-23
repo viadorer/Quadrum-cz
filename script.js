@@ -1,15 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize hero slider
     initHeroSlider();
-    
-    // Initialize mobile menu toggle
     initMobileMenu();
+    initNavScroll();
+    initDynamicYear();
 });
 
 function initHeroSlider() {
     const sliderContainer = document.querySelector('.hero-slider');
-    
-    // Images for the slider
+    if (!sliderContainer) return;
+
     const images = [
         'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero1.jpg',
         'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero2.jpg',
@@ -19,191 +18,207 @@ function initHeroSlider() {
         'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero6.jpg',
         'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero7.jpg'
     ];
-    
-    // Clear any existing content
+
     sliderContainer.innerHTML = '';
-    
-    // Preload status tracking
+
     const preloadStatus = new Array(images.length).fill(false);
-    preloadStatus[0] = true; // První obrázek načteme okamžitě
-    
-    // Vytvořit placeholdery pro všechny obrázky
+    preloadStatus[0] = true;
+
     for (let i = 0; i < images.length; i++) {
         const imgContainer = document.createElement('div');
         imgContainer.className = 'slider-image-container';
         imgContainer.dataset.index = i;
-        
-        // Pouze první obrázek načteme okamžitě, ostatní až budou potřeba
+
         if (i === 0) {
             const img = document.createElement('img');
             img.src = images[i];
-            img.alt = 'Quadrum services image ' + (i + 1);
+            img.alt = '';
+            img.setAttribute('aria-hidden', 'true');
+            img.fetchPriority = 'high';
             img.className = 'active';
             imgContainer.appendChild(img);
+            imgContainer.classList.add('active');
         } else {
-            // Pro ostatní obrázky vytvoříme prázdný div
             imgContainer.classList.add('placeholder');
         }
-        
+
         sliderContainer.appendChild(imgContainer);
     }
-    
-    // Funkce pro načtení dalšího obrázku
+
     function preloadNextImage(index) {
         if (index >= images.length || preloadStatus[index]) return;
-        
+
         const container = sliderContainer.querySelector(`[data-index="${index}"]`);
         if (!container) return;
-        
-        // Vytvoření a načtení obrázku
+
         const img = document.createElement('img');
         img.src = images[index];
-        img.alt = 'Quadrum services image ' + (index + 1);
-        img.style.opacity = '0'; // Začínáme s neviditelným obrázkem
-        
-        // Po načtení obrázku odstraníme placeholder
+        img.alt = '';
+        img.setAttribute('aria-hidden', 'true');
+        img.loading = 'lazy';
+        img.style.opacity = '0';
+
         img.onload = function() {
             container.classList.remove('placeholder');
             img.style.opacity = '1';
             preloadStatus[index] = true;
-            
-            // Načítáme další obrázek v pořadí (předvídáme)
+
             setTimeout(() => {
                 preloadNextImage((index + 1) % images.length);
             }, 1000);
         };
-        
+
         container.appendChild(img);
     }
-    
-    // Načteme druhý obrázek s mírným zpožděním po načtení stránky
+
     setTimeout(() => {
         preloadNextImage(1);
     }, 1000);
-    
-    // Set up automatic image rotation
+
     let currentImage = 0;
-    
-    setInterval(() => {
+    let intervalId = null;
+
+    function rotate() {
         const containers = sliderContainer.querySelectorAll('.slider-image-container');
-        
-        // Skryjeme aktuální obrázek
+
         containers[currentImage].classList.remove('active');
-        if (containers[currentImage].querySelector('img')) {
-            containers[currentImage].querySelector('img').classList.remove('active');
-        }
-        
-        // Přejdeme na další obrázek
+        const currImg = containers[currentImage].querySelector('img');
+        if (currImg) currImg.classList.remove('active');
+
         currentImage = (currentImage + 1) % containers.length;
-        
-        // Zobrazíme nový obrázek (a pokud ještě není načtený, načteme ho)
+
         if (!preloadStatus[currentImage]) {
             preloadNextImage(currentImage);
         }
-        
+
         containers[currentImage].classList.add('active');
-        if (containers[currentImage].querySelector('img')) {
-            containers[currentImage].querySelector('img').classList.add('active');
+        const nextImg = containers[currentImage].querySelector('img');
+        if (nextImg) nextImg.classList.add('active');
+
+        const nextIndex = (currentImage + 1) % containers.length;
+        if (!preloadStatus[nextIndex]) {
+            preloadNextImage(nextIndex);
         }
-        
-        // Předem načteme další obrázek v pořadí
-        const nextImage = (currentImage + 1) % containers.length;
-        if (!preloadStatus[nextImage]) {
-            preloadNextImage(nextImage);
-        }
-    }, 5000); // Change image every 5 seconds
+    }
+
+    function start() {
+        if (intervalId) return;
+        intervalId = setInterval(rotate, 5000);
+    }
+
+    function stop() {
+        if (!intervalId) return;
+        clearInterval(intervalId);
+        intervalId = null;
+    }
+
+    start();
+
+    // Šetříme baterii: pauza, když je tab v pozadí.
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') stop();
+        else start();
+    });
 }
 
 function initMobileMenu() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     const ctaButton = document.querySelector('.cta-button');
-    
-    hamburger.addEventListener('click', () => {
-        // Create a mobile menu if it doesn't exist
-        if (!document.querySelector('.mobile-menu')) {
-            const mobileMenu = document.createElement('div');
-            mobileMenu.className = 'mobile-menu';
-            
-            // Clone the navigation links and CTA button for mobile
-            const navClone = navLinks.cloneNode(true);
+    if (!hamburger || !navLinks) return;
+
+    let mobileMenu = null;
+
+    function buildMenu() {
+        if (mobileMenu) return mobileMenu;
+
+        mobileMenu = document.createElement('div');
+        mobileMenu.className = 'mobile-menu';
+        mobileMenu.setAttribute('role', 'dialog');
+        mobileMenu.setAttribute('aria-modal', 'true');
+        mobileMenu.setAttribute('aria-label', 'Hlavní menu');
+
+        const navClone = navLinks.cloneNode(true);
+        mobileMenu.appendChild(navClone);
+
+        if (ctaButton) {
             const ctaClone = ctaButton.cloneNode(true);
-            
-            mobileMenu.appendChild(navClone);
             mobileMenu.appendChild(ctaClone);
-            
-            // Add close button
-            const closeBtn = document.createElement('div');
-            closeBtn.className = 'close-menu';
-            closeBtn.innerHTML = '&times;';
-            mobileMenu.appendChild(closeBtn);
-            
-            // Add mobile menu to the body
-            document.body.appendChild(mobileMenu);
-            
-            // Add styling for mobile menu
-            const style = document.createElement('style');
-            style.textContent = `
-                .mobile-menu {
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100vh;
-                    background-color: white;
-                    z-index: 1001;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    transform: translateY(-100%);
-                    transition: transform 0.3s ease;
-                }
-                
-                .mobile-menu.active {
-                    transform: translateY(0);
-                }
-                
-                .mobile-menu .nav-links {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 20px;
-                    margin-bottom: 30px;
-                }
-                
-                .mobile-menu .nav-links li a {
-                    font-size: 1.5rem;
-                }
-                
-                .close-menu {
-                    position: absolute;
-                    top: 20px;
-                    right: 20px;
-                    font-size: 2rem;
-                    cursor: pointer;
-                }
-            `;
-            
-            document.head.appendChild(style);
-            
-            // Set up close button functionality
-            closeBtn.addEventListener('click', () => {
-                document.querySelector('.mobile-menu').classList.remove('active');
-            });
         }
-        
-        // Toggle mobile menu visibility
-        document.querySelector('.mobile-menu').classList.add('active');
+
+        const closeBtn = document.createElement('button');
+        closeBtn.type = 'button';
+        closeBtn.className = 'close-menu';
+        closeBtn.setAttribute('aria-label', 'Zavřít menu');
+        closeBtn.innerHTML = '&times;';
+        mobileMenu.appendChild(closeBtn);
+
+        document.body.appendChild(mobileMenu);
+
+        // Zavřít po kliknutí na jakýkoli odkaz v menu (UX bug fix).
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        closeBtn.addEventListener('click', closeMenu);
+
+        if (!document.getElementById('mobile-menu-style')) {
+            const style = document.createElement('style');
+            style.id = 'mobile-menu-style';
+            style.textContent = `
+                .mobile-menu { position: fixed; inset: 0; background: #fff; z-index: 1001; display: flex; flex-direction: column; justify-content: center; align-items: center; transform: translateY(-100%); transition: transform 0.3s ease; }
+                .mobile-menu.active { transform: translateY(0); }
+                .mobile-menu .nav-links { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 30px; }
+                .mobile-menu .nav-links li a { font-size: 1.5rem; }
+                .close-menu { position: absolute; top: 20px; right: 20px; font-size: 2rem; background: none; border: none; cursor: pointer; padding: 0.4rem 0.8rem; }
+            `;
+            document.head.appendChild(style);
+        }
+
+        return mobileMenu;
+    }
+
+    function openMenu() {
+        const m = buildMenu();
+        m.classList.add('active');
+        hamburger.setAttribute('aria-expanded', 'true');
+    }
+
+    function closeMenu() {
+        if (mobileMenu) mobileMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+    }
+
+    hamburger.setAttribute('role', 'button');
+    hamburger.setAttribute('tabindex', '0');
+    hamburger.setAttribute('aria-label', 'Otevřít menu');
+    hamburger.setAttribute('aria-expanded', 'false');
+
+    hamburger.addEventListener('click', openMenu);
+    hamburger.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openMenu();
+        }
     });
 }
 
-// Add scroll event to change navigation style on scroll
-window.addEventListener('scroll', function() {
+function initNavScroll() {
     const nav = document.querySelector('.floating-nav');
-    if (window.scrollY > 50) {
-        nav.style.padding = '10px 25px';
-    } else {
-        nav.style.padding = '15px 30px';
-    }
-});
+    if (!nav) return;
+
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(() => {
+            nav.style.padding = window.scrollY > 50 ? '10px 25px' : '15px 30px';
+            ticking = false;
+        });
+    }, { passive: true });
+}
+
+function initDynamicYear() {
+    const el = document.getElementById('current-year');
+    if (el) el.textContent = new Date().getFullYear();
+}
