@@ -3,7 +3,7 @@
 // Statické URL (homepage, blog, nabídky, landing pages) jsou hardcoded.
 // Routing: vercel.json rewrite /sitemap.xml → /api/sitemap.xml
 
-const BACKEND = process.env.PTF_BACKEND_URL || 'https://ptf-reality-production.up.railway.app';
+const BACKEND = process.env.PTF_BACKEND_URL || 'https://ptf-production.up.railway.app';
 const TENANT  = process.env.PTF_TENANT_SLUG || 'quadrum';
 const SITE    = 'https://www.quadrum.cz';
 

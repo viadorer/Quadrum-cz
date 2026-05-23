@@ -363,7 +363,7 @@
         function updateMeta(p) {
             const title = `${p.title} | Quadrum`;
             const main = pickMainImage(p.images);
-            const image = main?.url_large || main?.url || `https://www.quadrum.cz/images/og-image.png`;
+            const image = main?.url_large || main?.url || `https://www.quadrum.cz/images/og-image.jpg`;
             const description = p.description_short || p.meta_description ||
                 `${PROPERTY_TYPE_LABELS[p.property_type] || ''} ${p.disposition || ''} – ${getLocation(p)}. ${fmtPrice(p.price, p.price_unit).replace(/<[^>]+>/g, '')}.`.trim();
             const url = `https://www.quadrum.cz/nabidky/${p.slug}`;

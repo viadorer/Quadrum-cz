@@ -1,9 +1,9 @@
 // Vercel serverless function — proxy na PTF backend pro výpis nemovitostí (tenant: quadrum)
 // ENV (Vercel):
-//   PTF_BACKEND_URL  = https://ptf-reality-production.up.railway.app
+//   PTF_BACKEND_URL  = https://ptf-production.up.railway.app
 //   PTF_TENANT_SLUG  = quadrum
 
-const BACKEND = process.env.PTF_BACKEND_URL || 'https://ptf-reality-production.up.railway.app';
+const BACKEND = process.env.PTF_BACKEND_URL || 'https://ptf-production.up.railway.app';
 const TENANT  = process.env.PTF_TENANT_SLUG || 'quadrum';
 
 const ALLOWED_ORIGINS = [

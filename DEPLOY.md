@@ -62,7 +62,7 @@ V Vercel Dashboard → `quadrum-cz` → **Settings → Environment Variables**:
 
 | Klíč | Hodnota | Použití |
 |---|---|---|
-| `PTF_BACKEND_URL` | `https://ptf-reality-production.up.railway.app` | API `/api/properties`, `/api/property` |
+| `PTF_BACKEND_URL` | `https://ptf-production.up.railway.app` | API `/api/properties`, `/api/property` |
 | `PTF_TENANT_SLUG` | `quadrum` | Filtruje nabídky jen pro Quadrum tenant |
 | `REALVISOR_API_KEY` | *(rotovaný klíč)* | Kontaktní formulář `/api/contact` |
 
@@ -226,7 +226,7 @@ Ignored Build Step: žádný (statický web, žádný build krok)
    - **502** → PTF backend padá nebo není dostupný (`PTF_BACKEND_URL`)
    - **500** → ENV var chybí
 2. Zkontroluj Vercel logs: `vercel logs <deployment-url>`
-3. Test přímo PTF: `curl -H "X-Tenant-Slug: quadrum" https://ptf-reality-production.up.railway.app/api/properties?limit=5`
+3. Test přímo PTF: `curl -H "X-Tenant-Slug: quadrum" https://ptf-production.up.railway.app/api/properties?limit=5`
 
 ### Kontaktní formulář vrací 500
 

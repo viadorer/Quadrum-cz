@@ -9,14 +9,16 @@ function initHeroSlider() {
     const sliderContainer = document.querySelector('.hero-slider');
     if (!sliderContainer) return;
 
+    // Hero slider – reálné fotky z Unsplash (architektura, lifestyle, bydlení).
+    // Free, royalty-free, žádné AI generování. Náhrada za AI hero1-7.jpg z R2.
     const images = [
-        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero1.jpg',
-        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero2.jpg',
-        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero3.jpg',
-        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero4.jpg',
-        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero5.jpg',
-        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero6.jpg',
-        'https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero7.jpg'
+        'https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1920&q=75',
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1920&q=75',
+        'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1920&q=75',
+        'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1920&q=75',
+        'https://images.unsplash.com/photo-1480074568708-e7b720bb3f09?auto=format&fit=crop&w=1920&q=75',
+        'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=1920&q=75',
+        'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1920&q=75'
     ];
 
     sliderContainer.innerHTML = '';

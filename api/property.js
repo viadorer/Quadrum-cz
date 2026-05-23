@@ -1,7 +1,7 @@
 // Vercel serverless function — detail nemovitosti (tenant: quadrum).
 // GET /api/property?slug=<slug>
 
-const BACKEND = process.env.PTF_BACKEND_URL || 'https://ptf-reality-production.up.railway.app';
+const BACKEND = process.env.PTF_BACKEND_URL || 'https://ptf-production.up.railway.app';
 const TENANT  = process.env.PTF_TENANT_SLUG || 'quadrum';
 
 const ALLOWED_ORIGINS = [
