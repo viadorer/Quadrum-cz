@@ -1955,7 +1955,9 @@ html {
    CLS prevence – rezervace prostoru pro obrázky než se načtou
    ============================================================ */
 .service-image img { aspect-ratio: 3 / 2; width: 100%; height: auto; }
-.moment-image img { aspect-ratio: 4 / 3; width: 100%; height: auto; }
+/* .moment-image je čtvercový kontejner 1:1 s border-radius:50%, takže obrázek
+   musí vyplnit celý čtverec (žádný aspect-ratio override). */
+.moment-image img { width: 100%; height: 100%; object-fit: cover; }
 .cta-image .cta-img { aspect-ratio: 16 / 9; width: 100%; height: auto; }
 .contact-person-image .contact-image { aspect-ratio: 1 / 1; width: 100%; height: auto; }
 .footer-logo img { aspect-ratio: 1 / 1; width: 80px; height: 80px; }
