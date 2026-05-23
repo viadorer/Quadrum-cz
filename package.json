@@ -10,6 +10,8 @@
     "migrate:r2": "node scripts/migrate-to-r2.js",
     "update:paths": "node scripts/update-media-paths.js",
     "fix:urls": "node scripts/fix-duplicate-urls.js",
+    "optimize:images": "node scripts/optimize-images.js",
+    "optimize:images:skip": "node scripts/optimize-images.js --skip-existing",
     "dev": "vercel dev",
     "deploy:preview": "vercel",
     "deploy:prod": "vercel --prod"
@@ -17,6 +19,7 @@
   "devDependencies": {
     "@aws-sdk/client-s3": "^3.490.0",
     "dotenv": "^16.3.1",
-    "mime-types": "^2.1.35"
+    "mime-types": "^2.1.35",
+    "sharp": "^0.33.0"
   }
 }

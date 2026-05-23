@@ -11,8 +11,10 @@
     <meta name="author" content="Quadrum s.r.o.">
     <meta name="robots" content="index, follow">
     
-    <!-- Kanonický odkaz -->
+    <!-- Kanonický odkaz + hreflang -->
     <link rel="canonical" href="https://www.quadrum.cz/">
+    <link rel="alternate" hreflang="cs-CZ" href="https://www.quadrum.cz/">
+    <link rel="alternate" hreflang="x-default" href="https://www.quadrum.cz/">
     
     <!-- Favicony a ikony -->
     <link rel="icon" type="image/png" href="favicon.png">
@@ -46,8 +48,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
     
     
     <!-- Google Consent Mode v2 – default DENIED dokud uživatel neudělí souhlas -->
@@ -196,6 +198,64 @@
       ]
     }
     </script>
+
+    <!-- FAQPage schema – rich snippets pro Google a AI search -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Kolik stojí finanční a realitní poradenství u Quadrum?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Úvodní konzultace je u Quadrum vždy zdarma a nezávazná. Provize z hypoték, pojištění a investic platí finanční instituce, nikoliv klient. U realitních služeb se cena dohaduje individuálně podle rozsahu spolupráce."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jakou hypotéku mi Quadrum dokáže vyjednat?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porovnáme nabídky všech velkých českých bank (ČSOB, Komerční banka, Česká spořitelna, UniCredit, Raiffeisenbank, mBank, Air Bank, Moneta a další) a vyjednáme podmínky výhodnější, než byste získali sami. Pro klienta jsme často ušetřili 0,5–1 % na úroku, což u 30leté hypotéky znamená stovky tisíc korun."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Pomůže mi Quadrum i s pojištěním nemovitosti a životním pojištěním?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ano. Quadrum poskytuje komplexní pojišťovací poradenství – pojištění majetku (dům, byt, vybavení), životní pojištění, úrazové, cestovní i pojištění odpovědnosti. Porovnáme nabídky pojišťoven a vybereme to nejvýhodnější pro vás."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kde Quadrum působí?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Quadrum má kanceláře v Praze (Pod turnovskou tratí 182/18, Hloubětín) a v Plzni (Dřevěná 99/3). Působíme po celé České republice, schůzku lze domluvit osobně, telefonicky i online."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jak rychle se mi Quadrum ozve, když pošlu poptávku?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Standardně se ozýváme do 24 hodin v pracovní dny. U akutních záležitostí (např. končící fixace, výhodná nemovitost) vás kontaktujeme obvykle ještě týž den. Pokud potřebujete rychle, zavolejte přímo na +420 736 483 169."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Jaké nemovitosti Quadrum aktuálně nabízí?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Aktuální nabídka bytů, domů, pozemků a komerčních prostor je dostupná na stránce https://www.quadrum.cz/nabidky. Specializujeme se na Prahu, Plzeň a Plzeňský kraj."
+          }
+        }
+      ]
+    }
+    </script>
     <a href="#main" class="skip-link">Přeskočit na hlavní obsah</a>
     <div id="navbar-placeholder"></div>
 
@@ -240,7 +300,7 @@
                     <!-- Hypotéky & úvěry -->
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="images/umime/1.png" alt="Hypotéky & úvěry" loading="lazy">
+                            <img src="images/umime/1.png" alt="Hypotéky & úvěry" width="600" height="400" loading="lazy">
                         </div>
                         <div class="service-content">
                             <h3>Hypotéky & úvěry</h3>
@@ -252,7 +312,7 @@
                     <!-- Pojištění -->
                     <div class="service-card">
                         <div class="service-image">
-                            <img src="images/umime/3.png" alt="Pojištění" loading="lazy">
+                            <img src="images/umime/3.png" alt="Pojištění" width="600" height="400" loading="lazy">
                         </div>
                         <div class="service-content">
                             <h3>Pojištění</h3>

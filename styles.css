@@ -1946,3 +1946,12 @@ html {
     .properties-preview-head { flex-direction: column; align-items: flex-start; }
     .properties-preview-grid { grid-template-columns: 1fr; gap: 20px; }
 }
+
+/* ============================================================
+   CLS prevence – rezervace prostoru pro obrázky než se načtou
+   ============================================================ */
+.service-image img { aspect-ratio: 3 / 2; width: 100%; height: auto; }
+.moment-image img { aspect-ratio: 4 / 3; width: 100%; height: auto; }
+.cta-image .cta-img { aspect-ratio: 16 / 9; width: 100%; height: auto; }
+.contact-person-image .contact-image { aspect-ratio: 1 / 1; width: 100%; height: auto; }
+.footer-logo img { aspect-ratio: 1 / 1; width: 80px; height: 80px; }
