@@ -1292,11 +1292,25 @@ footer {
 
 .footer-content {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1.3fr 1fr 1.2fr 1.2fr;
     gap: 40px;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 40px;
+}
+
+@media (max-width: 1024px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
 }
 
 .footer-brand {
@@ -1348,20 +1362,28 @@ footer {
     transform: translateY(-3px);
 }
 
-.footer-locations h3, .footer-contact h3 {
-    font-size: 1.3rem;
-    margin-bottom: 25px;
+.footer-locations h3,
+.footer-contact h3,
+.footer-col h3,
+.footer-partners h3 {
+    font-size: 1.05rem;
+    margin-bottom: 16px;
     position: relative;
-    padding-bottom: 15px;
+    padding-bottom: 10px;
+    color: #fff;
+    font-weight: 600;
 }
 
-.footer-locations h3::after, .footer-contact h3::after {
+.footer-locations h3::after,
+.footer-contact h3::after,
+.footer-col h3::after,
+.footer-partners h3::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: 0;
-    width: 40px;
-    height: 3px;
+    width: 32px;
+    height: 2px;
     background-color: #e73627;
 }
 
@@ -1433,27 +1455,81 @@ address {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 30px;
-}
-
-.footer-nav {
-    display: flex;
     gap: 20px;
+    padding-top: 24px;
+    flex-wrap: wrap;
 }
 
-.footer-nav a {
-    color: #bbb;
+.footer-legal-links {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.footer-legal-links a {
+    color: #888;
+    font-size: 0.875rem;
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
-.footer-nav a:hover {
+.footer-legal-links a:hover {
     color: #fff;
 }
 
 .copyright {
-    color: #777;
+    color: #888;
+    font-size: 0.875rem;
     margin: 0;
+}
+
+/* Sloupec navigace */
+.footer-col h3 { margin-top: 0; }
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #e73627;
+}
+
+/* Firma – IČO/DIČ blok ve sloupci partneři */
+.footer-company {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    font-size: 0.8rem;
+    color: #888;
+    line-height: 1.7;
+}
+
+.footer-company strong {
+    color: #ddd;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+    .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+    .footer-legal-links { gap: 16px; }
 }
 
 /* Legal disclaimer styling */
