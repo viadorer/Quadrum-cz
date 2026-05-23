@@ -153,34 +153,42 @@
         .agent-info strong { display: block; font-size: 1rem; }
         .agent-info span { font-size: 0.8rem; color: rgba(255,255,255,0.7); }
 
-        .contact-form { display: flex; flex-direction: column; gap: 10px; }
-        .contact-form input, .contact-form textarea {
+        /* Kontaktní formulář v detailu má vyšší specificitu (.contact-card .contact-form),
+           aby přebil cokoliv globálního ze styles.css a zachoval dark theme uvnitř černé karty. */
+        .contact-card .contact-form {
+            display: flex; flex-direction: column; gap: 10px;
+            background: transparent; padding: 0; box-shadow: none; border-radius: 0;
+        }
+        .contact-card .contact-form input,
+        .contact-card .contact-form textarea {
             width: 100%; padding: 12px 14px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.2);
             border-radius: 8px; color: #fff;
             font-family: inherit; font-size: 0.95rem;
             transition: all 0.2s;
         }
-        .contact-form input:focus, .contact-form textarea:focus {
+        .contact-card .contact-form input:focus,
+        .contact-card .contact-form textarea:focus {
             outline: none; border-color: var(--q-red);
-            background: rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.12);
         }
-        .contact-form input::placeholder, .contact-form textarea::placeholder { color: rgba(255,255,255,0.45); }
-        .contact-form textarea { resize: vertical; min-height: 90px; }
-        .contact-form button {
+        .contact-card .contact-form input::placeholder,
+        .contact-card .contact-form textarea::placeholder { color: rgba(255,255,255,0.55); }
+        .contact-card .contact-form textarea { resize: vertical; min-height: 90px; }
+        .contact-card .contact-form button[type="submit"] {
             padding: 14px; background: var(--q-red); color: #fff;
             border: none; border-radius: 8px;
             font-weight: 700; font-size: 0.95rem;
             cursor: pointer; font-family: inherit;
             transition: all 0.2s; margin-top: 6px;
         }
-        .contact-form button:hover { background: var(--q-red-dark); }
-        .contact-form button:disabled { opacity: 0.5; cursor: not-allowed; }
+        .contact-card .contact-form button[type="submit"]:hover { background: var(--q-red-dark); }
+        .contact-card .contact-form button[type="submit"]:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        .form-msg { padding: 10px 12px; border-radius: 6px; font-size: 0.85rem; text-align: center; display: none; }
-        .form-msg.success { background: rgba(34,197,94,0.15); color: #4ADE80; display: block; }
-        .form-msg.error { background: rgba(239,68,68,0.15); color: #FCA5A5; display: block; }
+        .contact-card .form-msg { padding: 10px 12px; border-radius: 6px; font-size: 0.85rem; text-align: center; display: none; }
+        .contact-card .form-msg.success { background: rgba(34,197,94,0.18); color: #4ADE80; display: block; }
+        .contact-card .form-msg.error { background: rgba(239,68,68,0.18); color: #FCA5A5; display: block; }
 
         .quick-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
         .quick-action {
