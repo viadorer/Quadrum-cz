@@ -5,8 +5,9 @@
 ## Klíčové informace
 
 - **Firma**: QUADRUM s.r.o., IČO 09611495, spis. zn. C 39895 (Krajský soud v Plzni)
-- **Sídlo**: Dřevěná 99/3, Vnitřní Město, 301 00 Plzeň
-- **Pobočka**: Pod turnovskou tratí 182/18, 198 00 Praha - Hloubětín
+- **Kancelář Plzeň**: Radyňská 463/33, 326 00 Plzeň 2-Slovany
+- **Kancelář Praha**: Pod turnovskou tratí 182/18, 198 00 Praha - Hloubětín
+- **Sídlo dle OR**: Dřevěná 99/3, 301 00 Plzeň (jen registrované sídlo, klienti chodí na Radyňskou)
 - **Telefon**: +420 736 483 169
 - **E-mail**: info@quadrum.cz
 - **Web**: https://www.quadrum.cz
