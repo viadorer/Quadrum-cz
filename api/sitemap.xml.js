@@ -17,23 +17,20 @@ const STATIC_URLS = [
   { loc: '/osobni-udaje.html',           priority: '0.3',  changefreq: 'yearly' },
 ];
 
-const BLOG_POSTS = [
-  '10-otazek-ktere-byste-meli-polozit-svemu-hypotecnimu-poradci',
-  '10-strategii-uspesny-pronajem-nemovitosti',
-  'dum-nebo-byt-co-je-lepsi-investice',
-  'home-staging-jak-pripravit-nemovitost-na-prodej',
-  'hypotecni-slovnicek-pro-laiky',
-  'hypoteka-versus-najem-kdy-se-vyplati-koupit-a-kdy-zustat-v-pronajmu',
-  'jak-prodat-dum-nejlepsi-cena-kompletni-strategie',
-  'kdy-dava-smysl-hypoteka',
-  'klic-k-uspechu-prodeje-presny-odhad-trzni-ceny-nemovitosti',
-  'nejlepsi-pomer-cena-vykon-jak-drobne-upravy-zvysuji-hodnotu-nemovitosti',
-  'nez-zacnete-rekonstruovat-proc-nikdy-nedelat-upravy-pred-prodejem-bez-konzultace',
-  'proc-je-premrstena-cena-vasi-nemovitosti-cesta-do-pekel',
-  'proc-stav-nemovitosti-hraje-klicovou-roli-v-jeji-cene',
-  'prodej-za-premiovou-cenu-mytus-nebo-realita',
-  'spravne-oceneni-nemovitosti',
-];
+// Blogové adresy se čtou z PTF — statický seznam by se rozešel
+// s obsahem hned při prvním novém článku v administraci.
+async function fetchBlogPosts() {
+  try {
+    // Blog žije pod tenantem ptf-reality (spravuje se v PTF administraci),
+    // NEZÁVISLE na tenantu nabídek tohoto webu — proto natvrdo, ne TENANT.
+    const res = await fetch(`${BACKEND}/api/blog?web=quadrum&limit=50`, {
+      headers: { 'X-Tenant-Slug': 'ptf-reality', Accept: 'application/json' },
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+    return data.data || [];
+  } catch { return []; }
+}
 
 function xmlEscape(s) {
   return String(s || '')
@@ -82,10 +79,10 @@ export default async function handler(req, res) {
     urls.push(urlBlock({ ...u, lastmod: today }));
   }
 
-  for (const slug of BLOG_POSTS) {
+  for (const p of await fetchBlogPosts()) {
     urls.push(urlBlock({
-      loc: `/blog/posts/${slug}.html`,
-      lastmod: '2025-07-12',
+      loc: `/blog/detail.html?id=${p.slug}`,
+      lastmod: (p.publishedAt || '').slice(0, 10) || today,
       changefreq: 'monthly',
       priority: '0.7',
     }));

@@ -391,7 +391,7 @@
             const blogGrid = document.getElementById('blog-grid');
 
             try {
-                const response = await fetch('./posts.json');
+                const response = await fetch('/api/blog');  /* clanky ziji v PTF; proxy drzi tvar puvodniho posts.json */
                 if (!response.ok) {
                     throw new Error('Nepodařilo se načíst data');
                 }

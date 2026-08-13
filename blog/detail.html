@@ -503,7 +503,7 @@
                     
                     try {
                         // Load posts data
-                        const response = await fetch('./posts.json');
+                        const response = await fetch('/api/blog');  /* stejny tvar jako drivejsi posts.json */
                         const data = await response.json();
                         const posts = data.posts || [];
                         
@@ -518,15 +518,21 @@
                         
                         // Load post content
                         try {
-                            const contentResponse = await fetch(`./posts/${postId}.html`);
+                            // Obsah přijde z PTF jako hotové HTML — úvodní
+                            // obrázek už v něm není (nese ho featured image).
+                            const contentResponse = await fetch(`/api/blog-post?slug=${encodeURIComponent(postId)}`);
                             if (contentResponse.ok) {
-                                this.postContent = await contentResponse.text();
-                                // Remove the first inline image if a featured image is provided to avoid duplication
-                                if (this.post?.image) {
-                                    this.postContent = this.postContent.replace(/<img[^>]*>/i, '');
+                                const detail = await contentResponse.json();
+                                this.postContent = detail.content || '';
+                                // Canonical z PTF — sdílené články (křížené
+                                // z davidchoc.cz) odkazují na svůj originál.
+                                if (detail.canonicalUrl) {
+                                    let canon = document.querySelector('link[rel="canonical"]');
+                                    if (!canon) { canon = document.createElement('link'); canon.setAttribute('rel','canonical'); document.head.appendChild(canon); }
+                                    canon.setAttribute('href', detail.canonicalUrl);
                                 }
                             } else {
-                                this.postContent = '&lt;p&gt;Obsah článku se nepodařilo načíst.&lt;/p&gt;';
+                                this.postContent = '<p>Obsah článku se nepodařilo načíst.</p>';
                             }
                         } catch (contentError) {
                             console.error('Chyba při načítání obsahu:', contentError);
