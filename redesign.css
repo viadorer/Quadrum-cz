@@ -128,16 +128,20 @@ h2 .si{color:var(--accent)}
 .slide .im.g-rodina{background-image:url('images/moments/rodina.jpg')}
 .slide .im.g-dum{background-image:url('images/moments/dum.png')}
 .slide .im.g-roky{background-image:url('images/moments/roky.jpg')}
-.slide .im.g-cesta{background-image:url('images/moments/cesta.jpg')}
+.slide .im.g-cesta{background-image:url('images/moments/film.jpg')}
 .slide .glass{position:absolute; left:14px; right:14px; bottom:14px; background:rgba(14,44,48,.44); backdrop-filter:blur(12px) saturate(140%); -webkit-backdrop-filter:blur(12px) saturate(140%); border:1px solid rgba(245,239,228,.22); border-radius:14px; padding:15px 20px; color:#fff}
 .slide .glass .svc{font-size:.6rem; font-weight:800; letter-spacing:.22em; text-transform:uppercase; color:#FFB4A4; margin-bottom:4px}
 .slide .glass .cap{font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(19px,2.3vw,26px); line-height:1.2}
 .slide .glass .tx{font-size:.8rem; opacity:.85; margin-top:5px; max-width:46ch}
 
-/* ============ FILM ============ */
-.film{position:relative; min-height:64vh; display:flex; align-items:center; justify-content:center; overflow:hidden; background:var(--petrol); text-align:center}
-.film .bg{position:absolute; inset:-4%; background-image:url('images/moments/film.jpg'); background-size:cover; background-position:center 55%}
-.film .scrim{position:absolute; inset:0; background:radial-gradient(85% 85% at 50% 60%, rgba(8,22,24,.6), rgba(8,22,24,.25) 75%)}
+/* ============ FILM — petrolejový duotone, fotka jako textura ============ */
+.film{position:relative; min-height:58vh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:18px; overflow:hidden; background:var(--petrol); text-align:center; padding:clamp(70px,10vw,110px) 24px}
+.film .bg{position:absolute; inset:-4%; background-image:url('images/moments/cesta.jpg'); background-size:cover; background-position:center 62%; filter:grayscale(.65) contrast(1.02); opacity:.38; mix-blend-mode:luminosity}
+.film video{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:grayscale(.3) sepia(.08) contrast(1.02); opacity:.55}
+.film .scrim{position:absolute; inset:0; background:
+  radial-gradient(70% 90% at 72% 12%, rgba(231,54,39,.12), transparent 60%),
+  radial-gradient(85% 85% at 50% 60%, rgba(8,22,24,.55), rgba(8,22,24,.2) 78%)}
+.film cite{position:relative; z-index:2; font-style:normal; font-size:.66rem; font-weight:800; letter-spacing:.22em; text-transform:uppercase; color:var(--petrol-mut)}
 .grainy{position:absolute; inset:0; opacity:.06; pointer-events:none;
   background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/></filter><rect width="160" height="160" filter="url(%23n)" opacity="0.7"/></svg>')}
 .film q{position:relative; z-index:2; display:block; font-family:'Instrument Serif',serif; font-style:italic; font-size:clamp(28px,4.4vw,54px); line-height:1.2; color:#fff; margin:0; padding:0 24px; max-width:22ch; quotes:"„" "“"}

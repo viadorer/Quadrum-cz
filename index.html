@@ -332,8 +332,13 @@
 
     <!-- ============ FILM ============ -->
     <div class="film">
-      <div class="bg kbz"></div><div class="scrim"></div><div class="grainy"></div>
+      <div class="bg"></div>
+      <video id="filmvid" autoplay muted loop playsinline preload="metadata" poster="images/moments/film.jpg" aria-hidden="true">
+        <source src="images/moments/jizda.mp4" type="video/mp4">
+      </video>
+      <div class="scrim"></div><div class="grainy"></div>
       <q class="rv">Kdybych věděl, jak málo s tím budu mít práce, řeším finance o deset let dřív.</q>
+      <cite class="rv d1">Nejčastější věta z prvních schůzek</cite>
     </div>
 
     <!-- ============ KVÍZ ============ -->
@@ -594,7 +599,13 @@
         <p>Detailní právní informace k nabízeným službám a produktům (včetně reklamačního řádu, možnosti podání stížnosti, řešení sporů, orgánu dohledu, udržitelnosti atd.) najdete na <a href="https://sabservis.cz/informace" target="_blank" rel="noopener noreferrer">sabservis.cz/informace</a>.</p>
       </div>
     </footer>
-    <script>document.getElementById('current-year').textContent = new Date().getFullYear();</script>
+    <script>
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      var fv = document.getElementById('filmvid');
+      if (fv) fv.remove();
+    }
+    </script>
 
     <script>
     // scroll-reveal
