@@ -3,56 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#e73627">
+    <meta name="theme-color" content="#0E2C30">
 
     <!-- Základní SEO meta tagy -->
-    <title>Quadrum | Finanční a realitní poradenství Praha a Plzeň</title>
-    <meta name="description" content="Hypotéky, investice, pojištění a reality pod jednou střechou. Quadrum – nezávislé finanční a realitní poradenství v Praze a Plzni. Kvůli Vám.">
+    <title>Quadrum | Správa rodinných financí Praha a Plzeň</title>
+    <meta name="description" content="Hypotéky, pojištění, investice a reality — řešíme za vás, od porovnání nabídek po hlídání termínů. Quadrum, správa rodinných financí v Praze a Plzni. Kvůli vám.">
     <meta name="author" content="Quadrum s.r.o.">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Kanonický odkaz + hreflang -->
     <link rel="canonical" href="https://www.quadrum.cz/">
     <link rel="alternate" hreflang="cs-CZ" href="https://www.quadrum.cz/">
     <link rel="alternate" hreflang="x-default" href="https://www.quadrum.cz/">
-    
+
     <!-- Favicony a ikony -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
-    
-    <!-- Open Graph meta tagy pro sdílení na sociálních sítích -->
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="cs_CZ">
     <meta property="og:site_name" content="Quadrum">
     <meta property="og:url" content="https://www.quadrum.cz/">
-    <meta property="og:title" content="Quadrum | Finanční a realitní poradenství Praha a Plzeň">
-    <meta property="og:description" content="Hypotéky, investice, pojištění a reality pod jednou střechou. Nezávislé poradenství v Praze a Plzni.">
+    <meta property="og:title" content="Quadrum | Vy žijte. Finance hlídáme my.">
+    <meta property="og:description" content="Hypotéky, pojištění, investice a reality řešíme za vás — od porovnání nabídek po hlídání termínů. Praha a Plzeň.">
     <meta property="og:image" content="https://www.quadrum.cz/images/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
 
-    <!-- Twitter Card meta tagy -->
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Quadrum | Finanční a realitní poradenství">
-    <meta name="twitter:description" content="Hypotéky, investice, pojištění a reality pod jednou střechou.">
+    <meta name="twitter:title" content="Quadrum | Vy žijte. Finance hlídáme my.">
+    <meta name="twitter:description" content="Hypotéky, pojištění, investice a reality řešíme za vás. Praha a Plzeň.">
     <meta name="twitter:image" content="https://www.quadrum.cz/images/og-image.jpg">
 
-    <!-- Preload klíčových zdrojů (LCP optimization) -->
-    <link rel="preload" href="styles.css" as="style">
-    <link rel="preload" as="image" fetchpriority="high" href="https://pub-73649d5be63240648a58ace4d4c57318.r2.dev/quadrum/hero/hero1.jpg">
-    <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <!-- Preload klíčových zdrojů -->
+    <link rel="preload" href="redesign.css" as="style">
+    <link rel="preload" as="image" fetchpriority="high" href="images/moments/vyhled.jpg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Styly a fonty -->
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-    
-    
+    <link rel="stylesheet" href="redesign.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=Instrument+Serif:ital@0;1&family=Montserrat:wght@600&display=swap">
+
     <!-- Google Consent Mode v2 – default DENIED dokud uživatel neudělí souhlas -->
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -66,7 +61,6 @@
             'security_storage': 'granted',
             'wait_for_update': 500
         });
-        // Pokud uživatel již dříve souhlasil, ihned obnovíme stav.
         try {
             var saved = JSON.parse(localStorage.getItem('cookieConsent') || 'null');
             if (saved) {
@@ -87,21 +81,18 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-TNJHHV6');</script>
     <!-- End Google Tag Manager -->
-    
-    <!-- Google Analytics (GA4) – stack vždy, samotné tagy respektují Consent Mode -->
+
+    <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2CMXD1VRTB"></script>
     <script>
     gtag('js', new Date());
     gtag('config', 'G-2CMXD1VRTB', { 'anonymize_ip': true });
     </script>
-    <!-- End Google Analytics -->
 
-    <!-- Marketingové a analytické skripty se inicializují až po souhlasu (cookies.js → 'consentGranted' event) -->
+    <!-- Marketing/analytika po souhlasu (cookies.js → 'consentGranted') -->
     <script>
     window.addEventListener('consentGranted', function(e) {
         var c = (e && e.detail) || {};
-
-        // Meta Pixel – marketing
         if (c.marketing && !window.__fbqLoaded) {
             window.__fbqLoaded = true;
             !function(f,b,e,v,n,t,s)
@@ -115,8 +106,6 @@
             fbq('init', '1698489521063244');
             fbq('track', 'PageView');
         }
-
-        // Hotjar – analytics
         if (c.analytics && !window.__hjLoaded) {
             window.__hjLoaded = true;
             (function(h,o,t,j,a,r){
@@ -128,8 +117,6 @@
                 a.appendChild(r);
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         }
-
-        // Vlastní analytika – analytics
         if (c.analytics && !window.__customAnalyticsLoaded) {
             window.__customAnalyticsLoaded = true;
             var s = document.createElement('script');
@@ -139,452 +126,498 @@
         }
     });
     </script>
+
+    <!-- Strukturovaná data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "FinancialService",
+          "@id": "https://www.quadrum.cz/#organization",
+          "name": "QUADRUM s.r.o.",
+          "url": "https://www.quadrum.cz/",
+          "logo": "https://www.quadrum.cz/logo.png",
+          "image": "https://www.quadrum.cz/images/og-image.jpg",
+          "slogan": "Vy žijte. Finance hlídáme my.",
+          "description": "Správa rodinných financí — hypotéky, pojištění, investice a reality. Praha a Plzeň.",
+          "vatID": "CZ09611495",
+          "identifier": "09611495",
+          "areaServed": ["Praha", "Plzeň", "Česká republika"],
+          "address": [
+            {
+              "@type": "PostalAddress",
+              "streetAddress": "Radyňská 463/33",
+              "addressLocality": "Plzeň 2-Slovany",
+              "postalCode": "326 00",
+              "addressCountry": "CZ"
+            },
+            {
+              "@type": "PostalAddress",
+              "streetAddress": "Pod turnovskou tratí 182/18",
+              "addressLocality": "Praha - Hloubětín",
+              "postalCode": "198 00",
+              "addressCountry": "CZ"
+            }
+          ],
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+420774052232",
+              "contactType": "sales",
+              "email": "david.choc@quadrum.cz",
+              "name": "David Choc"
+            }
+          ],
+          "founder": { "@type": "Person", "name": "David Choc" }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://www.quadrum.cz/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Kolik služby finančního poradce Quadrum stojí?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Klient neplatí nic. Odměnu vyplácí banka nebo pojišťovna provizí — stejnou, jako kdyby klient přišel sám. Kolik přesně dostaneme, sdělíme u každé smlouvy písemně a předem." }
+            },
+            {
+              "@type": "Question",
+              "name": "Musím na první schůzce něco podepsat?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Ne. První schůzka je konzultace, ne prodej. Odnesete si písemné shrnutí a 2–3 konkrétní kroky. Rozhodnutí je vždy jen na vás." }
+            },
+            {
+              "@type": "Question",
+              "name": "Je Quadrum vázaný na jednu banku nebo pojišťovnu?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Ne. Nejsme vázáni na žádnou instituci — srovnáváme nabídky 11 bank a více než 10 pojišťoven. Licenční zázemí SAB servis nám umožňuje vybírat z celého trhu." }
+            },
+            {
+              "@type": "Question",
+              "name": "Kdy začít řešit konec fixace hypotéky?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Ideálně 6–12 měsíců předem — banky umí sazbu rezervovat dopředu. Klientům fixace hlídáme automaticky." }
+            },
+            {
+              "@type": "Question",
+              "name": "Jak si mohu Quadrum ověřit?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Zadejte QUADRUM s.r.o. nebo IČO 09611495 do registru České národní banky na jerrs.cnb.cz. Ověření zabere dvě minuty." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TNJHHV6"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    
-    <!-- Strukturovaná data pro vylepšení SEO -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FinancialService",
-      "name": "Quadrum",
-      "legalName": "QUADRUM s.r.o.",
-      "url": "https://www.quadrum.cz",
-      "logo": "https://www.quadrum.cz/logo.png",
-      "image": "https://www.quadrum.cz/images/og-image.jpg",
-      "telephone": "+420 736 483 169",
-      "email": "info@quadrum.cz",
-      "priceRange": "$$",
-      "taxID": "09611495",
-      "identifier": [
-        { "@type": "PropertyValue", "propertyID": "IČO", "value": "09611495" },
-        { "@type": "PropertyValue", "propertyID": "spisová značka", "value": "C 39895 vedená u Krajského soudu v Plzni" }
-      ],
-      "description": "Quadrum poskytuje kompletní finanční a realitní poradenství na míru – hypotéky, investice, pojištění a reality v jednom.",
-      "address": [
-        {
-          "@type": "PostalAddress",
-          "streetAddress": "Radyňská 463/33",
-          "addressLocality": "Plzeň 2-Slovany",
-          "postalCode": "326 00",
-          "addressCountry": "CZ"
-        },
-        {
-          "@type": "PostalAddress",
-          "streetAddress": "Pod turnovskou tratí 182/18",
-          "addressLocality": "Praha - Hloubětín",
-          "postalCode": "198 00",
-          "addressCountry": "CZ"
-        }
-      ],
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "telephone": "+420736483169",
-          "contactType": "customer service",
-          "email": "info@quadrum.cz"
-        },
-        {
-          "@type": "ContactPoint",
-          "telephone": "+420774052232",
-          "contactType": "sales",
-          "email": "david.choc@quadrum.cz",
-          "name": "David Choc"
-        }
-      ],
-      "sameAs": [
-        "https://www.facebook.com/quadrum.cz",
-        "https://www.instagram.com/quadrum.cz/",
-        "https://www.linkedin.com/company/quadrum-cz/"
-      ]
+
+    <nav class="topnav" aria-label="Hlavní navigace">
+      <a class="brand" href="/" aria-label="Quadrum – úvodní stránka"><img src="logo.png" alt=""><span>Quadrum</span></a>
+      <div class="links">
+        <a href="#vrstvy">Tři vrstvy</a>
+        <a href="#kviz">Prověrka</a>
+        <a href="#pece">Jak pečujeme</a>
+        <a href="/nabidky">Nemovitosti</a>
+        <a href="/blog/">Blog</a>
+        <a href="#otazky">Otázky</a>
+      </div>
+      <a class="navcta" href="#kontakt">Nezávazná schůzka</a>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <header class="cover">
+      <div>
+        <p class="eyebrow rv" style="margin-bottom:20px">Správa rodinných financí · Praha &amp; Plzeň</p>
+        <h1>
+          <span class="line"><span>Vy <b>žijte.</b></span></span>
+          <span class="line"><span>Finance hlídáme <span class="si">my.</span></span></span>
+        </h1>
+        <p class="sub rv">Hypotéky, pojištění a investice řešíme za vás — od porovnání nabídek po hlídání termínů. Vy se rozhodujete, papírování a vyjednávání s bankami necháte nám.</p>
+        <div class="ctas rv d1">
+          <a class="btn" href="#kontakt">Nezávazná schůzka <span class="ar">→</span></a>
+          <a class="btn quiet" href="#kviz">Rychlá prověrka financí</a>
+        </div>
+        <p class="nosign rv d2">První schůzka je zdarma a <b>nic na ní nepodepisujete</b>.</p>
+      </div>
+      <div class="heroimg rv d1">
+        <div class="im kbz" role="img" aria-label="Pár sedící na lavičce s výhledem do krajiny při západu slunce"></div>
+      </div>
+    </header>
+
+    <!-- ============ STAT BAR ============ -->
+    <div class="stats">
+      <div class="in">
+        <div class="stat rv"><div class="v">15+ let</div><div class="l">zkušeností na trhu</div></div>
+        <div class="stat rv d1"><div class="v">Stovky rodin</div><div class="l">v Praze a Plzni</div></div>
+        <div class="stat rv d2"><div class="v">95 %</div><div class="l">klientů zůstává (9/2026)</div></div>
+        <div class="stat rv d3"><div class="v">11 bank</div><div class="l">a 10+ pojišťoven ve srovnání</div></div>
+      </div>
+    </div>
+
+    <!-- ============ MANIFEST ============ -->
+    <section class="sec manifest">
+      <div class="wn">
+        <p class="eyebrow rv">Quadrum. Kvůli vám.</p>
+        <p class="big rv">Většina lidí neřeší finance proto, že je to baví. Řeší je kvůli vlastnímu domu <span class="wchip c-dum"></span>, kvůli rodině <span class="wchip c-rodina"></span> a kvůli klidnému stáří <span class="wchip c-roky"></span>. <span class="si">Naše práce je, abyste tohle měli</span> — bez tabulek, žargonu a hlídání termínů.</p>
+      </div>
+    </section>
+
+    <!-- ============ TŘI VRSTVY ============ -->
+    <section class="sec" id="vrstvy" style="padding-top:0">
+      <div class="w">
+        <p class="eyebrow rv">Jak přemýšlíme o vašich penězích</p>
+        <h2 class="rv">Tři vrstvy <span class="si">majetku</span></h2>
+        <p class="secintro rv">Rodinné finance projdeme vždy ve třech vrstvách, v tomhle pořadí. Nejdřív musí sedět základ, pak má smysl řešit zbytek.</p>
+        <div class="layers">
+          <div class="layer rv"><div class="rn">I</div><h3>Jistota</h3><p class="promise">Ať se stane cokoliv, rodina má z čeho žít.</p>
+            <ul><li>rezerva na 6 měsíců výdajů</li><li>pojištění osob i majetku v aktuálních cenách</li><li>závěť a plné moci pro případ nouze</li></ul>
+          </div>
+          <div class="layer rv d1"><div class="rn">II</div><h3>Rozvíjet</h3><p class="promise">Splátky a úspory, které dávají smysl i za deset let.</p>
+            <ul><li>hypotéka za cenu, kterou obhájí trh, ne banka</li><li>investice místo peněz ležících na účtu</li><li>daně a poplatky pod kontrolou</li></ul>
+          </div>
+          <div class="layer rv d2"><div class="rn">III</div><h3>Tvořit</h3><p class="promise">Plán na věci, na které se těšíte.</p>
+            <ul><li>renta — kdy a z čeho půjdete do důchodu</li><li>peníze na studia dětí, chalupu, cesty</li><li>předání majetku bez sporů a zbytečných daní</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MOMENTY ============ -->
+    <section class="sec" style="padding-top:0">
+      <div class="w">
+        <p class="eyebrow rv">Kdy se lidé ozývají</p>
+        <h2 class="rv">Poznáváte <span class="si">svůj moment?</span></h2>
+        <div class="moments">
+          <a class="mom rv" href="#kontakt"><h3>Končí vám fixace?</h3><p>Banka vám sama nejlepší nabídku nedá — musí o vás soutěžit. Obejdeme trh a vrátíme se s lepší.</p></a>
+          <a class="mom rv d1" href="#kontakt"><h3>Našli jste byt?</h3><p>My najdeme hypotéku. Vy řešíte stěhování, my banky a papírování.</p></a>
+          <a class="mom rv d2" href="#kontakt"><h3>Čekáte miminko?</h3><p>Nová zodpovědnost. Zajistíme, aby rodina byla v pořádku, ať se stane cokoliv.</p></a>
+          <a class="mom rv" href="#kontakt"><h3>Leží vám peníze na účtu?</h3><p>Při dnešní inflaci každý rok ztrácejí. Probereme, co s nimi — bez tlaku na rychlé rozhodnutí.</p></a>
+          <a class="mom rv d1" href="#kontakt"><h3>Podnikáte?</h3><p>Každá banka čte daňové přiznání OSVČ jinak. Víme která jak — a papírování vezmeme na sebe.</p></a>
+          <a class="mom rv d2" href="#kontakt"><h3>Do důchodu 10–20 let?</h3><p>To je přesně doba, kdy se dá renta ještě postavit. Spočítáme, kolik odkládat a kam.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALERIE ============ -->
+    <section class="gal" id="budoucnost">
+      <div class="head">
+        <div>
+          <p class="eyebrow rv">V čem se vidíte za pár let?</p>
+          <h2 class="rv">Album <span class="si">budoucnosti</span></h2>
+        </div>
+        <div class="arrows rv d1">
+          <button type="button" data-dir="-1" aria-label="Předchozí">←</button>
+          <button type="button" data-dir="1" aria-label="Další">→</button>
+        </div>
+      </div>
+      <div class="rail" id="rail">
+        <figure class="slide" style="margin:0">
+          <div class="im g-rodina" role="img" aria-label="Rodina u stolu na letní zahradě"></div>
+          <div class="glass"><div class="svc">Vrstva I · Jistota</div><div class="cap">Místo u stolu navíc.</div><div class="tx">Když se život rozroste, má být z čeho. Pojistky nastavujeme na skutečný život.</div></div>
+        </figure>
+        <figure class="slide" style="margin:0">
+          <div class="im g-dum" role="img" aria-label="Večerní světlo v novém dřevěném domě"></div>
+          <div class="glass"><div class="svc">Vrstva II · Rozvíjet</div><div class="cap">První snídaně v novém domě.</div><div class="tx">Financování, které unesete i za deset let — vyjednané za vás.</div></div>
+        </figure>
+        <figure class="slide" style="margin:0">
+          <div class="im g-roky" role="img" aria-label="Starší pár na výletě zlatými poli"></div>
+          <div class="glass"><div class="svc">Vrstva III · Tvořit</div><div class="cap">Roky, na které jste se těšili.</div><div class="tx">Pravidelně, nudně, dlouhodobě — přesně tak se buduje klid.</div></div>
+        </figure>
+        <figure class="slide" style="margin:0">
+          <div class="im g-cesta" role="img" aria-label="Letní cesta v kabrioletu mezi poli"></div>
+          <div class="glass"><div class="svc">Vrstva III · Tvořit</div><div class="cap">Cesty, které nemusíte plánovat.</div><div class="tx">Když finance běží samy, čas je zase váš.</div></div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ FILM ============ -->
+    <div class="film">
+      <div class="bg kbz"></div><div class="scrim"></div><div class="grainy"></div>
+      <q class="rv">Kdybych věděl, jak málo s tím budu mít práce, řeším finance o deset let dřív.</q>
+    </div>
+
+    <!-- ============ KVÍZ ============ -->
+    <section class="sec" id="kviz">
+      <div class="wn">
+        <div class="quizwrap">
+          <div class="quizintro">
+            <p class="eyebrow rv">Dvě minuty, sedm otázek</p>
+            <h2 class="rv">Máte všechny tři vrstvy <span class="si">v pořádku?</span></h2>
+            <p class="rv d1" style="margin-top:18px">Rychlá prověrka bez zadávání kontaktu. Uvidíte, kde má vaše rodina mezery — a co s nimi probrat na nezávazné schůzce.</p>
+          </div>
+          <div class="quiz rv d1" id="quiz">
+            <div class="qview">
+              <div class="prog" id="qprog"></div>
+              <div class="qlayer" id="qlayer"></div>
+              <p class="qtext" id="qtext"></p>
+              <div class="qbtns">
+                <button class="qb" data-a="1">Ano</button>
+                <button class="qb" data-a="0">Ne</button>
+                <button class="qb" data-a="0">Nevím</button>
+              </div>
+            </div>
+            <div class="result">
+              <h3 id="rtitle"></h3>
+              <div id="rrows"></div>
+              <a class="btn" href="#kontakt">Probrat na nezávazné schůzce <span class="ar">→</span></a>
+              <p class="rnote">Orientační prověrka, ne finanční poradenství. Nic se nikam neodesílá.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CESTA / PÉČE ============ -->
+    <section class="sec" id="pece" style="padding-top:0">
+      <div class="w">
+        <p class="eyebrow rv">Jak pečujeme</p>
+        <h2 class="rv">Jak spolupráce <b>probíhá</b></h2>
+        <div class="meet">
+          <div class="steps">
+            <div class="stp rv"><div class="n">1</div><div><h3>Nezávazná schůzka — 45 minut</h3><p>V Praze, Plzni nebo online. Projdeme, co máte a co chcete. Nic nepodepisujete a shrnutí dostanete písemně, i kdybyste se rozhodli jít jinam.</p></div></div>
+            <div class="stp rv d1"><div class="n">2</div><div><h3>Rodinná rozvaha <span class="tag">dokument</span></h3><p>Plán o sedmi částech: cíle, tři vrstvy majetku, pojistky, úvěry a fixace, investice, dokumenty rodiny a konkrétní kroky s termíny. Načrtneme ho spolu na schůzce, do týdne ho dostanete načisto.</p></div></div>
+            <div class="stp rv d2"><div class="n">3</div><div><h3>Majetek v telefonu <span class="tag">aplikace myPLANN</span></h3><p>Smlouvy, hodnota majetku a přímý kontakt na vašeho poradce v jedné aplikaci. Nemusíte nic hledat v šanonech.</p></div></div>
+            <div class="stp rv d3"><div class="n">4</div><div><h3>Garance péče <span class="tag">písemně</span></h3><p>Jednou ročně spolu projdeme, co se změnilo — termín hlídáme my. Fixace řešíme 6–12 měsíců dopředu a když banky výrazně pohnou sazbami, ozveme se sami.</p></div></div>
+          </div>
+          <div class="takeaway rv d1">
+            <div class="tt">Co si odnesete z první schůzky</div>
+            <div class="meta">45–60 minut · zdarma · bez závazku</div>
+            <ul>
+              <li>Srovnání vaší hypotéky s aktuálním trhem</li>
+              <li>Kontrolu pojistek — co přebývá, co chybí</li>
+              <li>2–3 konkrétní kroky, i kdybyste šli jinam</li>
+              <li>Písemný zápis. Žádný telefonát „tak co jste si rozmysleli"</li>
+            </ul>
+            <div class="micro">Schůzku vede rovnou poradce, který se o vás bude starat i dál — od začátku jednáte s člověkem, ne s náborem.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PŘÍPADY ============ -->
+    <section class="sec" style="padding-top:0">
+      <div class="w">
+        <p class="eyebrow rv">Co to znamená v korunách</p>
+        <h2 class="rv">Tři příklady <span class="si">z praxe</span></h2>
+        <div class="cases">
+          <div class="case rv">
+            <div class="who">Konec fixace · Plzeň</div>
+            <p class="story">Rodině s hypotékou <b>4,2 mil. Kč</b> banka poslala novou sazbu. Obešli jsme trh a vrátili se s nabídkou <b>o 0,9 % níž</b> — banka nakonec dorovnala.</p>
+            <div class="res"><div class="v">−2 500 Kč</div><div class="l">měsíčně, po zbytek fixace</div></div>
+          </div>
+          <div class="case rv d1">
+            <div class="who">První byt · Praha</div>
+            <p class="story">Grafik na volné noze, <b>90 % LTV</b> do 36 let. Dvě banky ho odmítly „papírově" — třetí jsme přesvědčili <b>reálnými příjmy</b>, ne daňovým přiznáním.</p>
+            <div class="res"><div class="v">Schváleno</div><div class="l">tam, kde uznali, co skutečně vydělává</div></div>
+          </div>
+          <div class="case rv d2">
+            <div class="who">Kontrola pojistek · Plzeň</div>
+            <p class="story">Dům pojištěný před 12 lety na <b>3,5 mil. Kč</b> — dnes by stavba stála 7. Po požáru by rodina dostala polovinu. Přenastavili jsme krytí i cenu.</p>
+            <div class="res"><div class="v">2× krytí</div><div class="l">za srovnatelné roční pojistné</div></div>
+          </div>
+        </div>
+        <p class="casenote rv">Modelové příklady vycházející z běžné praxe. 70 % českých domů je podpojištěno v průměru o 40 % (data ČAP).</p>
+      </div>
+    </section>
+
+    <!-- ============ FÉR HRA ============ -->
+    <div class="fair rv">
+      <div class="box">
+        <div class="grainy"></div>
+        <p class="eyebrow" style="color:var(--ember)">Na rovinu</p>
+        <h2>Kdo nás <span class="si" style="color:var(--ember)">platí?</span></h2>
+        <p class="lead">Naše poradenství vás nic nestojí. To logicky vzbuzuje otázku, z čeho tedy žijeme — tady je celá odpověď.</p>
+        <div class="cols">
+          <div class="col"><h3>Provize, na rovinu</h3><p>Neplatíte nás vy, ale banka či pojišťovna — <b>stejnou provizí, jako kdybyste tam přišli sami</b>. Kolik dostaneme, vám u každé smlouvy řekneme písemně a předem.</p></div>
+          <div class="col"><h3>Provize nerozhoduje</h3><p>Nejsme vázáni na žádnou banku ani pojišťovnu — <b>vybíráme z celého trhu</b>: 11 bank, přes 10 pojišťoven. Doporučení stavíme na vašich číslech, ne na sazebníku odměn.</p></div>
+          <div class="col"><h3>Ověřte si nás</h3><p>Jsme registrovaní u <a href="https://jerrs.cnb.cz" target="_blank" rel="noopener">České národní banky</a> (QUADRUM s.r.o., IČO 09611495), s licenčním zázemím SAB servis. Ověření zabere dvě minuty.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ KALKULAČKA + REALITY ============ -->
+    <section class="sec" style="padding-bottom:0">
+      <div class="w">
+        <div class="calcrow rv">
+          <div>
+            <h3>Chcete si zatím <span class="si">jen počítat?</span></h3>
+            <p>Tři údaje a víte splátku, sazbu i to, zda projdete u bank podle limitů ČNB. Bez registrace, bez volání — dokud sami nechcete. Kalkulačku provozujeme my.</p>
+          </div>
+          <div class="side">
+            <div class="big">2 min</div>
+            <div class="lbl">a víte, na čem jste</div>
+            <a class="btn" href="https://hypoteeka.cz?utm_source=quadrum&utm_medium=web&utm_campaign=homepage" target="_blank" rel="noopener">Spočítat hypotéku <span class="ar">→</span></a>
+          </div>
+        </div>
+        <div class="calcrow rv" style="margin-top:20px">
+          <div>
+            <h3>Prodáváte nebo kupujete <span class="si">nemovitost?</span></h3>
+            <p>Tržní odhad děláme podle skutečně realizovaných cen ve vaší ulici, ne podle nadsazených inzerátů. A kupujícím hledáme nemovitosti často ještě před zveřejněním na portálech.</p>
+          </div>
+          <div class="side">
+            <div class="big">Zdarma</div>
+            <div class="lbl">odhad i první konzultace</div>
+            <a class="btn quiet" href="#kontakt">Chci tržní odhad <span class="ar">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ O NÁS ============ -->
+    <section class="sec">
+      <div class="wn people">
+        <div class="pcard rv">
+          <div class="ph">
+            <img src="images/dchquadrum.png" alt="David Choc" width="250" loading="lazy">
+            <div class="nm">David Choc</div>
+            <div class="rl">zakladatel · absolvent FEK ZČU v Plzni</div>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow rv">O nás</p>
+          <h2 class="rv">Kdo za tím <span class="si">stojí</span></h2>
+          <p class="bio rv d1" style="margin-top:22px">Quadrum je malý tým specialistů na hypotéky, pojištění, investice a reality. Založil ho David Choc, absolvent Fakulty ekonomické Západočeské univerzity v Plzni, který se financím věnuje patnáct let. Klienti u nás volají a píšou přímo tomu, kdo jejich případ opravdu řeší.</p>
+          <blockquote class="rv d2">
+            <p>Hypotéka se podepíše za hodinu, ale žije s vámi dvacet let. Podle mě práce poradce nezačíná u podpisu, ale až po něm — hlídat, přepočítávat a ozvat se, když je důvod. Proto má u nás každý poradce jen úzký okruh klientů, aby se jim mohl opravdu věnovat.</p>
+            <cite>David Choc</cite>
+          </blockquote>
+          <p class="creds rv d2">Registrace <a href="https://jerrs.cnb.cz" target="_blank" rel="noopener">ČNB</a> · licenční zázemí SAB servis · hypotéky, pojištění, investice, reality</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="sec" id="otazky" style="background:var(--paper); margin:0">
+      <div class="wn">
+        <p class="eyebrow rv">Na co se ptáte</p>
+        <h2 class="rv">Časté <span class="si">otázky</span></h2>
+        <div class="faq rv d1">
+          <details><summary>Kolik vaše služby stojí?</summary><div class="a">Vy neplatíte nic. Odměnu nám vyplácí banka nebo pojišťovna provizí — stejnou, jako kdybyste tam přišli sami. Kolik přesně dostaneme, vám u každé smlouvy řekneme písemně a předem. Podrobně v bloku „Kdo nás platí?" výše.</div></details>
+          <details><summary>Musím na schůzce něco podepsat?</summary><div class="a">Ne. První schůzka je konzultace, ne prodej. Odnesete si písemné shrnutí a 2–3 konkrétní kroky — a klidně je uděláte sami nebo jinde. Rozhodnutí je vždy jen na vás.</div></details>
+          <details><summary>Jste vázaní na jednu banku nebo pojišťovnu?</summary><div class="a">Ne. Nejsme vázáni na žádnou instituci — srovnáváme nabídky 11 bank a více než 10 pojišťoven. Licenční zázemí SAB servis nám umožňuje vybírat z celého trhu, proto můžeme s nabídkou vaší banky jít za konkurencí.</div></details>
+          <details><summary>Kdy mám začít řešit konec fixace?</summary><div class="a">Ideálně 6–12 měsíců předem — banky umí sazbu rezervovat dopředu. Klientům fixace hlídáme automaticky; dáme vám vědět dřív, než přijde dopis z banky.</div></details>
+          <details><summary>Vyplatí se mi vůbec poradce?</summary><div class="a">Na rovinu: pokud vám ušetří víc, než by stál — a u nás nestojí nic. Na první schůzce vám úsporu spočítáme v korunách; když žádná nevyjde, řekneme vám to taky.</div></details>
+          <details><summary>Jak si vás můžu ověřit?</summary><div class="a">Za dvě minuty: zadejte „QUADRUM s.r.o." nebo IČO 09611495 do <a href="https://jerrs.cnb.cz" target="_blank" rel="noopener">registru ČNB</a>. A zeptejte se nás na cokoliv — na odměnu máme zákonnou povinnost odpovědět písemně.</div></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BLOG ============ -->
+    <section class="sec">
+      <div class="wn">
+        <p class="eyebrow rv">Z našeho blogu</p>
+        <h2 class="rv">Co teď <span class="si">řešíme</span></h2>
+        <div class="blogrow rv d1" id="blogrow">
+          <a class="post" href="/blog/"><span class="cat">Blog</span><span class="t">Načítám nejnovější články…</span><span class="ar">→</span></a>
+        </div>
+        <p class="blogmore rv d1"><a href="/blog/">Všechny články →</a></p>
+      </div>
+    </section>
+
+    <!-- ============ ZÁVĚR + KONTAKT ============ -->
+    <section class="final" id="kontakt">
+      <div class="inner">
+        <div>
+          <h2 class="rv">Domluvme si <span class="si">schůzku.</span></h2>
+          <p class="rv d1">V Praze, Plzni nebo online. Ozveme se do 24 hodin, na schůzce nic nepodepisujete.</p>
+          <p class="micro rv d1">45 minut, káva, žádný závazek</p>
+          <div class="adresy rv d2">
+            <b>Plzeň</b> · Radyňská 463/33, 326 00 Plzeň 2-Slovany<br>
+            <b>Praha</b> · Pod turnovskou tratí 182/18, 198 00 Praha-Hloubětín<br>
+            <a href="mailto:david.choc@quadrum.cz" style="color:var(--accent-dark)">david.choc@quadrum.cz</a> · <a href="tel:+420774052232" style="color:var(--accent-dark)">+420 774 052 232</a>
+          </div>
+        </div>
+        <div class="rv d1">
+          <div id="quadrum-contact-form"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="deep">
+      <div class="wordmark" aria-hidden="true">QUADRUM</div>
+      <div class="in">
+        <div class="fb"><img src="logo.png" alt=""><div>QUADRUM s.r.o. · IČO 09611495 · registrace <a href="https://jerrs.cnb.cz" target="_blank" rel="noopener">ČNB</a> · licenční zázemí SAB servis<br>Radyňská 463/33, Plzeň · Pod turnovskou tratí 182/18, Praha</div></div>
+        <div class="flinks">
+          <a href="/nabidky">Nemovitosti</a>
+          <a href="/blog/">Blog</a>
+          <a href="/hypoteka-praha.html">Hypotéka Praha</a>
+          <a href="/hypoteka-plzen.html">Hypotéka Plzeň</a>
+          <a href="/osobni-udaje.html">Osobní údaje</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+    // scroll-reveal
+    const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:.12});
+    document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+    // galerie
+    const rail = document.getElementById('rail');
+    document.querySelectorAll('.gal .arrows button').forEach(b => b.addEventListener('click', () => {
+      rail.scrollBy({left: (parseInt(b.dataset.dir)) * Math.min(innerWidth*0.82, 670), behavior:'smooth'});
+    }));
+
+    // kvíz tří vrstev
+    const QS = [
+      {l:'I · Jistota', t:'Máte rezervu, ze které rodina vyžije šest měsíců?', k:0},
+      {l:'I · Jistota', t:'Víte jistě, že váš dům či byt není podpojištěný?', k:0},
+      {l:'I · Jistota', t:'Kdybyste zítra vypadli z příjmu, splátky by běžely dál?', k:0},
+      {l:'II · Rozvíjet', t:'Víte, kdy vám končí fixace — a co uděláte pak?', k:1},
+      {l:'II · Rozvíjet', t:'Pracují vaše volné peníze, nebo leží na účtu?', k:1},
+      {l:'III · Tvořit', t:'Odkládáte si na rentu víc než jen penzijko?', k:2},
+      {l:'III · Tvořit', t:'Má vaše rodina závěť a plné moci pro případ nouze?', k:2},
+    ];
+    const LAYERS = [
+      {name:'Jistota', ok:'Základ máte pevný.', gap:'Tady má rodina nejcitlivější mezery.'},
+      {name:'Rozvíjet', ok:'Majetek neztrácí sílu.', gap:'Peníze a smlouvy si zaslouží prohlídku.'},
+      {name:'Tvořit', ok:'Na snech se pracuje.', gap:'Budoucnost zatím spoléhá na náhodu.'},
+    ];
+    const quiz = document.getElementById('quiz');
+    let qi = 0; const gaps = [0,0,0];
+    function renderQ(){
+      document.getElementById('qprog').innerHTML = QS.map((_,i)=>`<i class="${i<=qi?'on':''}"></i>`).join('');
+      document.getElementById('qlayer').textContent = 'Vrstva ' + QS[qi].l;
+      document.getElementById('qtext').textContent = QS[qi].t;
     }
+    quiz.querySelectorAll('.qb').forEach(b => b.addEventListener('click', () => {
+      if (b.dataset.a === '0') gaps[QS[qi].k]++;
+      qi++;
+      if (qi < QS.length) { renderQ(); return; }
+      const total = gaps.reduce((a,b)=>a+b,0);
+      document.getElementById('rtitle').textContent = total === 0
+        ? 'Vypadá to dobře. Všechny tři vrstvy držíte.'
+        : (total <= 2 ? 'Většinu máte v pořádku. Pár míst stojí za kontrolu.' : 'Teď aspoň víte, kde začít.');
+      document.getElementById('rrows').innerHTML = LAYERS.map((L,i)=>{
+        const g = gaps[i] > 0;
+        return `<div class="rrow"><div class="st ${g?'gap':'ok'}">${g?'!':'✓'}</div><div class="rl"><b>${L.name}</b><span>${g?L.gap:L.ok}</span></div></div>`;
+      }).join('');
+      quiz.classList.add('done');
+      if (typeof gtag === 'function') gtag('event', 'quiz_finished', {gaps_total: total});
+    }));
+    renderQ();
+
+    // blog — 3 nejnovější články z API, kategorie mapované na tři vrstvy
+    (function(){
+      const VRSTVA = {refinancovani:'Rozvíjet', trh:'Rozvíjet', navody:'Rozvíjet', zakladni:'Jistota', situace:'Jistota'};
+      fetch('/api/blog')
+        .then(r => r.ok ? r.json() : Promise.reject())
+        .then(data => {
+          const posts = (data.posts || []).slice(0, 3);
+          if (!posts.length) throw 0;
+          document.getElementById('blogrow').innerHTML = posts.map(p =>
+            `<a class="post" href="/blog/detail.html?id=${encodeURIComponent(p.id)}">
+               <span class="cat">${VRSTVA[p.category] || p.categoryName || 'Blog'}</span>
+               <span class="t">${p.title}</span>
+               <span class="ar">→</span>
+             </a>`).join('');
+        })
+        .catch(() => {
+          document.getElementById('blogrow').innerHTML =
+            '<a class="post" href="/blog/"><span class="cat">Blog</span><span class="t">Přejít na všechny články</span><span class="ar">→</span></a>';
+        });
+    })();
     </script>
-
-    <!-- FAQPage schema – rich snippets pro Google a AI search -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Kolik stojí finanční a realitní poradenství u Quadrum?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Úvodní konzultace je u Quadrum vždy zdarma a nezávazná. Provize z hypoték, pojištění a investic platí finanční instituce, nikoliv klient. U realitních služeb se cena dohaduje individuálně podle rozsahu spolupráce."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Jakou hypotéku mi Quadrum dokáže vyjednat?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Porovnáme nabídky všech velkých českých bank (ČSOB, Komerční banka, Česká spořitelna, UniCredit, Raiffeisenbank, mBank, Air Bank, Moneta a další) a vyjednáme podmínky výhodnější, než byste získali sami. Pro klienta jsme často ušetřili 0,5–1 % na úroku, což u 30leté hypotéky znamená stovky tisíc korun."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Pomůže mi Quadrum i s pojištěním nemovitosti a životním pojištěním?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Ano. Quadrum poskytuje komplexní pojišťovací poradenství – pojištění majetku (dům, byt, vybavení), životní pojištění, úrazové, cestovní i pojištění odpovědnosti. Porovnáme nabídky pojišťoven a vybereme to nejvýhodnější pro vás."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Kde Quadrum působí?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Quadrum má kanceláře v Plzni (Radyňská 463/33, 326 00 Plzeň 2-Slovany) a v Praze (Pod turnovskou tratí 182/18, Hloubětín). Působíme po celé České republice, schůzku lze domluvit osobně, telefonicky i online."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Jak rychle se mi Quadrum ozve, když pošlu poptávku?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Standardně se ozýváme do 24 hodin v pracovní dny. U akutních záležitostí (např. končící fixace, výhodná nemovitost) vás kontaktujeme obvykle ještě týž den. Pokud potřebujete rychle, zavolejte přímo na +420 736 483 169."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Jaké nemovitosti Quadrum aktuálně nabízí?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Aktuální nabídka bytů, domů, pozemků a komerčních prostor je dostupná na stránce https://www.quadrum.cz/nabidky. Specializujeme se na Prahu, Plzeň a Plzeňský kraj."
-          }
-        }
-      ]
-    }
-    </script>
-    <a href="#main" class="skip-link">Přeskočit na hlavní obsah</a>
-    <div id="navbar-placeholder"></div>
-
-    <main id="main">
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Quadrum. Kvůli vám.</h1>
-                <p>Hypotéka, pojištění, investice i reality – pod jednou střechou. Klienti u nás v průměru ušetří <strong>statisíce na hypotéce</strong>, jednotky tisíc ročně na pojištění a získají strategii, která poráží inflaci. Konzultace zdarma.</p>
-                <a href="#kontakt" class="btn btn-large">Chci nezávaznou konzultaci</a>
-
-            </div>
-            <div class="hero-slider">
-                <!-- Hero slider will be implemented with JavaScript -->
-            </div>
-            <div class="scroll-indicator">
-                <a href="#sluzby">
-                    <div class="chevron"></div>
-                    <div class="chevron"></div>
-                    <div class="chevron"></div>
-                </a>
-            </div>
-        </section>
-
-        <!-- Sekce finančního poradenství -->
-        <section class="financial-advice">
-            <div class="advice-content">
-                <div class="advice-text">
-                    Pomáháme lidem žít klidněji a svobodněji. Vyřídíme za vás veškerou byrokracii s bankami, pojišťovnami i katastrem – a vy se můžete soustředit na to, co je pro vás opravdu důležité. <strong>95 % našich klientů s námi spolupracuje dlouhodobě.</strong>
-                </div>
-                <a href="#kontakt" class="btn advice-btn">Chci nezávaznou konzultaci zdarma</a>
-
-            </div>
-        </section>
-
-        <!-- Služby Section -->
-        <section id="sluzby" class="services">
-            <div class="container">
-                <h2 class="section-title">Umíme:</h2>
-                
-                <div class="services-grid">
-                    <!-- Hypotéky & úvěry -->
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/umime/1.png" alt="Hypotéky & úvěry" width="900" height="600" loading="lazy">
-                        </div>
-                        <div class="service-content">
-                            <h3>Hypotéky & úvěry</h3>
-                            <p>Banka vám sama nejlepší nabídku nedá – musí o vás <strong>soutěžit</strong>. Porovnáme <strong>nabídky 11 bank</strong> a vyjednáme úrok nižší o 0,3–1 % p.a. U hypotéky 4 milionů na 30 let to znamená úsporu <strong>často přes 600 000 Kč</strong>. První konzultace zdarma, bez závazku.</p>
-                            <a href="#kontakt" class="btn service-btn">Spočítat moji úsporu</a>
-                        </div>
-                    </div>
-
-                    <!-- Pojištění -->
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/umime/3.png" alt="Pojištění" width="900" height="600" loading="lazy">
-                        </div>
-                        <div class="service-content">
-                            <h3>Pojištění</h3>
-                            <p>Většina Čechů má pojištění <strong>buď zbytečně drahé, nebo nepokrývá to nejdůležitější</strong>. Projdeme s vámi všechny vaše smlouvy, řekneme co dává smysl a co platíte navíc. Klienti u nás v průměru <strong>ušetří 2 500 Kč ročně</strong> a zároveň získají lepší krytí.</p>
-                            <a href="#kontakt" class="btn service-btn">Prověřit moje pojistky</a>
-                        </div>
-                    </div>
-
-                    <!-- Spoření & investice -->
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/umime/4.png" alt="Spoření & investice" width="900" height="600" loading="lazy">
-                        </div>
-                        <div class="service-content">
-                            <h3>Spoření & investice</h3>
-                            <p>Inflace vám každý rok <strong>ujídá 5 % z hodnoty peněz na účtu</strong>. Sestavíme portfolio podle vašich cílů a rizikové tolerance – konzervativní fondy, akcie, dluhopisy, nemovitosti. Žádné skryté poplatky, jasná strategie, transparentní výnosnost.</p>
-                            <a href="#kontakt" class="btn service-btn">Začít investovat chytře</a>
-                        </div>
-                    </div>
-
-                    <!-- Reality -->
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/umime/2.png" alt="Reality" width="900" height="600" loading="lazy">
-                        </div>
-                        <div class="service-content">
-                            <h3>Reality</h3>
-                            <p>Před prodejem vám zdarma uděláme <strong>tržní odhad podle skutečně realizovaných cen</strong> ve vaší ulici – ne podle nadhozených inzerátů. Pro kupující hledáme nemovitosti často <strong>ještě před zveřejněním</strong> na portálech. Celý proces vyřídíme za vás, vy podepíšete jen smlouvu.</p>
-                            <a href="#kontakt" class="btn service-btn">Tržní odhad zdarma</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Aktuální nabídky nemovitostí (z PTF backendu, tenant=quadrum) -->
-        <section id="nabidky-preview" class="properties-preview">
-            <div class="container">
-                <div class="properties-preview-head">
-                    <div>
-                        <span class="properties-preview-eyebrow">Aktuální nabídka</span>
-                        <h2 class="section-title">Vybrané nemovitosti</h2>
-                        <p class="properties-preview-sub">Čerstvé nabídky bytů, domů a investičních příležitostí v Praze, Plzni a okolí.</p>
-                    </div>
-                    <a href="/nabidky" class="btn btn-large">Všechny nabídky</a>
-                </div>
-                <div class="properties-preview-grid" id="propertiesPreviewGrid">
-                    <div class="properties-preview-loading">Načítám nabídky…</div>
-                </div>
-            </div>
-            <script>
-                (function() {
-                    const grid = document.getElementById('propertiesPreviewGrid');
-                    if (!grid) return;
-
-                    function fmtPrice(p, unit) {
-                        if (p == null || p === 0) return 'Cena na vyžádání';
-                        const formatted = new Intl.NumberFormat('cs-CZ').format(p);
-                        const isRent = unit && (unit.includes('month') || unit.includes('měsíc'));
-                        return `${formatted} Kč${isRent ? ' / měsíc' : ''}`;
-                    }
-                    function escapeHtml(s) {
-                        return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
-                    }
-                    function imageOf(p) {
-                        const imgs = p.images || [];
-                        const main = imgs.find(i => i.is_main) || imgs[0];
-                        return (main && (main.url_large || main.url || main.url_thumbnail)) || 'logo.png';
-                    }
-
-                    fetch('/api/properties?limit=3&sort=newest')
-                        .then(r => r.ok ? r.json() : Promise.reject(r.status))
-                        .then(json => {
-                            const items = (json.data || []).slice(0, 3);
-                            if (items.length === 0) {
-                                grid.innerHTML = '<p class="properties-preview-empty">Aktuálně připravujeme nové nabídky. <a href="/#kontakt">Napište nám</a> a pošleme vám tip na míru.</p>';
-                                return;
-                            }
-                            grid.innerHTML = items.map(p => `
-                                <a class="property-preview-card" href="/nabidky/${encodeURIComponent(p.slug)}">
-                                    <div class="property-preview-image">
-                                        <img src="${escapeHtml(imageOf(p))}" alt="${escapeHtml(p.title || 'Nemovitost')}" loading="lazy" onerror="this.src='logo.png'">
-                                    </div>
-                                    <div class="property-preview-body">
-                                        ${p.disposition ? `<span class="property-preview-tag">${escapeHtml(p.disposition)}</span>` : ''}
-                                        <h3>${escapeHtml(p.title || 'Nemovitost')}</h3>
-                                        <p class="property-preview-loc">${escapeHtml([p.address_district, p.address_city].filter(Boolean).join(', ') || 'Česká republika')}</p>
-                                        <div class="property-preview-price">${fmtPrice(p.price, p.price_unit)}</div>
-                                    </div>
-                                </a>
-                            `).join('');
-                        })
-                        .catch(() => {
-                            grid.innerHTML = '<p class="properties-preview-empty"><a href="/nabidky" class="btn">Zobrazit nabídky →</a></p>';
-                        });
-                })();
-            </script>
-        </section>
-
-        <!-- Jak postupujeme sekce -->
-        <section id="jak-pracujeme" class="process">
-            <div class="process-content">
-                <h2 class="section-title">Vaše cesta k finančně zajištěnému životu</h2>
-                
-                <div class="process-intro">
-                    <p>Pomáháme vám proměnit sny v realitu - ať už jde o vlastní bydlení, finanční nezávislost nebo zabezpečení rodiny.</p>
-                </div>
-                
-                <div class="process-steps">
-                    <div class="process-step">
-                        <div class="step-number">1</div>
-                        <div class="step-content">
-                            <h3>Poznáváme vaše potřeby a plány</h3>
-                            <p>Na první schůzce analyzujeme vaši současnou situaci i dlouhodobé cíle. Zjistíme, jaké máte možnosti a kde můžete ušetřit. Zdarma vám ukážeme, jak pracujeme s klienty podobnými vám.</p>
-                            <a href="#kontakt" class="btn process-btn">REZERVOVAT KONZULTACI ZDARMA</a>
-                            <p class="client-example">"Klientovi jsme pomohli najít o 0,7 % nižší úrokovou sazbu hypotéky, což mu za 30 let ušetří přes 600 000 Kč."</p>
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">2</div>
-                        <div class="step-content">
-                            <h3>Vytváříme váš finanční a realitní plán</h3>
-                            <p>Sestavíme strategii na míru vašim potřebám - od výběru ideální nemovitosti přes optimální hypotéku až po dlouhodobé zhodnocení úspor. Ukážeme vám konkrétní čísla a kroky k dosažení vašich cílů.</p>
-                            <a href="#kontakt" class="btn process-btn">ZJISTIT SVÉ MOŽNOSTI</a>
-                            <p class="client-example">"Rodině s dvěma dětmi jsme pomohli nejen získat vysněný dům, ale také nastavit investiční strategii, díky které budou mít na studia dětí 1,2 milionu Kč."</p>
-                            <ul class="plan-features">
-                                <li><strong>Úspora času</strong> – vyřídíme za vás veškerou byrokracii s bankami i katastrem</li>
-                                <li><strong>Finanční výhody</strong> – díky objemu získáváme pro klienty nadstandardní podmínky</li>
-                                <li><strong>Komplexní řešení</strong> – hypotéka, pojištění i investice pod jednou střechou</li>
-                                <li><strong>Dlouhodobá péče</strong> – hlídáme za vás termíny a změny podmínek na trhu</li>
-                            </ul>
-                            
-                            <p class="mastercard-slogan"><strong>Život, po kterém toužíte, je nad všechny poklady světa. Okamžiky naplněné vašimi sny a hodnotami? K nezaplacení.</strong></p>
-                            
-                            <div class="life-moments">
-                                <!-- Životní okamžiky – původní fotografická sada Obr1-18.png.
-                                     Pokrývají celý život od narození po důchod – ke každému
-                                     má Quadrum finanční řešení (pojistka, spoření, hypotéka,
-                                     investice, renta). -->
-                                <div class="moments-row">
-                                    <div class="moment-image" title="Finanční svoboda – investice a dlouhodobá strategie"><img src="images/Obr16.png" alt="Finanční svoboda" loading="lazy"></div>
-                                    <div class="moment-image" title="Cestování – spoření na cesty a cestovní pojištění"><img src="images/Obr3.png" alt="Cestování" loading="lazy"></div>
-                                    <div class="moment-image" title="Vzdělávání – stavební spoření a fond na studia"><img src="images/Obr11.png" alt="Vzdělávání" loading="lazy"></div>
-                                    <div class="moment-image" title="Přátelé – aktivní život a životní pojištění"><img src="images/Obr7.png" alt="Přátelé" loading="lazy"></div>
-                                    <div class="moment-image" title="Úspory – spořicí účet, investice"><img src="images/Obr14.png" alt="Úspory" loading="lazy"></div>
-                                    <div class="moment-image" title="Svatba – životní pojistka pro partnery"><img src="images/Obr6.png" alt="Svatební oslava" loading="lazy"></div>
-                                    <div class="moment-image" title="Práce z domova – podnikatelské pojistky"><img src="images/Obr10.png" alt="Práce z domova" loading="lazy"></div>
-                                </div>
-                                <div class="moments-row">
-                                    <div class="moment-image" title="Úspěšná kariéra – investice, podnikání"><img src="images/Obr5.png" alt="Úspěšná kariéra" loading="lazy"></div>
-                                    <div class="moment-image" title="Důchod – penzijní spoření a renta"><img src="images/Obr13.png" alt="Důchod" loading="lazy"></div>
-                                    <div class="moment-image" title="Rodina na dovolené – rodinné spoření, cestovní pojištění"><img src="images/Obr2.png" alt="Rodina na dovolené" loading="lazy"></div>
-                                    <div class="moment-image" title="Životní radost – co dělá život hodnotným"><img src="images/Obr17.png" alt="Životní radost" loading="lazy"></div>
-                                    <div class="moment-image" title="Rodinné aktivity – životní pojištění a klid"><img src="images/Obr9.png" alt="Rodinné aktivity" loading="lazy"></div>
-                                </div>
-                                <div class="moments-row">
-                                    <div class="moment-image" title="Aktivní důchod – renta, doplňkové penzijní spoření"><img src="images/Obr8.png" alt="Aktivní důchod" loading="lazy"></div>
-                                    <div class="moment-image" title="Rodinná oslava – dlouhodobé spoření"><img src="images/Obr4.png" alt="Rodinná oslava" loading="lazy"></div>
-                                    <div class="moment-image" title="Investice – portfolio, fondy, nemovitosti"><img src="images/Obr15.png" alt="Investice" loading="lazy"></div>
-                                    <div class="moment-image" title="Rodina v novém domově – hypotéka, pojištění nemovitosti"><img src="images/Obr1.png" alt="Rodina v novém domově" loading="lazy"></div>
-                                    <div class="moment-image" title="Životní styl – komplexní finanční zajištění"><img src="images/Obr12.png" alt="Životní styl" loading="lazy"></div>
-                                    <div class="moment-image" title="Spokojenost – výsledek dobrého plánování"><img src="images/Obr18.png" alt="Spokojenost" loading="lazy"></div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    
-                    <div class="process-step">
-                        <div class="step-number">3</div>
-                        <div class="step-content">
-                            <h3>Provázíme vás na každém kroku</h3>
-                            <p>Postaráme se o veškerou dokumentaci, vyjednáme pro vás nejlepší podmínky a zůstáváme s vámi i po realizaci. Každoročně aktualizujeme váš plán podle změn ve vašem životě i na trhu.</p>
-                            <a href="#kontakt" class="btn process-btn">STÁT SE NAŠÍM KLIENTEM</a>
-                            <p class="client-example">"95 % našich klientů s námi spolupracuje dlouhodobě. Pravidelně hlídáme končící fixace hypotéky a nabízíme refinancování za nejvýhodnějších podmínek."</p>
-                            <div class="testimonials-container">
-                                <div class="client-testimonial">
-                                    <p>"Díky Quadrum jsme nejen získali skvělou hypotéku, ale i přehled o našich financích. Po třech letech spolupráce máme vlastní byt, finanční rezervu a plán na další investice."</p>
-                                    <p class="testimonial-author">— Jana a Petr Novákovi, klienti od roku 2022</p>
-                                </div>
-                                <div class="client-testimonial">
-                                    <p>"Jako podnikatel jsem potřeboval spolehlivé pojištění i investice na jednom místě. Quadrum mě příjemně překvapilo šíří svých služeb a profesionalitou. Získali jsme nejlepší nabídku pojištění pro naši firmu a já mám nyní výnos 7,8 % ročně z investičního portfolia."</p>
-                                    <p class="testimonial-author">— Tomáš Svoboda, majitel IT firmy, klient od roku 2020</p>
-                                </div>
-                                <div class="client-testimonial">
-                                    <p>"Hádali jsme se s bankou o podmínky hypotéky až do chvíle, kdy nás kamarád doporučil na Quadrum. Jejich poradce nám zavolal ještě týž den a za měsíc jsme stěhovali do nového. Zajistili nám hypotéku s lepšími podmínkami, než jsme doufáli, včetně moderního pojištění nemovitosti i rodiny."</p>
-                                    <p class="testimonial-author">— Eva a Martin Procházkovi, klienti od roku 2023</p>
-                                </div>
-                                <div class="client-testimonial">
-                                    <p>"Po řadě let spolupráce můžu Quadrum jen doporučit. Pomohli mi s nastavením finanční strategie pro důchod - díky pravidelným investicím a chytrému spoření se už nyní nemusím bát o svou budoucnost. Jejich ekonomický přehled a lidský přístup jsou nenahraditelné."</p>
-                                    <p class="testimonial-author">— Jiří Malý, 54 let, klient od roku 2021</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Závěrečná výzva k akci -->
-        <section class="cta-section">
-            <div class="container">
-                <div class="cta-content">
-                    <div class="cta-image">
-                        <img src="images/realita.png" alt="Úspěšný a šťastný život" class="cta-img" loading="lazy">
-                    </div>
-                    <div class="cta-text">
-                        <h2 class="cta-shout">Přestaňte jen snít</h2>
-                        <p>Pošlete nám během 60 vteřin základní informace o vaší situaci – příjem, představa, cíl. Do 24 hodin vám zavoláme zpět s prvním návrhem. Schůzku domluvíme osobně v Praze nebo Plzni, telefonicky nebo online. <strong>Konzultace je vždy zdarma a nezávazná.</strong></p>
-                        <div class="cta-footer">
-                            <a href="#kontakt" class="btn btn-large cta-main-btn">Chci nezávaznou konzultaci</a>
-                           
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Kontaktní sekce -->
-        <section id="kontakt" class="contact-section">
-            <div class="container">
-                <h2 class="section-title">Kontaktujte nás</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <p>Co od konzultace získáte: <strong>konkrétní srovnání nabídek bank</strong> pro vaši hypotéku, <strong>kontrolu vašich pojistek</strong>, <strong>návrh investiční strategie</strong> podle vašich cílů. Vše písemně, bez jakéhokoli závazku.</p>
-                        <p>Schůzku domluvíme osobně v <strong>Praze nebo Plzni</strong>, telefonicky, online – jak to vyhovuje vám. Většinou se ozveme do 24 hodin.</p>
-                        <div class="contact-methods">
-                            <div class="contact-method">
-                                <h3>Plzeň</h3>
-                                <p>QUADRUM s.r.o.<br>Radyňská 463/33<br>326 00 Plzeň 2-Slovany</p>
-                            </div>
-                            <div class="contact-method">
-                                <h3>Praha</h3>
-                                <p>QUADRUM s.r.o.<br>Pod turnovskou tratí 182/18<br>198 00 Praha - Hloubětín</p>
-                            </div>
-                        </div>
-                        <div class="contact-methods">
-                            <div class="contact-method contact-method-full">
-                                <div class="contact-with-image">
-                                    <div class="contact-person-image">
-                                        <img src="images/dchquadrum.png" alt="David Choc" class="contact-image" loading="lazy">
-                                    </div>
-                                    <div class="contact-info-text">
-                                        <h3>Kontakt – David Choc</h3>
-                                        <p>Email: <a href="mailto:david.choc@quadrum.cz">david.choc@quadrum.cz</a><br>Telefon: <a href="tel:+420774052232">+420 774 052 232</a></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form">
-                        <div id="quadrum-contact-form"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- More sections will be added later -->
-    </main>
-
-    <div id="footer-placeholder"></div>
-
-    <script src="/common/common.js" defer></script>
-    <script defer src="script.js"></script>
-    <script defer src="chatbot.js"></script>
     <script defer src="contact-form-handler.js"></script>
     <script defer src="cookies.js"></script>
 </body>
