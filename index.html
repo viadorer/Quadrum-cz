@@ -288,12 +288,12 @@
         <p class="eyebrow rv">Kdy se lidé ozývají</p>
         <h2 class="rv">Poznáváte <span class="si">svůj moment?</span></h2>
         <div class="moments">
-          <a class="mom rv" href="#kontakt"><h3>Končí vám fixace?</h3><p>Banka vám sama nejlepší nabídku nedá — musí o vás soutěžit. Obejdeme trh a vrátíme se s lepší.</p></a>
-          <a class="mom rv d1" href="#kontakt"><h3>Našli jste byt?</h3><p>My najdeme hypotéku. Vy řešíte stěhování, my banky a papírování.</p></a>
-          <a class="mom rv d2" href="#kontakt"><h3>Čekáte miminko?</h3><p>Nová zodpovědnost. Zajistíme, aby rodina byla v pořádku, ať se stane cokoliv.</p></a>
-          <a class="mom rv" href="#kontakt"><h3>Leží vám peníze na účtu?</h3><p>Při dnešní inflaci každý rok ztrácejí. Probereme, co s nimi — bez tlaku na rychlé rozhodnutí.</p></a>
-          <a class="mom rv d1" href="#kontakt"><h3>Podnikáte?</h3><p>Každá banka čte daňové přiznání OSVČ jinak. Víme která jak — a papírování vezmeme na sebe.</p></a>
-          <a class="mom rv d2" href="#kontakt"><h3>Do důchodu 10–20 let?</h3><p>To je přesně doba, kdy se dá renta ještě postavit. Spočítáme, kolik odkládat a kam.</p></a>
+          <a class="mom rv" href="#kontakt" data-topic="fixace"><h3>Končí vám fixace?</h3><p>Banka vám sama nejlepší nabídku nedá — musí o vás soutěžit. Obejdeme trh a vrátíme se s lepší.</p></a>
+          <a class="mom rv d1" href="#kontakt" data-topic="byt"><h3>Našli jste byt?</h3><p>My najdeme hypotéku. Vy řešíte stěhování, my banky a papírování.</p></a>
+          <a class="mom rv d2" href="#kontakt" data-topic="miminko"><h3>Čekáte miminko?</h3><p>Nová zodpovědnost. Zajistíme, aby rodina byla v pořádku, ať se stane cokoliv.</p></a>
+          <a class="mom rv" href="#kontakt" data-topic="ucet"><h3>Leží vám peníze na účtu?</h3><p>Při dnešní inflaci každý rok ztrácejí. Probereme, co s nimi — bez tlaku na rychlé rozhodnutí.</p></a>
+          <a class="mom rv d1" href="#kontakt" data-topic="osvc"><h3>Podnikáte?</h3><p>Každá banka čte daňové přiznání OSVČ jinak. Víme která jak — a papírování vezmeme na sebe.</p></a>
+          <a class="mom rv d2" href="#kontakt" data-topic="duchod"><h3>Do důchodu 10–20 let?</h3><p>To je přesně doba, kdy se dá renta ještě postavit. Spočítáme, kolik odkládat a kam.</p></a>
         </div>
       </div>
     </section>
@@ -462,7 +462,7 @@
           <div class="side">
             <div class="big">Zdarma</div>
             <div class="lbl">odhad i první konzultace</div>
-            <a class="btn quiet" href="#kontakt">Chci tržní odhad <span class="ar">→</span></a>
+            <a class="btn quiet" href="#kontakt" data-topic="odhad">Chci tržní odhad <span class="ar">→</span></a>
           </div>
         </div>
       </div>
@@ -605,6 +605,32 @@
       var fv = document.getElementById('filmvid');
       if (fv) fv.remove();
     }
+
+    // Obohacení leadu: klik z momentu předvyplní zprávu (jde do Realvisoru) + GA4 event
+    (function(){
+      var TOPICS = {
+        fixace:  'Dobrý den, končí mi fixace hypotéky a chci porovnat nabídku banky s trhem.',
+        byt:     'Dobrý den, našli jsme nemovitost a potřebujeme vyřešit hypotéku.',
+        miminko: 'Dobrý den, čekáme miminko a chceme projít zajištění rodiny.',
+        ucet:    'Dobrý den, mám volné peníze na účtu a chci probrat, co s nimi.',
+        osvc:    'Dobrý den, podnikám (OSVČ) a řeším financování.',
+        duchod:  'Dobrý den, chci začít stavět rentu na důchod.',
+        odhad:   'Dobrý den, mám zájem o tržní odhad nemovitosti.'
+      };
+      document.querySelectorAll('[data-topic]').forEach(function(a){
+        a.addEventListener('click', function(){
+          var t = a.dataset.topic;
+          if (typeof gtag === 'function') gtag('event', 'moment_click', { topic: t });
+          // formulář injektuje contact-form-handler.js — počkáme, až existuje
+          var tries = 0;
+          (function fill(){
+            var ta = document.getElementById('contact-message');
+            if (ta) { if (!ta.value) ta.value = TOPICS[t] || ''; return; }
+            if (++tries < 20) setTimeout(fill, 150);
+          })();
+        });
+      });
+    })();
     </script>
 
     <script>

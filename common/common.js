@@ -1,6 +1,22 @@
 // Quadrum.cz – sdílený loader navigace a patičky.
 // Stejný pattern jako davidchoc.com – placeholdery #navbar-placeholder a #footer-placeholder.
+// Vloží styl chrome (nav+footer) a fonty, pokud ještě nejsou.
+function ensureChrome() {
+    if (!document.getElementById('q-chrome')) {
+        const l = document.createElement('link');
+        l.id = 'q-chrome'; l.rel = 'stylesheet'; l.href = '/common/chrome.css';
+        document.head.appendChild(l);
+    }
+    if (!document.getElementById('q-fonts')) {
+        const f = document.createElement('link');
+        f.id = 'q-fonts'; f.rel = 'stylesheet';
+        f.href = 'https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&family=Montserrat:wght@600&display=swap';
+        document.head.appendChild(f);
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+    ensureChrome();
     const currentPath = window.location.pathname;
     let commonPath = './common/';
 

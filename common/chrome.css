@@ -1,0 +1,65 @@
+/* ============================================================
+   QUADRUM — sdílený „chrome" (navigace + patička) pro podstránky
+   Načítá se automaticky z common.js / includes.js.
+   Vlastní jmenný prostor .qnav / .qfooter — nekoliduje se styles.css.
+   ============================================================ */
+:root{
+  --q-air:#FBF6EC; --q-paper:#F4EADA; --q-card:#FFFDF8;
+  --q-ink:#152F33; --q-muted:#65756F; --q-line:#E6D9C3;
+  --q-accent:#E73627; --q-accent-dark:#C22A1C; --q-ember:#FF7A64;
+  --q-petrol:#0E2C30; --q-petrol-ink:#F2ECE1; --q-petrol-mut:#9FB4AE;
+}
+
+/* ============ NAVIGACE ============ */
+.qnav{position:sticky; top:0; z-index:100; background:rgba(251,246,236,.92);
+  -webkit-backdrop-filter:blur(10px) saturate(140%); backdrop-filter:blur(10px) saturate(140%);
+  border-bottom:1px solid var(--q-line)}
+.qnav .qnav-in{max-width:1400px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:20px; padding:14px clamp(20px,4vw,64px)}
+.qnav .qbrand{display:flex; align-items:center; text-decoration:none}
+.qnav .qbrand img{height:40px; width:auto; display:block}
+.qnav .qbrand span{font-family:'Futura','Montserrat',sans-serif; font-weight:600; font-size:1.6rem; color:var(--q-accent); margin-left:9px; letter-spacing:.5px}
+.qnav .qlinks{display:flex; align-items:center; gap:clamp(14px,2vw,30px); list-style:none; margin:0; padding:0}
+.qnav .qlinks a{font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; font-size:.86rem; font-weight:600; color:var(--q-muted); text-decoration:none; transition:color .2s}
+.qnav .qlinks a:hover, .qnav .qlinks a.active{color:var(--q-ink)}
+.qnav .qcta{font-family:'Hanken Grotesk',sans-serif; font-size:.82rem; font-weight:700; color:var(--q-ink); text-decoration:none; border-bottom:2px solid var(--q-accent); padding-bottom:3px; white-space:nowrap; transition:color .2s}
+.qnav .qcta:hover{color:var(--q-accent)}
+.qnav .qburger{display:none; flex-direction:column; gap:5px; background:none; border:0; cursor:pointer; padding:8px}
+.qnav .qburger span{display:block; width:22px; height:2px; background:var(--q-ink); border-radius:2px; transition:transform .25s, opacity .25s}
+.qnav .qburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.qnav .qburger.active span:nth-child(2){opacity:0}
+.qnav .qburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+@media(max-width:920px){
+  .qnav .qlinks{position:absolute; top:100%; left:0; right:0; flex-direction:column; align-items:flex-start; gap:0; background:var(--q-air); border-bottom:1px solid var(--q-line); display:none; padding:8px 0}
+  .qnav .qlinks.active{display:flex}
+  .qnav .qlinks li{width:100%}
+  .qnav .qlinks a{display:block; padding:13px clamp(20px,4vw,64px); font-size:1rem}
+  .qnav .qburger{display:flex}
+  .qnav .qcta{display:none}
+}
+
+/* ============ PATIČKA ============ */
+.qfooter{background:var(--q-petrol); color:var(--q-petrol-ink);
+  font-family:'Hanken Grotesk','Helvetica Neue',Arial,sans-serif; padding:64px clamp(20px,4vw,64px) 32px; margin-top:0}
+.qfooter *{box-sizing:border-box}
+.qfooter .qcols{display:grid; grid-template-columns:1.3fr 1fr 1.1fr 1.2fr; gap:clamp(28px,4vw,56px); max-width:1400px; margin:0 auto}
+@media(max-width:960px){.qfooter .qcols{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.qfooter .qcols{grid-template-columns:1fr}}
+.qfooter h4{font-size:.68rem; font-weight:800; letter-spacing:.2em; text-transform:uppercase; color:var(--q-ember); margin:0 0 14px}
+.qfooter p, .qfooter li, .qfooter address{font-size:.84rem; color:var(--q-petrol-mut); line-height:1.75; font-style:normal; margin:0}
+.qfooter p{margin-bottom:8px}
+.qfooter ul{margin:0; padding:0; list-style:none}
+.qfooter li{margin-bottom:6px}
+.qfooter a{color:var(--q-petrol-ink); text-decoration:none}
+.qfooter a:hover{color:var(--q-ember)}
+.qfooter .qfbrand{display:flex; align-items:center; gap:10px; margin-bottom:14px}
+.qfooter .qfbrand img{height:34px}
+.qfooter .qfbrand span{font-family:'Futura','Montserrat',sans-serif; font-weight:600; font-size:1.35rem; color:var(--q-accent); letter-spacing:.5px}
+.qfooter .qsoc{display:flex; gap:14px; margin-top:16px; font-size:.8rem}
+.qfooter .qsoc a{border-bottom:1px solid rgba(255,122,100,.35)}
+.qfooter .qcompany b{color:var(--q-petrol-ink); font-weight:700}
+.qfooter .qbottom{max-width:1400px; margin:44px auto 0; padding-top:22px; border-top:1px solid rgba(245,239,228,.14); display:flex; gap:16px 28px; align-items:baseline; justify-content:space-between; flex-wrap:wrap; font-size:.78rem; color:var(--q-petrol-mut)}
+.qfooter .qbottom .qlegal{display:flex; gap:20px; flex-wrap:wrap}
+.qfooter .qbottom .qlegal a{border-bottom:1px solid rgba(255,122,100,.35)}
+.qfooter .qdisclaimer{max-width:1400px; margin:26px auto 0; font-size:.72rem; color:rgba(159,180,174,.75); line-height:1.7}
+.qfooter .qdisclaimer p{font-size:inherit; color:inherit}
+.qfooter .qdisclaimer a{color:var(--q-ember)}
