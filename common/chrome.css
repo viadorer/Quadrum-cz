@@ -63,3 +63,22 @@
 .qfooter .qdisclaimer{max-width:1400px; margin:26px auto 0; font-size:.72rem; color:rgba(159,180,174,.75); line-height:1.7}
 .qfooter .qdisclaimer p{font-size:inherit; color:inherit}
 .qfooter .qdisclaimer a{color:var(--q-ember)}
+
+/* ============ TEPLÉ SLADĚNÍ PODSTRÁNEK ============
+   Chrome.css se načítá po stylech stránky, takže tyhle přepisy
+   převedou studenou šedobílou paletu starých podstránek na
+   teplý papír redesignu. Homepage má vlastní redesign.css. */
+:root{
+  /* proměnné nabídek (nabidky.html) */
+  --q-bg:#FBF6EC; --q-bg-soft:#F4EADA;
+  --q-text:#152F33; --q-text-muted:#65756F;
+  --q-dark:#152F33; --q-darker:#0E2C30;
+  --q-border:#E6D9C3;
+  --q-red:#E73627; --q-red-dark:#C22A1C; --q-red-50:#FBE8E0;
+}
+body{background-color:var(--q-air); color:var(--q-ink)}
+/* studené plochy ve styles.css (hypotéka/realitní landing pages) */
+.process, .properties-preview{background-color:var(--q-paper)}
+.cta-section{background-color:var(--q-petrol)}
+/* modrošedý gradient blogu → teplý papír */
+.blog-section{background:linear-gradient(180deg, #F4EADA 0%, #FBF6EC 100%)}
